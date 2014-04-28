@@ -1,53 +1,87 @@
 package ControlLayer;
 import java.util.ArrayList;
-//model layer package has to be imported
+import ModelLayer.*;
 
 /**
  * Controller class for the address book
  * 
- * @author (kbh) 
- * @version (2005.03.31)
- * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
- *                    and loose coupling
+ * @author group 3
+ * @version 0.1
  */
 public class AddressCtr
 {
-    
-    //declare instance variables to reference containers
-    
-    
-    
-    public AddressCtr()
-    {
-    }
-    
-    //Dummy implementation: after implementing the model layer 
-    //objects of class Person are to be returned, not String
-    public String getPerson(long id)
-    {
-        //this method is to search the container for a person
-        //with an id-number equal to the parameter id
-        //when person is found, the method is to call print-methods in the TUI layer
-        return "person";
+    private AddressBook addressBook;
+        
+    public AddressCtr(){
+        addressBook = AddressBook.getInstance();
     }
     
     
-    public void createPerson(long id, String name, String address, String postalCode, String city, String phone)
-    {   
-       //creates a Person object and stores it in the container
+    public String getPersonInfo(int id){
+        Person p = addressBook.getPerson(id);
+        
+        if (p != null){
+            return "ID: " + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
+        ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone();
+        } else {
+            throw new NullPointerException("Person was not found ");
+        }
     }
     
-    public void deletePerson(long id)
-    {
-        //search for the person and delete the object from the container
+    public void createPerson(String name, String address, int postalCode, String city, String phone){   
+        addressBook.createPerson(name, address, postalCode, city, phone);
     }
     
-    public void updatePerson(long id)
-    {
+    public void deletePerson(int id){
+        Person p = addressBook.getPerson(id);
+        if (p != null){
+            addressBook.deletePerson(p);
+        } else {
+            throw new NullPointerException("Person was not found ");
+        }
     }
     
-    public String listAllPersons()
-    {
-          return null;
+    public void changeLocation(int id, String address, int postalCode, String city){
+        Person p = addressBook.getPerson(id);
+        if (p != null){
+            p.setAddress(address);
+            p.setPostalCode(postalCode);
+            p.setCity(city);
+        } else {
+            throw new NullPointerException("Person was not found ");
+        }
+    }
+    
+    public void changeName(int id, String name){
+        Person p = addressBook.getPerson(id);
+        if (p != null){
+            p.setName(name);
+        } else {
+            throw new NullPointerException("Person was not found ");
+        }
+    }
+    
+    public void changePhone(int id, String phone){
+        Person p = addressBook.getPerson(id);
+        if (p != null){
+            p.setPhone(phone);
+        } else {
+            throw new NullPointerException("Person was not found ");
+        }
+    }
+    
+    public String listAllPersons(){
+        ArrayList<Person> persons = addressBook.getAllPersons();
+        String nLine = System.getProperty("line.separator");
+        String returnString = "### All Persons ###" + nLine;
+        if (!persons.isEmpty()) {
+            for(Person p : persons) {
+                returnString += "#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
+                ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine;
+            }
+        } else {
+            throw new NullPointerException("The addressbook is empty");
+        }
+        return returnString;
     }
 }
