@@ -32,12 +32,12 @@ public class AddressCtr
     }
     
     
-    public void createPersonDev1(long id, String name, String address, String postalCode, String city, String phone)
+    public void createPerson(long id, String name, String address, String postalCode, String city, String phone)
     {   
        //creates a Person object and stores it in the container
     }
     
-    public void deletePerson(long id) //BLABLBALA LAU
+    public void deletePerson(long id)
     {
         //search for the person and delete the object from the container
     }
