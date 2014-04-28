@@ -1,0 +1,405 @@
+\documentclass[a4paper,11pt,fleqn,twoside,openright]{memoir} % Brug openright hvis chapters skal starte p� h�jresider; openany, oneside
+
+%%%% PACKAGES %%%% 
+
+
+\usepackage{beramono}% monospaced font with bold variant
+\usepackage{float}
+%VHDL%%
+\usepackage{listings}
+    \lstdefinelanguage{VHDL}{
+      morekeywords=[1]{
+        library,use,all,entity,is,port,Port,in,out,end,architecture,of,
+        begin,and, or, Not,not, downto,ALL, Begin, process, signal, if, map, elsif, else, then, nor, NOR, IN, OUT,PORT, BEGIN, ARCHITECTURE, OF, IS, PROCESS, IF, THEN, ELSIF, ELSE, END, ENTITY, LIBRARY, USE, GENERIC, OTHERS, If, when, select, others,  
+      },
+      morekeywords=[2]{
+      STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,
+    NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,
+    std_logic, ieee, std_logic_1164, std_logic_unsigned 
+      },
+      morecomment=[l]--
+    }
+
+  \usepackage[usenames,dvipsnames]{xcolor}
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{STD}{Lavender}
+\colorlet{comment}{green!80!black!90}
+\lstdefinestyle{vhdl}{
+  language     = VHDL,
+  basicstyle   = \footnotesize \ttfamily,
+  keywordstyle = [1]\color{keyword}\bfseries,
+  keywordstyle = [2]\color{STD}\bfseries,
+  commentstyle = \color{comment},
+  backgroundcolor=\color{white},
+  stepnumber=1,
+  breaklines=true                % sets automatic line breaking
+  }
+  
+%%%% ARDUINO%%%%%%
+\lstdefinelanguage{ardu}{
+      morekeywords=[1]{
+        Servo,int, void, attach, write, float, analogRead, if, else, millis
+      },
+       morekeywords=[2]{
+      setup, loop
+      },
+      morekeywords=[3]{
+      HIGH, LOW
+      },
+      morecomment=[l]//
+    }
+
+ % \usepackage[usenames,dvipsnames]{xcolor}
+%\colorlet{keyword}{blue!100!black!80}
+%\colorlet{STD}{Lavender}
+
+\lstdefinestyle{ardu}{
+  language     = ardu,
+  basicstyle   = \footnotesize \ttfamily,
+  keywordstyle = [1]\color{orange},
+  keywordstyle = [2]\color{orange}\bfseries,
+  keywordstyle = [3]\color{JungleGreen},
+  commentstyle = \color[gray]{0.5}\itshape,
+  backgroundcolor=\color{white},
+  stepnumber=1,
+  }
+  
+
+%%%%%% TEST %%%%
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+%%%%%% TEST SLUT %%%%%%5
+
+
+
+%ASSEMBLER%%%
+%Assembler%
+
+\lstdefinelanguage{ASSEMB}{
+      morekeywords=[1]{
+        EINT, LOAD,load, OUT, out, JUMP, jump, IN, in, RETI, CALL, COMP, SUB, ret, RET, ADD, add, AND, OR, XOR, and, or, xor, DINT 
+      },
+      morecomment=[l];
+    }
+
+  \usepackage[usenames,dvipsnames]{xcolor}
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{STD}{Lavender}
+
+\lstdefinestyle{assemb}{
+  language     = ASSEMB,
+  basicstyle   = \footnotesize \ttfamily,
+  keywordstyle = [1]\bfseries,
+  commentstyle = \itshape,
+  backgroundcolor=\color{white},
+  stepnumber=1,
+  }  
+  
+%%%% UCF%%%%%%%%%%
+\lstdefinelanguage{UCF}{
+      morekeywords=[1]{
+        NET, net, loc, LOC, PERIOD, period, 
+      },
+      morekeywords=[2]{
+     false, FALSE, 
+      },
+      morecomment=[l]\#
+    }
+
+  \usepackage[usenames,dvipsnames]{xcolor}
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{STD}{Lavender}
+
+
+ \usepackage[usenames,dvipsnames]{xcolor}
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{STD}{Lavender}
+\colorlet{comment}{green!80!black!90}
+\lstdefinestyle{ucf}{
+  language     = UCF,
+  basicstyle   = \footnotesize \ttfamily,
+  keywordstyle = [1]\color{keyword}\bfseries,
+  keywordstyle = [2]\color{STD}\bfseries,
+  commentstyle = \color{comment},
+  backgroundcolor=\color{white},
+  stepnumber=1
+  }
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+
+
+% �� Overs�ttelse og tegns�tning �� %
+\usepackage[ansinew]{inputenc}					% G�r det muligt at bruge �, � og � i sine .tex-filer
+\usepackage{color}
+\usepackage[mathscr]{euscript}
+\usepackage{listings}
+\lstset{
+  language=C,                % choose the language of the code
+  numbers=left,                   % where to put the line-numbers
+  stepnumber=1,                   % the step between two line-numbers.        
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+}
+\usepackage[danish]{babel}						% Dansk sporg, f.eks. tabel, figur og kapitel
+\usepackage{multirow}
+\usepackage[T1]{fontenc}						% Hj�lper med orddeling ved �, � og �. S�tter fontene til at v�re ps-fonte, i stedet for bmp
+\usepackage{latexsym}							% LaTeX symboler
+\usepackage{xcolor,ragged2e,fix-cm}				% Justering af elementer
+\usepackage{pdfpages}							% G�r det muligt at inkludere pdf-dokumenter med kommandoen \includepdf[pages={x-y}]{fil.pdf}	
+\pretolerance=2500 								% G�r det muligt at justre afstanden med ord (h�jt tal, mindre orddeling og mere space mellem ord)
+\usepackage{ulem}                     			% Gennemstregning af ord med koden \sout{}
+\usepackage{fixltx2e}							% Retter forskellige bugs i LaTeX-kernen
+\usepackage[shortlabels]{enumitem}				% Muligg�r enkelt konfiguration af lister
+																			
+% �� Figurer og tabeller � floats  �� %
+\usepackage{flafter}										% S�rger for at dine floats ikke optr�der i teksten f�r de er sat ind.
+\usepackage{multirow}                		% Fletning af r�kker
+\usepackage{hhline}                   	% Dobbelte horisontale linier
+\usepackage{multicol}         	        % Fletning af kolonner
+\usepackage{colortbl} 									% Mulig�re farver i tabeller
+\usepackage{rotating}										% Muligg�r rotation af tekst i tabeller med \begin{sideways}...\end{sideways}
+\usepackage{wrapfig}										% Inds�ttelse af figurer omsv�bt af tekst. \begin{wrapfigure}{Placering}{St�rrelse}
+\usepackage{graphicx} 									% Pakke til jpeg/png billeder
+\pdfoptionpdfminorversion=6							% Muligg�r inkludering af pdf dokumenter, af version 1.6 og h�jere
+	
+% �� Matematiske formler og maskinkode ��
+\usepackage{amsmath,amssymb,stmaryrd} 	% Bedre matematik og ekstra fonte
+\usepackage{textcomp}                 	% Adgang til tekstsymboler
+\usepackage{mathtools}									% Udvidelse af amsmath-pakken. 
+\usepackage{eso-pic}										% Tilf�j billedekommandoer p� hver side
+\usepackage{lipsum}											% Dummy text \lipsum[..]
+\usepackage{siunitx}										% Flot og konsistent pr�sentation af tal og enheder med \SI{tal}{enhed}
+\sisetup{locale=UK}											% Ops�tning af \SI (DE for komma som decimalseparator) 
+\usepackage{rsphrase}										% Kemi-pakke til RS-s�tninger, f.eks. \rsphrase{R1}
+\usepackage[version=3]{mhchem} 					% Kemi-pakke til flot og let notation af formler, f.eks. \ce{Fe2O3}
+
+% �� Referencer, bibtex og url'er �� %
+\usepackage{url}					% Til at s�tte urler op med. Virker sammen med hyperref
+\usepackage[english]{varioref}		% Giver flere bedre mulighed for at lave krydshenvisninger
+\usepackage{natbib}		% Litteraturliste med forfatter-�r og nummerede referencer
+\usepackage{xr}						% Referencer til eksternt dokument med \externaldocument{<NAVN>}
+\usepackage{nomencl}				% Pakke til at danne nomenklaturliste
+\makenomenclature					% Nomenklaturliste
+
+% �� Floats �� %
+\let\newfloat\relax 				% Memoir har allerede defineret denne, men det g�r float pakken ogs�
+\usepackage{float}
+
+\usepackage[footnote,draft,danish,silent,nomargin]{fixme}		% Inds�t rettelser og lignende med \fixme{...} Med final i stedet for draft, udl�ses en error 																															for hver fixme, der ikke er slettet, n�r rapporten bygges.
+
+%%%% CUSTOM SETTINGS %%%%
+
+% �� Marginer �� %
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}	% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
+\setulmarginsandblock{2.5cm}{3.0cm}{*}	% \setulmarginsandblock{Top}{Bund}{Ratio}
+\checkandfixthelayout 									% Laver forskellige beregninger og s�tter de almindelige l�ngder op til brug ikke memoir pakker
+
+%	�� Afsnitsformatering �� %
+\setlength{\parindent}{4mm}           	% St�rrelse af indryk
+\setlength{\parskip}{4mm}          			% Afstand mellem afsnit ved brug af double Enter
+\linespread{1,1}												% Linie afstand
+
+% �� Litteraturlisten �� %
+%\bibpunct[,]{[}{]}{;}{a}{,}{,} 			% Definerer de 6 parametre ved Harvard henvisning (bl.a. parantestype og seperatortegn)
+\bibliographystyle{plain}			% Udseende af litteraturlisten. Ligner dk-apali - mvh Klein
+
+% �� Indholdsfortegnelse �� %
+\setsecnumdepth{subsection}					% Dybden af nummerede overkrifter (part/chapter/section/subsection)
+\maxsecnumdepth{subsection}							% �ndring af dokumentklassens gr�nse for nummereringsdybde
+\settocdepth{section} 							% Dybden af indholdsfortegnelsen
+
+% �� Lister �� %
+\setlist{
+  topsep=0pt,										% Vertikal afstand mellem tekst og listen
+  itemsep=-1ex,										% Vertikal afstand mellem items
+} 
+
+% �� Visuelle referencer �� %
+\usepackage[colorlinks]{hyperref}			 	% Giver mulighed for at ens referencer bliver til klikbare hyperlinks. .. [colorlinks]{..}
+\hypersetup{pdfborder = 0}						% Fjerner ramme omkring links i fx indholsfotegnelsen og ved kildehenvisninger ��
+\hypersetup{									%	Ops�tning af farvede hyperlinks
+    colorlinks = false,
+    linkcolor = black,
+    anchorcolor = black,
+    citecolor = black
+}
+
+\definecolor{gray}{gray}{0.80}					% Definerer farven gr�
+
+% �� Ops�tning af figur- og tabeltekst �� %
+ 	\captionnamefont{
+ 		\small\bfseries\itshape}					% Ops�tning af tekstdelen ("Figur" eller "Tabel")
+  \captiontitlefont{\small}							% Ops�tning af nummerering
+  \captiondelim{. }									% Seperator mellem nummerering og figurtekst
+  \hangcaption										%	Venstrejusterer flere-liniers figurtekst under hinanden
+  \captionwidth{\linewidth}							% Bredden af figurteksten
+	\setlength{\belowcaptionskip}{10pt}		% Afstand under figurteksten
+
+\usepackage{listings}					% Ops�tning af kode
+\lstset{ %
+language=C,		                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                % will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{gray!50!white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,...}            % if you want to add more keywords to the set
+}
+		
+% �� Navngivning �� %
+\addto\captionsdanish{
+	\renewcommand\appendixname{Bilag}
+	\renewcommand\contentsname{Indholdsfortegnelse}	
+	\renewcommand\appendixpagename{Bilag}
+	\renewcommand\cftchaptername{\chaptername~}				% Skriver "Kapitel" foran kapitlerne i indholdsfortegnelsen
+	\renewcommand\cftappendixname{\appendixname~}			% Skriver "Bilag" foran bilagene i indholdsfortegnelsen
+	\renewcommand\appendixtocname{Bilag}
+}
+
+% �� Kapiteludssende �� %
+\definecolor{numbercolor}{gray}{0.7}			% Definerer en farve til brug til kapiteludseende
+\newif\ifchapternonum
+
+\makechapterstyle{jenor}{									% Definerer kapiteludseende -->
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\printchapternonum{\chapternonumtrue}
+  \renewcommand\chaptitlefont{\fontfamily{pbk}\fontseries{db}\fontshape{n}\fontsize{25}{35}\selectfont\raggedleft}
+  \renewcommand\chapnumfont{\fontfamily{pbk}\fontseries{m}\fontshape{n}\fontsize{1in}{0in}\selectfont\color{numbercolor}}
+  \renewcommand\printchaptertitle[1]{%
+    \noindent
+    \ifchapternonum
+    \begin{tabularx}{\textwidth}{X}
+    {\let\\\newline\chaptitlefont ##1\par} 
+    \end{tabularx}
+    \par\vskip-2.5mm\hrule
+    \else
+    \begin{tabularx}{\textwidth}{Xl}
+    {\parbox[b]{\linewidth}{\chaptitlefont ##1}} & \raisebox{-15pt}{\chapnumfont \thechapter}
+    \end{tabularx}
+    \par\vskip2mm\hrule
+    \fi
+  }
+}																						% <--
+
+\chapterstyle{jenor}					% Valg af kapiteludseende - dette kan udskiftes efter �nske
+
+% �� Sidehoved �� %
+
+%\makepagestyle{custom}								% Definerer sidehoved og sidefod - kan modificeres efter �nske -->
+%\makepsmarks{custom}{																						
+%\def\chaptermark##1{\markboth{\itshape\thechapter. ##1}{}}			% Henter kapitlet den p�g�ldende side h�rer under med kommandoen \leftmark. \itshape g�r teksten kursiv
+%\def\sectionmark##1{\markright{\thesection. ##1}{}}					% Henter afsnittet den p�g�ldende side h�rer under med kommandoen \rightmark
+%}																														% Sidetallet skrives med kommandoen \thepage	
+%\makeevenhead{custom}{Gruppe B130}{}{\leftmark}							% Definerer lige siders sidehoved efter modellen \makeevenhead{Navn}{Venstre}{Center}{H�jre}
+%\makeoddhead{custom}{\rightmark}{}{Aalborg Universitet}			% Definerer ulige siders sidehoved efter modellen \makeoddhead{Navn}{Venstre}{Center}{H�jre}
+%\makeevenfoot{custom}{\thepage}{}{}													% Definerer lige siders sidefod efter modellen \makeevenfoot{Navn}{Venstre}{Center}{H�jre}
+%\makeoddfoot{custom}{}{}{\thepage}														% Definerer ulige siders sidefod efter modellen \makeoddfoot{Navn}{Venstre}{Center}{H�jre}		
+%\makeheadrule{custom}{\textwidth}{0.5pt}											% Tilf�jer en streg under sidehovedets indhold
+%\makefootrule{custom}{\textwidth}{0.5pt}{1mm}								% Tilf�jer en streg under sidefodens indhold
+
+%\copypagestyle{nychapter}{custom}														% F�lgende linier s�rger for, at sidefoden bibeholdes p� kapitlets f�rste side
+%\makeoddhead{nychapter}{}{}{}
+%\makeevenhead{nychapter}{}{}{}
+%\makeheadrule{nychapter}{\textwidth}{0pt}
+%\aliaspagestyle{chapter}{nychapter}													% <--
+
+\pagestyle{ruled}																							% Valg af sidehoved og sidefod
+
+
+%%%% CUSTOM COMMANDS %%%%
+
+% �� Billede hack �� %
+\newcommand{\figur}[4]{
+		\begin{figure}[H] \centering
+			\includegraphics[width=#1\textwidth]{fig/#2}
+			\caption{#3}\label{#4}
+		\end{figure} 
+}
+
+
+
+\newcommand{\dobbelfigur}[6]{
+	\begin{figure}[H] \centering
+		\begin{minipage}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[scale=.5]{fig/#1}% Venstre billede
+		\end{minipage} \hfill
+		\begin{minipage}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[scale=.5]{fig/#4}% H�jre billede
+		\end{minipage} \\ 	% Captions og labels
+		\begin{minipage}[t]{0.48\textwidth}
+		\caption{#2}	% Venstre caption og label
+		\label{#3}
+		\end{minipage} \hfill
+		\begin{minipage}[t]{0.48\textwidth}
+		\caption{#5} % H�jre caption og label	
+		\label{#6}
+		\end{minipage}
+	\end{figure}
+}
+
+
+% �� Specielle tegn �� %
+\newcommand{\grader}{^{\circ} \text{C}}
+\newcommand{\gr}{^{\circ}}
+\newcommand{\g}{\cdot}
+
+% �� Promille-hack (\promille) �� %
+\newcommand{\promille}{%
+  \relax\ifmmode\promillezeichen
+        \else\leavevmode\(\mathsurround=0pt\promillezeichen\)\fi}
+\newcommand{\promillezeichen}{%
+  \kern-.05em%
+  \raise.5ex\hbox{\the\scriptfont0 0}%
+  \kern-.15em/\kern-.15em%
+  \lower.25ex\hbox{\the\scriptfont0 00}}
+
+%%%% ORDDELING %%%%
+
+\hyphenation{hvad hvem hvor MPa kon-se-kvens-klas-se}
