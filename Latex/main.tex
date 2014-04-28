@@ -1,0 +1,31 @@
+\input{preamble.tex}
+\raggedbottom									% Sørger for at LaTeX ikke "strækker" teksten
+\begin{document}								% Starter dokumentet - obligatorisk
+
+%\frontmatter									% Forindhold - nummereres med romertal
+
+%\input{files/forside}
+%\cleardoublepage								% Indsætter tom side (hvis nødvendigt)
+%\input{files/titelblad}
+%\cleardoublepage
+
+
+%%% Indholdsfortegnelse.. (TOC) %%%%
+
+\phantomsection											% Opretter et afsnit i den færdige pdf
+\pdfbookmark[0]{Indholdsfortegnelse}{indhold}			% Tildeler afsnittet navnet Indholdsfortegnelse og gør den til klikbar bookmark
+\setlength\parskip{0ex}									% Fjerner den vertikale afstand mellem hver linie i indholdsfortegnelse
+\tableofcontents*										% Indholdsfortegnelsen 
+\setlength{\parskip}{3mm}								% Aktiverer afstanden igen for resten af rapporten (afstem med preamble!)
+
+% \addtocontents{toc}{\protect\newpage}					% Fremtvinger sideskift i indholdsfortegnelsen hvis nødvendig
+
+\mainmatter												% Hovedindhold - nummereres fra side 1
+
+
+%%%% Rapportindhold %%%% 
+\input{files/temadesign.tex}
+
+
+
+\end{document}												% Slutter dokumentet - obligatorisk
