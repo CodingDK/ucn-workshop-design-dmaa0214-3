@@ -10,18 +10,18 @@ import java.util.ArrayList;
  */
 public class AddressBook
 {
-    private AddressBook instance;
+    private static AddressBook instance;
     private ArrayList<Person> persons;
 
     /**
      * Constructor for objects of class AddressBook
      */
-    public AddressBook(){
+    private AddressBook(){
         persons = new ArrayList<Person>();
     }
 
 
-    public AddressBook getInstance(){
+    public static AddressBook getInstance(){
         if(instance == null){
             instance = new AddressBook();
         }
