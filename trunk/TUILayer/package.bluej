@@ -5,22 +5,12 @@ dependency1.type=UsesDependency
 dependency2.from=MainMenuUI
 dependency2.to=DvdUI
 dependency2.type=UsesDependency
-<<<<<<< .mine
-objectbench.height=100
-=======
 objectbench.height=76
->>>>>>> .r23
 objectbench.width=1004
 package.editor.height=572
-<<<<<<< .mine
-package.editor.width=1211
-package.editor.x=-37
-package.editor.y=212
-=======
 package.editor.width=906
-package.editor.x=197
-package.editor.y=197
->>>>>>> .r23
+package.editor.x=136
+package.editor.y=207
 package.numDependencies=2
 package.numTargets=3
 package.showExtends=true
@@ -38,13 +28,8 @@ target1.typeParameters=
 target1.width=90
 target1.x=290
 target1.y=20
-<<<<<<< .mine
-target2.editor.height=780
-target2.editor.width=1378
-=======
 target2.editor.height=820
 target2.editor.width=1300
->>>>>>> .r23
 target2.editor.x=-8
 target2.editor.y=-8
 target2.height=50
