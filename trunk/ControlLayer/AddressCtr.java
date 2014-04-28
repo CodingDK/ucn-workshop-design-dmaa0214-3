@@ -32,7 +32,7 @@ public class AddressCtr
     }
     
     
-    public void createPersonHARJ(long id, String name, String address, String postalCode, String city, String phone)
+    public void createPersonMINE(long id, String name, String address, String postalCode, String city, String phone)
     {   
        //creates a Person object and stores it in the container
     }
