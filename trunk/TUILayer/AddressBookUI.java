@@ -21,14 +21,11 @@ public class AddressBookUI
         AddressCtr addrCtr = new AddressCtr();
         addrCtr.createPerson("Lasse", "address", 8800, "Noget", "+4598642601");
         addrCtr.createPerson("Lau", "address", 8800, "Noget", "+4598642601");
+        
+        addressMenu();
     }
     
-    public void start()
-    {
-       addressMenu();
-    }
-    
-    public void addressMenu()
+    private void addressMenu()
     {
        boolean exit = false;
        
@@ -37,7 +34,7 @@ public class AddressBookUI
           int choice = writeAddressBookMenu(); 
           if(choice == 1)
           {   //show person
-              getPerson();
+              printPerson();
           }
           else if(choice == 2){
               createPerson();
@@ -58,7 +55,7 @@ public class AddressBookUI
        }//end while
     }
     
-    public int writeAddressBookMenu()
+    private int writeAddressBookMenu()
     {      // makes an object keyboard to read input from the screen
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** AddressBook Menu ***");
@@ -99,6 +96,8 @@ public class AddressBookUI
             System.out.print("PostalCode: ");
             int postalCode = keyboard.nextInt();
             
+            keyboard.nextLine(); // Consumes the new line when enter is pressed.
+            
             System.out.print("City: ");
             String city = keyboard.nextLine();
             if(city.isEmpty()){
@@ -113,6 +112,7 @@ public class AddressBookUI
                 pause();
                 return;
             }
+            
             addrCtr.createPerson(name, address, postalCode, city, phone);
         }catch(InputMismatchException e){
             System.out.println("Invalid values!");
@@ -149,6 +149,7 @@ public class AddressBookUI
         
         try {
             System.out.println(addrCtr.getPersonInfo(printID));
+            pause();
         }
         catch (NullPointerException e) {
             System.out.println(e);
@@ -159,46 +160,31 @@ public class AddressBookUI
      * Methods for change location
      */
     private void changeLocation(){
-        String addr;
-        String city;
-        int postalCode;
-        int id;
-        AddressCtr addrCtr = new AddressCtr();
-        Scanner keyboard = new Scanner(System.in);
-        
         try{
+            String addr;
+            String city;
+            int postalCode;
+            int id;
+            AddressCtr addrCtr = new AddressCtr();
+            Scanner keyboard = new Scanner(System.in);
             System.out.println("What's the ID of the person?");
             id = keyboard.nextInt();
-        } catch (InputMismatchException e){
-            System.out.println(e);
-            return;
-        }
-        
-        try{
+    
             System.out.println("What's the new address?");
             addr = keyboard.nextLine();
-        } catch (InputMismatchException e){
-            System.out.println(e);
-            return;
-        }
-
-        try{
+    
             System.out.println("What's the new city?");
             city = keyboard.nextLine();
+            
+            System.out.println("What's the new postal code?");
+            postalCode = keyboard.nextInt();
+            
+            addrCtr.changeLocation(id, addr, postalCode, city);
         } catch (InputMismatchException e){
             System.out.println(e);
+            pause();
             return;
         }
-        
-        try{
-        System.out.println("What's the new postal code?");
-        postalCode = keyboard.nextInt();
-        } catch (InputMismatchException e){
-            System.out.println(e);
-            return;
-        }
-        
-        addrCtr.changeLocation(id, addr, postalCode, city);
     }
     
     /**
@@ -219,7 +205,6 @@ public class AddressBookUI
     /**
      * Methods for change phone
      */
-    
     private void changePhone(){
         try{
             AddressCtr addrCtr = new AddressCtr();
@@ -255,103 +240,6 @@ public class AddressBookUI
             pause();
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //the method reads id for a person and return
-    // 
-    public long inputPersonsID()
-    {   
-        boolean ok = false;
-        long id = 0;
-        while(!ok)
-        {
-        // makes an object keyboard to have input from the console
-           Scanner keyboard = new Scanner(System.in);
-           System.out.println(" Write Id:  ");
-           try{
-             id = keyboard.nextLong();
-             ok = true;
-           }
-           catch (Exception e)
-            {
-             System.out.println("You must enter a number -  try again");
-             String input = keyboard.nextLine();
-           }
-        }//end while
-        return id;
-    }
-    
-    public String inputName()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write Name:  ");
-         String name = keyboard.nextLine();
-         return name;
-    }
-   
-    public String inputPostalCode()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write Postal Code:  ");
-         String code = keyboard.nextLine();
-         return code;
-    }
-    public String inputCity()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write City:  ");
-         String city = keyboard.nextLine();
-         return city;
-    } 
-    public String inputPhone()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write Phone Number:  ");
-         String phone = keyboard.nextLine();
-         return phone;
-    } 
-     
-    public String  inputAddress()
-    {
-        // makes an object keyboard to read input from the console
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Write Address: ");
-        String address = keyboard.nextLine();
-        return address;
-    }
-    
-    public void showId(long id)
-    {
-        System.out.println("ID of the person: " + id);
-    }
-    public void showName(String name)
-    { 
-        System.out.println("The name of the persone: " + name);
-    }
-    public void showAddress(String address)
-    { 
-        System.out.println("The address of the person: " + address);
-    }
-
-    private void getPerson()
-    {//is to be changed when the address book controller is completed
-        long id = inputPersonsID();
-        
-
-    }   
     
     private void pause(){
         Scanner keyboard = new Scanner(System.in);

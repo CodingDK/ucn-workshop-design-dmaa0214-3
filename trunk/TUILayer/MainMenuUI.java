@@ -68,10 +68,7 @@ public class MainMenuUI
     
     private void startAddressBook()
     {
-        adrUI= new AddressBookUI();
-        adrUI.start();
-      
-     
+        adrUI = new AddressBookUI();
     }
 
     private void startDvd()
