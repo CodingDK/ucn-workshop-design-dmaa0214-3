@@ -16,7 +16,11 @@ public class AddressCtr
         addressBook = AddressBook.getInstance();
     }
     
-    
+    /**
+     * getPersonInfo - Returns a string of information, by person id.
+     * @param ID The id of the person.
+     * @return String of person information.
+     */
     public String getPersonInfo(int id){
         Person p = addressBook.getPerson(id);
         
@@ -28,10 +32,22 @@ public class AddressCtr
         }
     }
     
+    /**
+     * createPerson - Creates a Person object and adds it to the AddressBook
+     * @param name The name of the Person.
+     * @param address The address of the person.
+     * @param postalCode The postalCode of the person.
+     * @param city The city of the person.
+     * @param phone The phone number of the person.
+     */
     public void createPerson(String name, String address, int postalCode, String city, String phone){   
         addressBook.createPerson(name, address, postalCode, city, phone);
     }
     
+    /**
+     * deletePerson - Delete a Person object, by person id.
+     * @param id - The id of the person.
+     */
     public void deletePerson(int id){
         Person p = addressBook.getPerson(id);
         if (p != null){
@@ -41,6 +57,13 @@ public class AddressCtr
         }
     }
     
+    /**
+     * changeLocation - Change the location of a person, by id.
+     * @param id The id of the person to edit.
+     * @param address The new address of the person.
+     * @param postalCode The new postalCode of the person.
+     * @param city The new city of the person.
+     */
     public void changeLocation(int id, String address, int postalCode, String city){
         Person p = addressBook.getPerson(id);
         if (p != null){
@@ -52,6 +75,11 @@ public class AddressCtr
         }
     }
     
+    /**
+     * changeName - Change the name of a person, by id.
+     * @param id The id of the person to edit.
+     * @param name The new name of the person.
+     */
     public void changeName(int id, String name){
         Person p = addressBook.getPerson(id);
         if (p != null){
@@ -61,6 +89,11 @@ public class AddressCtr
         }
     }
     
+    /**
+     * changePhone - Change the phoneNumber of a person, by id.
+     * @param id The id of the person to edit.
+     * @param phone The new phoneNumber of the person.
+     */
     public void changePhone(int id, String phone){
         Person p = addressBook.getPerson(id);
         if (p != null){
@@ -70,6 +103,10 @@ public class AddressCtr
         }
     }
     
+    /**
+     * listAllPersons - List all persons in the system.
+     * @return String with list of all persons.
+     */
     public String listAllPersons(){
         ArrayList<Person> persons = addressBook.getAllPersons();
         String nLine = System.getProperty("line.separator");
