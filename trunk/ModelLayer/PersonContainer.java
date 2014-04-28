@@ -8,22 +8,22 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DVDContainer
+public class PersonContainer
 {
-    private DVDContainer instance;
-    private ArrayList<DVD> dvds;
+    private PersonContainer instance;
+    private ArrayList<Person> persons;
 
     /**
      * Constructor for objects of class DVDContainer
      */
-    private DVDContainer(){
-        dvds = new ArrayList<DVD>();
+    private PersonContainer(){
+        persons = new ArrayList<Person>();
     }
 
 
-    public DVDContainer getInstance(){
+    public PersonContainer getInstance(){
         if(instance == null){
-            instance = new DVDContainer();
+            instance = new PersonContainer();
         }
         
         return instance;

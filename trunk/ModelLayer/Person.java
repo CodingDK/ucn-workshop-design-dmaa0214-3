@@ -7,7 +7,7 @@ package ModelLayer;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DVD
+public class Person
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -15,7 +15,7 @@ public class DVD
     /**
      * Constructor for objects of class DVD
      */
-    public DVD()
+    public Person()
     {
         // initialise instance variables
         x = 0;

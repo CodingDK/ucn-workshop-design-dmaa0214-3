@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
-comment0.target=DVDContainer()
+comment0.target=PersonContainer()
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ DVDContainer\r\n
 comment1.params=
-comment1.target=DVDContainer\ getInstance()
+comment1.target=PersonContainer\ getInstance()
 numComments=2
