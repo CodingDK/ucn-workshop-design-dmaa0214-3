@@ -1,5 +1,6 @@
 package TUILayer;//makes this class a part of the TUILayer package
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 import ControlLayer.*;//The TUILayer needs to know the ControlLayer
 /**
  * 
