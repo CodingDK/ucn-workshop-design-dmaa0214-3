@@ -1,35 +1,77 @@
 package ModelLayer;
 
-
 /**
- * Write a description of class DVD here.
+ * Write a description of class Person here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 3 
+ * @version 0.1
  */
-public class Person
-{
-    // instance variables - replace the example below with your own
-    private int x;
+public class Person{
+    private static int idIterator;
+    private int id;
+    private String name;
+    private String address;
+    private int postalCode;
+    private String city;
+    private String phone;
 
-    /**
-     * Constructor for objects of class DVD
-     */
-    public Person()
-    {
-        // initialise instance variables
-        x = 0;
+    public Person(String name, String address, int postalCode, String city, String phone){
+        idIterator++;
+        this.id = idIterator;
+        this.name = name;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.phone = phone;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    // Get methods
+    public int getID(){
+    	return id;
     }
+    
+    public void setID(int id){
+    	this.id = id;
+    }
+    
+    public String getName(){
+    	return name;
+    }
+    
+    public void setName(String name){
+    	this.name = name;
+    }
+    
+    public String getAddress(){
+    	return address;
+    }
+    
+    public void setAddress(String address){
+    	this.address = address;
+    }
+    
+    public int getPostalCode(){
+    	return postalCode;
+    }
+    
+    public void setPostalCode(int postalCode){
+    	this.postalCode = postalCode;
+    }
+    
+    public String getCity(){
+    	return city;
+    }
+    
+    public void setCity(String city){
+    	this.city = city;
+    }
+    
+    public String getPhone(){
+    	return phone;
+    }
+    
+    public void setPhone(String phone){
+    	this.phone = phone;
+    }
+    
 }
