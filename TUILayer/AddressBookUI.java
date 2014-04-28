@@ -158,18 +158,64 @@ public class AddressBookUI
     /**
      * Methods for change location
      */
-    
+    private void changeLocation(){
+        String addr;
+        String city;
+        int postalCode;
+        int id;
+        AddressCtr addrCtr = new AddressCtr();
+        Scanner keyboard = new Scanner(System.in);
+        
+        try{
+            System.out.println("What's the ID of the person?");
+            id = keyboard.nextInt();
+        } catch (InputMismatchException e){
+            System.out.println(e);
+            return;
+        }
+        
+        try{
+            System.out.println("What's the new address?");
+            addr = keyboard.nextLine();
+        } catch (InputMismatchException e){
+            System.out.println(e);
+            return;
+        }
+
+        try{
+            System.out.println("What's the new city?");
+            city = keyboard.nextLine();
+        } catch (InputMismatchException e){
+            System.out.println(e);
+            return;
+        }
+        
+        try{
+        System.out.println("What's the new postal code?");
+        postalCode = keyboard.nextInt();
+        } catch (InputMismatchException e){
+            System.out.println(e);
+            return;
+        }
+        
+        addrCtr.changeLocation(id, addr, postalCode, city);
+    }
     
     /**
      * Methods for change name
      */
-    
-    
-    
-    
-    
-    
-    
+    private void changeName(){
+        String name;        
+        int nameID;
+        AddressCtr addrCtr = new AddressCtr();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the new name?");
+        name = keyboard.nextLine();
+        System.out.println("What's the ID of the person?");
+        nameID = keyboard.nextInt();
+        addrCtr.changeName(nameID, name);
+    }
+     
     /**
      * Methods for change phone
      */
