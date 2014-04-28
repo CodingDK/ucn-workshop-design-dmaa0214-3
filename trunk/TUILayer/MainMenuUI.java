@@ -1,6 +1,7 @@
 package TUILayer;//makes this class a part of the TUILayer package
 import java.util.Scanner;
 import ControlLayer.*;//The TUILayer needs to know the ControlLayer
+
 /**
  * 
  * User interface - main menu
@@ -17,18 +18,15 @@ import ControlLayer.*;//The TUILayer needs to know the ControlLayer
  */
 public class MainMenuUI
 {
-  //the reference to the ControlLayer
-   private AddressBookUI adrUI;//references to other UI objects
-   private DvdUI dvdUI;
-   
-   public MainMenuUI()
-   {
-  
-      
-   }
-   
-   public void mainMenuStart()
-   {
+    //the reference to the ControlLayer
+    private AddressBookUI adrUI;//references to other UI objects
+    private DvdUI dvdUI;
+
+    public MainMenuUI(){
+        
+    }
+
+    public void mainMenuStart(){
         boolean exit=false;
         while (!exit) //! means while exit not is true (that is: false)
         {
@@ -38,54 +36,48 @@ public class MainMenuUI
                 startAddressBook();
             }
             else{
-                    if(choice == 2){ 
-                        startDvd();
-                    }
-                    else{
-                        if(choice == 3){
+                if(choice == 2){ 
+                    startDvd();
+                }
+                else{
+                    if(choice == 3){
                         //start loanController 
-                            }//end if
-                        else{
-                            writeEnd();
-                            exit = true;
-                        }//end else
-                    }// end else
-             }//end else
+                    }//end if
+                    else{
+                        writeEnd();
+                        exit = true;
+                    }//end else
+                }// end else
+            }//end else
         }//end while
     }//end start
-    
-   private int writeMainMenu()
-    {       
-            // creates a keyboard object to read input
-            Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** MainMenu ***");
-            System.out.println(" (1) AddressBook");
-            System.out.println(" (2) DVDs");
-            System.out.println(" (3) Loan");
-            System.out.println(" (4) Close");
-            System.out.print("\n Make your choice: ");
-            
-            int choice = keyboard.nextInt();
-            
-            return choice;
+
+    private int writeMainMenu(){       
+        // creates a keyboard object to read input
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** MainMenu ***");
+        System.out.println(" (1) AddressBook");
+        System.out.println(" (2) DVDs");
+        System.out.println(" (3) Loan");
+        System.out.println(" (4) Close");
+        System.out.print("\n Make your choice: ");
+
+        int choice = keyboard.nextInt();
+
+        return choice;
     }
-    
-    private void startAddressBook()
-    {
+
+    private void startAddressBook(){
         adrUI= new AddressBookUI();
         adrUI.start();
-      
-     
     }
 
-    private void startDvd()
-    {
+    private void startDvd(){
         dvdUI= new DvdUI();
-
-     
     }
+
     private void writeEnd()
     {
-        System.out.println(" The System is shuting down ");
+        System.out.println("The system is shuting down.");
     }
- }
+}

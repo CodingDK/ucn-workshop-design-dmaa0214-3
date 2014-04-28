@@ -6,7 +6,7 @@ import ControlLayer.*;//The TUILayer needs to know the ControlLayer
 /**
  * User interface class to the AddressBook
  * 
- * @author (kbh) 
+ * @author Group 3 
  * @version (2005.03.31)
  * (FEN): 2006.03.21: Comments translated into English
  * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
@@ -25,7 +25,6 @@ public class AddressBookUI
     
     public void start()
     {
-       
         addressMenu();
     }
     
