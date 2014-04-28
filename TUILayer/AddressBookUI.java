@@ -25,12 +25,13 @@ public class AddressBookUI
     
     public void start()
     {
-        addressMenu();
+       addressMenu();
     }
     
     public void addressMenu()
     {
        boolean exit = false;
+       
        while(!exit)//that is: while exit is false
        {
           int choice = writeAddressBookMenu(); 
@@ -38,32 +39,25 @@ public class AddressBookUI
           {   //show person
               getPerson();
           }
-          else{
-              if(choice == 2){
-                    //create person
-              }  
-              else{
-                  if(choice == 3){
-                      //delete person
-                  }  
-                  else{
-                      if(choice == 4){
-                          // update person
-                      }
-                      else{
-                          if(choice == 5){
-                              // listAllPersons();
-                            }
-                          else{
-                              exit = true;
-                           }//end else
-                        }//end else
-                    }//end else
-                }//end else
-            }//end else
-            
+          else if(choice == 2){
+              //create person
+          }  
+          else if(choice == 3){
+              //delete person
+          }  
+          else if(choice == 4){
+              // update person
+          }
+          else if(choice == 5){
+              // listAllPersons();
+          }
+          else if(choice == 6){
+              exit = true;
+          }
+          
        }//end while
     }
+    
     public int writeAddressBookMenu()
     {      // makes an object keyboard to read input from the screen
             Scanner keyboard = new Scanner(System.in);
@@ -78,8 +72,67 @@ public class AddressBookUI
             
             int choice = keyboard.nextInt();
             return choice;
-        }
+    }
         
+    /**
+     * Methods for deleting a person
+     */
+    private void deletePerson(){
+        int deleteID;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the ID of the person you will delete from the address book?");
+        deleteID = keyboard.nextInt();
+        try{
+        addrCtr.deletePerson(deleteID);
+        } catch(NullPointerException e){
+        System.out.println(e);
+        }
+    }
+    
+    /**
+     * Methods for printing a person
+     */
+    private void printPerson(){
+        int printID;
+        System.out.println("What's the ID of the person you want to print?");
+        Scanner keyboard = new Scanner(System.in);
+        printID = keyboard.nextInt();
+        
+        try {
+            System.out.println(addrCtr.getPersonInfo(printID));
+        }
+        catch (NullPointerException e) {
+            System.out.println(e);
+        }
+    }
+    
+    /**
+     * Methods for change location
+     */
+    
+    
+    /**
+     * Methods for change name
+     */
+    
+    /**
+     * Methods for change phone
+     */
+    
+    /**
+     * Methods for listing all persons 
+     */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //the method reads id for a person and return
     // 
     public long inputPersonsID()
