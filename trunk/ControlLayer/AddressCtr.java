@@ -37,7 +37,7 @@ public class AddressCtr
        //creates a Person object and stores it in the container
     }
     
-    public void deletePerson(long id)
+    public void deletePerson(long id) //BLABLBALA LAU
     {
         //search for the person and delete the object from the container
     }
