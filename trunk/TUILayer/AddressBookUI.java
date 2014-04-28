@@ -1,5 +1,6 @@
 package TUILayer;//makes this class a part of the TUILayer package
 import java.util.*;
+import java.io.*;
 import ControlLayer.*;//The TUILayer needs to know the ControlLayer
  
 
@@ -12,10 +13,8 @@ import ControlLayer.*;//The TUILayer needs to know the ControlLayer
  * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
  *                    and loose coupling
  */
-public class AddressBookUI
-{   
-   
-    //constructor which does nothing
+public class AddressBookUI{   
+    
     public AddressBookUI()
     {
         AddressCtr addrCtr = new AddressCtr();
