@@ -54,7 +54,7 @@ public class DVDCtr
     }
     
     
-    public ArrayList listAllDvds()
+    public String listAllDvds()
     {
           //returns a list of all dvds and their associated copies
           return null;

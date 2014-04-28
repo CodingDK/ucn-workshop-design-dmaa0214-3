@@ -46,7 +46,7 @@ public class AddressCtr
     {
     }
     
-    public ArrayList listAllPersons()
+    public String listAllPersons()
     {
           return null;
     }
