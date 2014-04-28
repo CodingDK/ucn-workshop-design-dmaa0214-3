@@ -105,15 +105,17 @@ public class AddressBookUI
                 pause();
                 return;
             }
-            System.out.print("Phone: ");
+            System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 11){
                 System.out.println("Phone number cant be less than 11");
                 pause();
                 return;
             }
-            
-            addrCtr.createPerson(name, address, postalCode, city, phone);
+            if(confirm("Add Person(Name: " + name + ", Address: " + address + ", Postalcode: " + postalCode + ", City: " + 
+            city + ", Phone Number: " + phone + ")")){
+                addrCtr.createPerson(name, address, postalCode, city, phone);
+            }
         }catch(InputMismatchException e){
             System.out.println("Invalid values!");
             pause();
@@ -125,15 +127,22 @@ public class AddressBookUI
      * Methods for deleting a person
      */
     private void deletePerson(){
-        AddressCtr addrCtr = new AddressCtr();
-        int deleteID;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("What's the ID of the person you will delete from the address book?");
-        deleteID = keyboard.nextInt();
         try{
-        addrCtr.deletePerson(deleteID);
-        } catch(NullPointerException e){
-        System.out.println(e);
+            AddressCtr addrCtr = new AddressCtr();
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("What's the ID of the person you will delete from the address book?");
+            int deleteID = keyboard.nextInt();
+            if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID)){
+                addrCtr.deletePerson(deleteID);
+            }
+        }catch(InputMismatchException e1){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e){
+            System.out.println(e);
+            pause();
+            return;
         }
     }
     
@@ -141,17 +150,17 @@ public class AddressBookUI
      * Methods for printing a person
      */
     private void printPerson(){
-        AddressCtr addrCtr = new AddressCtr();
-        int printID;
-        System.out.println("What's the ID of the person you want to print?");
-        Scanner keyboard = new Scanner(System.in);
-        printID = keyboard.nextInt();
-        
         try {
+            AddressCtr addrCtr = new AddressCtr();
+            int printID;
+            System.out.println("What's the ID of the person you want to print?");
+            Scanner keyboard = new Scanner(System.in);
+            printID = keyboard.nextInt();
             System.out.println(addrCtr.getPersonInfo(printID));
             pause();
-        }
-        catch (NullPointerException e) {
+        }catch(InputMismatchException e1){
+            System.out.println("Invalid values");
+        }catch (NullPointerException e) {
             System.out.println(e);
         }
     }
@@ -178,8 +187,9 @@ public class AddressBookUI
             
             System.out.println("What's the new postal code?");
             postalCode = keyboard.nextInt();
-            
-            addrCtr.changeLocation(id, addr, postalCode, city);
+            if(confirm("Are you sure you wish to change the location to: " + addr + ", " + postalCode + ", " + city)){
+                addrCtr.changeLocation(id, addr, postalCode, city);
+            }
         } catch (InputMismatchException e){
             System.out.println(e);
             pause();
@@ -191,15 +201,23 @@ public class AddressBookUI
      * Methods for change name
      */
     private void changeName(){
-        String name;        
-        int nameID;
-        AddressCtr addrCtr = new AddressCtr();
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("What's the new name?");
-        name = keyboard.nextLine();
-        System.out.println("What's the ID of the person?");
-        nameID = keyboard.nextInt();
-        addrCtr.changeName(nameID, name);
+        try{
+            String name;        
+            int nameID;
+            AddressCtr addrCtr = new AddressCtr();
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("What's the new name?");
+            name = keyboard.nextLine();
+            System.out.println("What's the ID of the person?");
+            nameID = keyboard.nextInt();
+            if(confirm("Do you wish to change to name to: " + name)){
+                addrCtr.changeName(nameID, name);
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+        }
     }
      
     /**
@@ -214,6 +232,12 @@ public class AddressBookUI
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 11){
+                System.out.println("The phone number must be atleast 11 chars long");
+                pause();
+                return;
+            }
+            
+            if(confirm("Do you wish to change the phone number to: " + phone)){
                 addrCtr.changePhone(id, phone);
             }
         }catch(InputMismatchException e){
@@ -244,6 +268,26 @@ public class AddressBookUI
     private void pause(){
         Scanner keyboard = new Scanner(System.in);
         String pause = keyboard.nextLine();
+    }
+    
+    private boolean confirm(String confirmStatement){
+        boolean confirm = true;
+        Scanner s = new Scanner(System.in);
+        boolean exit = false;
+        while(!exit){
+            System.out.println();
+            System.out.println(confirmStatement);
+            System.out.println("Confirm - y/n");
+            String conf = s.nextLine();
+            if(conf.equals("y")){
+                confirm = true;
+                exit = true;
+            }else if(conf.equals("n")){
+                confirm = false;
+                exit = true;
+            }
+        }
+        return confirm;
     }
 }
             
