@@ -1,7 +1,4 @@
 #BlueJ package file
-<<<<<<< .mine
-objectbench.height=100
-=======
 dependency1.from=DVDContainer
 dependency1.to=DVD
 dependency1.type=UsesDependency
@@ -9,26 +6,15 @@ dependency2.from=AddressContainer
 dependency2.to=Address
 dependency2.type=UsesDependency
 objectbench.height=100
->>>>>>> .r16
-objectbench.width=658
+objectbench.width=963
 package.editor.height=400
-<<<<<<< .mine
 package.editor.width=865
-package.editor.x=72
-package.editor.y=72
-package.numDependencies=0
-package.numTargets=0
-=======
-package.editor.width=865
-package.editor.x=354
+package.editor.x=106
 package.editor.y=205
 package.numDependencies=2
 package.numTargets=4
->>>>>>> .r16
 package.showExtends=true
 package.showUses=true
-<<<<<<< .mine
-=======
 target1.editor.height=700
 target1.editor.width=900
 target1.editor.x=294
@@ -73,10 +59,10 @@ target4.editor.x=394
 target4.editor.y=225
 target4.height=50
 target4.name=DVD
+target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=80
 target4.x=130
 target4.y=270
->>>>>>> .r16
