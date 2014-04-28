@@ -98,6 +98,7 @@ public class AddressBookUI
             }
             System.out.print("PostalCode: ");
             int postalCode = keyboard.nextInt();
+            
             System.out.print("City: ");
             String city = keyboard.nextLine();
             if(city.isEmpty()){
