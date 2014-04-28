@@ -6,19 +6,11 @@ dependency2.from=AddressContainer
 dependency2.to=Address
 dependency2.type=UsesDependency
 objectbench.height=100
-<<<<<<< .mine
-objectbench.width=658
-=======
 objectbench.width=963
->>>>>>> .r23
 package.editor.height=400
-package.editor.width=865
-<<<<<<< .mine
-package.editor.x=354
-=======
-package.editor.x=106
->>>>>>> .r23
-package.editor.y=205
+package.editor.width=1170
+package.editor.x=39
+package.editor.y=44
 package.numDependencies=2
 package.numTargets=4
 package.showExtends=true
