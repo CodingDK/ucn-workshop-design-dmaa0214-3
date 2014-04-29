@@ -43,14 +43,22 @@ public class DVDCtr
           //and stores it in the container
     }
     
-    
-    public String getDVD(int id){
-        //DVDContainer d;
+    /**
+     * getDVDInfo - Returns a String of information, by person id.
+     * @param ID the id of the DVD.
+     * @return String of the dvd information. 
+     */
+    public String getDVDInfo(int id){
+        DVDContainer d = dvdcon.
         String nLine = System.getProperty("line.separator");
         
-       // if(d != null){
-         //   return nLine + "ID: " + 
+        if(d != null){
+            return nLine + "ID: " ; 
         }
+        else {
+            throw new NullPointerException("DVD was not found");
+        }
+    }
     
 
     // Lau
@@ -59,7 +67,6 @@ public class DVDCtr
     }
 
     
-    // getDVD -- Lasse
     
     // getCopy -- Lau
     
