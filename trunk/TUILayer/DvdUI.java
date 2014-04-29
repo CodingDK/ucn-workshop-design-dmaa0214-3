@@ -3,20 +3,22 @@ import java.util.*;
 import ControlLayer.DVDCtr;
 /**
  * User interface to the DVD controller
- * @author(kbh)
- * @version(2005.03.31)
- * (FEN): 2006.02.24: Comments translated into English
- * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
- *                    and loose coupling
- * (KBH): 2008.10.24: dvdmenu changed to If                   
+ * @author Group 3
+ * @version 0.2                 
  */
 
 public class DvdUI{
     
+    /**
+     * DvdUI - Constructor for DvdUI.
+     */
     public DvdUI(){
         dvdMenu();
     }
     
+    /**
+     * dvdMenu - Make the dvdMenu.
+     */
     public void dvdMenu(){   
         boolean exit = false;
         while(!exit){
@@ -36,12 +38,16 @@ public class DvdUI{
             }else if(choice == 7){
                 updateCopy();
             }else if(choice == 8){
-                listAll();
+                listAllDVDs();
             }else if(choice == 9){
                 exit = true;
             }
         }
     }
+    
+    /**
+     * writeDVDMenu - Write the dvd menu.
+     */
     private int writeDVDMenu(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** DVD Menu ***");
@@ -60,7 +66,10 @@ public class DvdUI{
         return choice;
     }
     
-    private void printDVD(){
+    /**
+     * printDVD - print info about a dvd.
+     */
+    private void getDVD(){
         try{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f ### DVD Information ###");
@@ -81,6 +90,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * createDVD - Create a new dvd.
+     */
     private void createDVD(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -115,6 +127,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * createCopy - Create a copy of a dvd.
+     */
     private void createCopy(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -149,6 +164,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * deleteDVD - Delete a dvd.
+     */
     private void deleteDVD(){
         try{
             DVDCtr dvdCtr = new DVDCtr();
@@ -172,6 +190,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * deleteCopy - Delete a copy of a dvd.
+     */
     private void deleteCopy(){
         try{
             DVDCtr dvdCtr = new DVDCtr();
@@ -199,6 +220,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * updateDVD - update a dvd.
+     */
     private void updateDVD(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -245,7 +269,9 @@ public class DvdUI{
             return;
         }
     }
-
+    
+    /**
+     * updateCopy - update a copy of a dvd.
     private void updateCopy(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -288,7 +314,10 @@ public class DvdUI{
         }
     }
     
-    private void listAll(){
+    /**
+     * listAllDVDs - Make a list of all dvds.
+     */
+    private void listAllDVDs(){
         try{
             DVDCtr dvdCtr = new DVDCtr();
             System.out.println(dvdCtr.listAllDVDs());
@@ -299,6 +328,9 @@ public class DvdUI{
         }
     }
     
+    /**
+     * pause - Waiting for user to press enter.
+     */
     private void pause(){
         Scanner keyboard = new Scanner(System.in);
         String pause = keyboard.nextLine();
