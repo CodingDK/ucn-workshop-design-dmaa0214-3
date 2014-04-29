@@ -15,7 +15,7 @@ public class DVDCtr
 {
     //declare instance variables to reference containers
     private DVDContainer dvdCon;
-    private DVD dvd;
+
 
     /**
      * Constructor for objects of class DVDCtr
@@ -60,7 +60,14 @@ public class DVDCtr
     /**
      * Dummy
      */
-    public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
+    public void createCopy(int dvdID, String purchaseDate, double purchasePrice){
+        DVD d = dvdCon.getDVD(dvdID);
+        if(d != null){
+            d.createCopy(purchaseDate, purchasePrice);
+        }else{
+            throw new NullPointerException("DVD was not found");
+        }
+       
         
     }
 
