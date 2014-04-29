@@ -41,6 +41,25 @@ public class DVDCtr
           //and stores it in the container
     }
     
+//     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
+//     
+//     }
+    
+    // getDVD
+    
+    // getCopy
+    
+    // addCopy
+    
+    // updateDVD
+    
+    // updateCopy
+    
+    // deleteCopy
+    
+    // listAllDVD
+      // number of copies - get copies i hashSet
+    
     public void deleteDVD(long id)
     {
         
