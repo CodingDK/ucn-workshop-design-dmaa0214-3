@@ -2,7 +2,7 @@ package ControlLayer;
 import java.util.ArrayList;
 import ModelLayer.*;
 //model layer package has to be imported
-// Skal beholdes
+//Denne skal slettesss
 /**
  * Controller class for the DVD collection
  * 
@@ -25,17 +25,6 @@ public class DVDCtr
     {
         //set up references to containers
         dvdCon = DVDContainer.getInstance();
-    }
-    
-    //Dummy implementation: after implementing the model layer 
-    //objects of class DVD are to be returned, not String
-    public String findDVD( int no)
-    {
-        //this method is to search the container for a DVD
-        //with an id-number equal to the parameter no
-        //when the dvd is found, the method is to call print-methods in the TUI layer
-       
-       return "dvd"; 
     }
     
     /**
@@ -70,21 +59,39 @@ public class DVDCtr
     }
     
 
-    // Lau
+    /**
+     * Creates a copy of a DVD
+     * 
+     * @param dvd DVD object
+     * @param purchaseDate Date of purchase
+     * @param purchasePrice Price of purchase
+     */
     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
-        
+        dvd.createCopy(purchaseDate, purchasePrice);
     }
-
     
-    
-    // getCopy -- Lau
+    /**
+     * Gets all copies of the DVD and prepares them for print
+     * 
+     * @param dvdID ID of the DVD
+     * @return String
+     */
+    public String getCopies(int dvdID){
+        String returnCopies = null;
+        
+        dvd = dvdCon.getDVD(dvdID);
+        if(dvd != null){
+            dvd.getCopies();
+        } else {
+            throw new NullPointerException("DVD was not found");
+        }
+        
+        return returnCopies;
+    }
     
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
         DVD d = dvdCon.getDVD(dvdID);
-        
         d.createCopy(purchaseDate, purchasePrice);
-       
-        
     }
     
     /**
@@ -107,8 +114,6 @@ public class DVDCtr
         
     }
     
-    // updateCopy -- Lasse 
-    
     /**
      * @param dvdID ID of the DVD
      * @param serialNumber Serialnumber of the DVD
@@ -122,7 +127,11 @@ public class DVDCtr
         }
     }
     
-    // listAllDVD -- Lasse
+    public String listAllDVDs(){
+        String returnList = null;
+        
+        return returnList;
+    }
       // number of copies - get copies i hashSet
     
     public void deleteDVD(long id)
@@ -138,9 +147,5 @@ public class DVDCtr
     }
     
     
-    public String listAllDvds()
-    {
-          //returns a list of all dvds and their associated copies
-          return null;
-    }
+
 }
