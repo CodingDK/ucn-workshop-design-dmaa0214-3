@@ -44,7 +44,6 @@ public class DVDCtr
     }
     
     
-<<<<<<< .mine
     public String getDVD(int id){
         //DVDContainer d;
         String nLine = System.getProperty("line.separator");
@@ -53,12 +52,12 @@ public class DVDCtr
          //   return nLine + "ID: " + 
         }
     }
-=======
+
     // Lau
     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
         
     }
->>>>>>> .r100
+
     
     // getDVD -- Lasse
     
