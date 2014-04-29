@@ -90,8 +90,12 @@ public class DVDCtr
     }
     
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
-        DVD d = dvdCon.getDVD(dvdID);
-        d.createCopy(purchaseDate, purchasePrice);
+        DVD dvd = dvdCon.getDVD(dvdID);
+        if (dvd != null){
+            dvd.createCopy(purchaseDate, purchasePrice);
+        } else {
+            throw new NullPointerException("DVD was not found");
+        }
     }
     
     /**
@@ -127,6 +131,10 @@ public class DVDCtr
         }
     }
     
+    /**
+     * Returns all DVDs in a string
+     * @return A string with all DVDs
+     */
     public String listAllDVDs(){
         String returnList = null;
         
@@ -134,17 +142,20 @@ public class DVDCtr
     }
       // number of copies - get copies i hashSet
     
-    public void deleteDVD(long id)
-    {
-        
-        //search for the dvd and delete the object from the container
-       
+    /**
+      * Deletes a DVD by ID
+      * @param id ID of the DVD
+      */
+    public void deleteDVD(int id){
+        DVD dvd = dvdCon.getDVD(id);
+        if(dvd != null){
+            
+        } else {
+            throw new NullPointerException("DVD not found");
+        }
     }
     
-    public void createCopy(long id)
-    {
-        //create a copy of the specified dvd and add it to the dvd
-    }
+ 
     
     
 
