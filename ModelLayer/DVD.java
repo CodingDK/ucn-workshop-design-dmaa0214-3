@@ -8,7 +8,7 @@ import java.util.*;
  * @version 0.2
  */
 public class DVD{
-    private HashSet<Copy> copys;
+    private HashSet<Copy> copies;
     private static int idIterator;
     private int id;
     private String title;
@@ -22,7 +22,7 @@ public class DVD{
      * @param publicationDate The publicationDate of the dvd.
      */
     public DVD(String title, String artist, String publicationDate) {
-        copys = new HashSet<Copy>();
+        copies = new HashSet<Copy>();
         idIterator++;
         this.id = idIterator;
         this.title = title;
@@ -44,7 +44,7 @@ public class DVD{
      * @param copy The Copy object to add to the copy container.
      */
     private void addCopy(Copy copy){
-        copys.add(copy);
+        copies.add(copy);
     }
     
     /**
@@ -52,7 +52,7 @@ public class DVD{
      * @param copy The Copy object to delete from the copy container.
      */
     public void deleteCopy(Copy copy){
-        copys.remove(copy);
+        copies.remove(copy);
     }
     
     /**
@@ -63,7 +63,7 @@ public class DVD{
     public Copy getCopy(int serialNumber){
         Copy c = null;
         
-        for(Copy copy : copys){
+        for(Copy copy : copies){
             if(copy.getSerialNumber() == serialNumber){
                 c = copy;
                 break;
@@ -74,11 +74,11 @@ public class DVD{
     }
     
     /**
-     * getCopys - Get the HashSet list of Copy objects.
+     * getCopies - Get the HashSet list of Copy objects.
      * @return HashSet<Copy> - The list of copies objects.
      */
-    public HashSet<Copy> getCopys(){
-        return copys;
+    public HashSet<Copy> getCopies(){
+        return copies;
     }
 
     /**
