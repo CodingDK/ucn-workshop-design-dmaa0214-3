@@ -22,7 +22,7 @@ public class DvdUI{
         while(!exit){
             int choice =   writeDVDMenu();
             if (choice == 1){
-                findDVD();
+                //findDVD();
             }else if(choice == 2){
                 createDVD();
             }else if(choice == 3){
@@ -51,46 +51,72 @@ public class DvdUI{
             int choice = keyboard.nextInt();
             return choice;
     }
-    private int inputDVDNo(){
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Type DVD number: ");
-        int no = keyboard.nextInt();
-        return no;
-    }
-        
-    private String inputTitle(){
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Type DVD title: " );
-        String title = keyboard.nextLine();
-        return title;
-    }
-    private int inputCopyNo(){
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Type the copy number: ");
-        int no = keyboard.nextInt();
-        return no;
-    }
-    
-  
-    private void findDVD(){     
-        int no = inputDVDNo();
-        DVDCtr dvdCtr = new DVDCtr();
-        //is to be changed when the DVD controller is completed
-        String dvd = dvdCtr.findDVD(no);
-    }
     
     private void createDVD(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("### Create DVD ###");
+        
+        System.out.print("Title: ");
+        String title = keyboard.nextLine();
+        if(title.trim().isEmpty()){
+            System.out.println("Title cant be empty!");
+        }
+        
+        System.out.print("Artist: ");
+        String artist = keyboard.nextLine();
+        if(artist.trim().isEmpty()){
+            System.out.println("Artist cant be empty!");
+        }
+        
+        System.out.print("Publication Date: ");
+        String pubDate = keyboard.nextLine();
+        if(pubDate.trim().isEmpty()){
+            System.out.println("The publication date cant be empty!");
+        }
+        
+        if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Date: " + pubDate + ")")){
+            DVDCtr dvdCtr = new DVDCtr();
+            dvdCtr.createDVD(title, artist, pubDate);
+        }
     }
     
     private void createCopy(){
+        DVDCtr dvdCtr = new DVDCtr();
     }
     
     private void deleteDVD(){
+        DVDCtr dvdCtr = new DVDCtr();
     }
     
     private void listAllDvds(){
+        DVDCtr dvdCtr = new DVDCtr();
+    }
+    
+    private void pause(){
+        Scanner keyboard = new Scanner(System.in);
+        String pause = keyboard.nextLine();
+    }
+    
+    /**
+     * confirmStatement - Using the user confirmation.
+     */
+    private boolean confirm(String confirmStatement){
+        boolean confirm = true;
+        Scanner s = new Scanner(System.in);
+        boolean exit = false;
+        while(!exit){
+            System.out.println();
+            System.out.println(confirmStatement);
+            System.out.println("Confirm - y/n");
+            String conf = s.nextLine();
+            if(conf.toLowerCase().equals("y")){
+                confirm = true;
+                exit = true;
+            }else if(conf.toLowerCase().equals("n")){
+                confirm = false;
+                exit = true;
+            }
+        }
+        return confirm;
     }
 }
