@@ -9,7 +9,7 @@ import java.util.*;
  * @version (a version number or a date)
  */
 public class DVD{
-    private ArrayList<Copy> copys;
+    private HashSet<Copy> copys;
     private static int idIterator;
     private int id;
     private String title;
@@ -20,7 +20,7 @@ public class DVD{
      * Constructor for objects of class DVD
      */
     public DVD(String title, String artist, String publicationDate) {
-        copys = new ArrayList<Copy>();
+        copys = new HashSet<Copy>();
         idIterator++;
         this.id = idIterator;
         this.title = title;
