@@ -118,7 +118,7 @@ public class DvdUI{
             
             if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Date: " + pubDate + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                //dvdCtr.createDVD(title, artist, pubDate);
+                dvdCtr.createDVD(title, artist, pubDate);
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
