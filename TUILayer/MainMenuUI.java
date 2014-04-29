@@ -15,6 +15,7 @@ public class MainMenuUI
 {
    private AddressBookUI adrUI;
    private DvdUI dvdUI;
+   private LoanUI loanUI;
    
    /**
     * Constructor for the MainMenuUI.
@@ -22,6 +23,7 @@ public class MainMenuUI
    public MainMenuUI(){
        adrUI = null;
        dvdUI = null;
+       loanUI = null;
    }
    
    /**
@@ -36,7 +38,7 @@ public class MainMenuUI
             }else if(choice == 2){ 
                 startDvd();
             }else if(choice == 3){
-                //start loanController 
+                startLoan();
             }else if(choice == 4){
                 writeEnd();
                 exit = true;
@@ -77,6 +79,13 @@ public class MainMenuUI
      */
     private void startDvd(){
         dvdUI = new DvdUI();
+    }
+    
+    /**
+     * startLoan - Start the Loan UI
+     */
+    private void startLoan(){
+        loanUI = new LoanUI();
     }
     
     /**
