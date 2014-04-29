@@ -1,5 +1,5 @@
 package TUILayer;
-import java.util.Scanner;
+import java.util.*;
 import ControlLayer.DVDCtr;
 /**
  * User interface to the DVD controller
@@ -20,9 +20,9 @@ public class DvdUI{
     public void dvdMenu(){   
         boolean exit = false;
         while(!exit){
-            int choice =   writeDVDMenu();
+            int choice = writeDVDMenu();
             if (choice == 1){
-                //findDVD();
+                getDVD();
             }else if(choice == 2){
                 createDVD();
             }else if(choice == 3){
@@ -30,65 +30,142 @@ public class DvdUI{
             }else if(choice == 4){
                 deleteDVD();
             }else if(choice == 5){
-                listAllDvds();
+                deleteCopy();
             }else if(choice == 6){
+                updateDVD();
+            }else if(choice == 7){
+                updateCopy();
+            }else if(choice == 8){
+                listAll();
+            }else if(choice == 9){
                 exit = true;
             }
         }
     }
     private int writeDVDMenu(){
-           // creates an object keyboard to read data from the keyboard
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** DVD Menu ***");
+        System.out.println(" (1) Show DVD information");
+        System.out.println(" (2) Create DVD");
+        System.out.println(" (3) Create Copy");
+        System.out.println(" (4) Delete DVD");
+        System.out.println(" (5) Delete Copy");
+        System.out.println(" (6) Update DVD");
+        System.out.println(" (7) Update Copy");
+        System.out.println(" (8) Show current DVD list");
+        System.out.println(" (9) Return");
+        System.out.print("\n Make your choice: ");
+        
+        int choice = keyboard.nextInt();
+        return choice;
+    }
+    
+    private void getDVD(){
+        try{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** DVD Menu ***");
-            System.out.println(" (1) Show DVD information");
-            System.out.println(" (2) Create DVD description");
-            System.out.println(" (3) Create DVD specimen");
-            System.out.println(" (4) Delete DVD");
-            System.out.println(" (5) Show current DVD list");
-            System.out.println(" (6) Return");
-            System.out.print("\n Make your choice: ");
+            System.out.println("\f ### DVD Information ###");
+            System.out.print("DVD ID: ");
+            int dvdID = keyboard.nextInt();
             
-            int choice = keyboard.nextInt();
-            return choice;
+            DVDCtr dvdCtr = new DVDCtr();
+            System.out.println(dvdCtr.getDVDInfo(dvdID));
+            pause();        
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     private void createDVD(){
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("### Create DVD ###");
-        
-        System.out.print("Title: ");
-        String title = keyboard.nextLine();
-        if(title.trim().isEmpty()){
-            System.out.println("Title cant be empty!");
-        }
-        
-        System.out.print("Artist: ");
-        String artist = keyboard.nextLine();
-        if(artist.trim().isEmpty()){
-            System.out.println("Artist cant be empty!");
-        }
-        
-        System.out.print("Publication Date: ");
-        String pubDate = keyboard.nextLine();
-        if(pubDate.trim().isEmpty()){
-            System.out.println("The publication date cant be empty!");
-        }
-        
-        if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Date: " + pubDate + ")")){
-            DVDCtr dvdCtr = new DVDCtr();
-            dvdCtr.createDVD(title, artist, pubDate);
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("### Create DVD ###");
+            
+            System.out.print("Title: ");
+            String title = keyboard.nextLine();
+            if(title.trim().isEmpty()){
+                System.out.println("Title cant be empty!");
+            }
+            
+            System.out.print("Artist: ");
+            String artist = keyboard.nextLine();
+            if(artist.trim().isEmpty()){
+                System.out.println("Artist cant be empty!");
+            }
+            
+            System.out.print("Publication Date: ");
+            String pubDate = keyboard.nextLine();
+            if(pubDate.trim().isEmpty()){
+                System.out.println("The publication date cant be empty!");
+            }
+            
+            if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Date: " + pubDate + ")")){
+                DVDCtr dvdCtr = new DVDCtr();
+                //dvdCtr.createDVD(title, artist, pubDate);
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
         }
     }
     
     private void createCopy(){
-        DVDCtr dvdCtr = new DVDCtr();
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("### Create Copy ###");
+            
+            System.out.print("DVD ID: ");
+            int dvdID = keyboard.nextInt();
+            keyboard.nextLine();
+            
+            System.out.print("Purchase Date: ");
+            String purDate = keyboard.nextLine();
+            if(purDate.trim().isEmpty()){
+                System.out.println("Purchase Date cant be empty!");
+            }
+            
+            System.out.print("Purchase Price: ");
+            double purPrice = keyboard.nextDouble();
+            keyboard.nextLine();
+            
+            if(confirm("Do you wish to add Copy(Purchase Date: " + purDate + " / Publication Price: " + purPrice + ") to DVD(" + dvdID + ")")){
+                DVDCtr dvdCtr = new DVDCtr();
+                dvdCtr.createCopy(dvdID, purDate, purPrice);
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     private void deleteDVD(){
         DVDCtr dvdCtr = new DVDCtr();
     }
     
-    private void listAllDvds(){
+    private void deleteCopy(){
+    
+    }
+    
+    private void updateDVD(){
+    
+    }
+    
+    private void updateCopy(){
+    
+    }
+    
+    private void listAll(){
         DVDCtr dvdCtr = new DVDCtr();
     }
     
