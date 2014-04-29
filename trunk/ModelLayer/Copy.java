@@ -2,34 +2,73 @@ package ModelLayer;
 
 
 /**
- * Write a description of class Copy here.
+ * Aggregation of DVDContainer
  * 
- * @author (your name) 
+ * @author Group 3
  * @version (a version number or a date)
  */
-public class Copy
+public class Copy extends DVDContainer
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int serialNumber;
+    private String purchaseDate;
+    private double purchasePrice;
 
     /**
      * Constructor for objects of class Copy
      */
     public Copy()
     {
-        // initialise instance variables
-        x = 0;
+        serialNumber = 24;
+        purchaseDate = "29/04/2014";
+        purchasePrice = 9001;
+    }
+    
+    /**
+    * getSerialNumber() - Returns the SerialNumber
+    * @return serialNumber
+    */
+    public int getSerialNumber(){
+    	return serialNumber;
+    }
+    
+    /**
+    * setSerialNumber() - sets the SerialNumber
+    * @param serialNumber - value as int
+    */
+    public void setSerialNumber(int serialNumber){
+    	this.serialNumber = serialNumber;
+    }
+    
+    /**
+    * getPurchaseDate() - Returns the PurchaseDate
+    * @return purchaseDate
+    */
+    public String getPurchaseDate(){
+    	return purchaseDate;
+    }
+    
+    /**
+    * setPurchaseDate() - sets the PurchaseDate
+    * @param purchaseDate - value as String
+    */
+    public void setPurchaseDate(String purchaseDate){
+    	this.purchaseDate = purchaseDate;
+    }
+    
+    /**
+    * getPurchasePrice() - Returns the PurchasePrice
+    * @return purchasePrice
+    */
+    public double getPurchasePrice(){
+    	return purchasePrice;
+    }
+    
+    /**
+    * setPurchasePrice() - sets the PurchasePrice
+    * @param purchasePrice - value as double
+    */
+    public void setPurchasePrice(double purchasePrice){
+    	this.purchasePrice = purchasePrice;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }
