@@ -125,7 +125,7 @@ public class DVDCtr
         if(dvd != null){
             dvd.deleteCopy(dvd.getCopy(serialNumber));
         } else {
-            throw new NullPointerException("DVD not found");
+            throw new NullPointerException("DVD was not found");
         }
     }
     
@@ -138,12 +138,14 @@ public class DVDCtr
         }
     }
     
-    
-    public void deleteDVD(long id)
+    public void deleteDVD(int dvdID)
     {
-        
-        //search for the dvd and delete the object from the container
-       
+        DVD dvd = dvdCon.getDVD(dvdID);
+        if(dvd != null){
+            dvd.deleteDVD(dvdID);
+        } else {
+            throw new NullPointerExceptopn("DVD was not found");
+        }
     }
     
     public String listAllDvds()
