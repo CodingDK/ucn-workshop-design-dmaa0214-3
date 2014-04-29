@@ -200,7 +200,7 @@ public class DvdUI{
             System.out.print("What's the ID of the dvd you want to delete a copy from?" );
             int dvdID = keyboard.nextInt();
             keyboard.nextLine();
-            System.out.print(getCopys(dvdID));
+            System.out.print(getCopies(dvdID));
             System.out.print();
             System.out.print("What's the serialnumber of the copy you want to delete?" );
             int deleteID = keyboard.nextInt();
@@ -283,7 +283,7 @@ public class DvdUI{
             
             DVDCtr dvdCtr = new DVDCtr();
             
-            System.out.println("Select Copy(" + dvdCtr.getCopys(dvdID) + ")");
+            System.out.println("Select Copy(" + dvdCtr.getCopyies(dvdID) + ")");
             System.out.print("Serial Number: ");
             int serialNumber = keyboard.nextInt();
             keyboard.nextLine();
