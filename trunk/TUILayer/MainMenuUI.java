@@ -1,37 +1,35 @@
-package TUILayer;//makes this class a part of the TUILayer package
+package TUILayer;
 import java.util.*;
 import java.io.*;
-import ControlLayer.*;//The TUILayer needs to know the ControlLayer
+import ControlLayer.*;
 /**
  * 
  * User interface - main menu
  * The entry-point for the application:
  * Create an instance of class MainMenuUI and the constructor starts the application
  * 
- * @author (kbh) 
- * @version (2005.03.31)
- * (FEN): 2006.02.24: Comments translated into English
- * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
- *                    and loose coupling
- *                    
- * (KBH): 2008.10.24: Change af manimenuStart to if
+ * @author Group 3
+ * @version 0.3
  */
 public class MainMenuUI
 {
-  //the reference to the ControlLayer
-   private AddressBookUI adrUI;//references to other UI objects
+   private AddressBookUI adrUI;
    private DvdUI dvdUI;
    
-   public MainMenuUI()
-   {
-  
-      
+   /**
+    * Constructor for the MainMenuUI.
+    */
+   public MainMenuUI(){
+       adrUI = null;
+       dvdUI = null;
    }
    
-   public void mainMenuStart()
-   {
+   /**
+    * mainMenuStart - Make the main menu.
+    */
+   public void mainMenuStart(){
         boolean exit=false;
-        while (!exit){ //! means while exit not is true (that is: false)
+        while (!exit){
             int choice = writeMainMenu();
             if(choice == 1){
                 startAddressBook();
@@ -44,13 +42,14 @@ public class MainMenuUI
                 exit = true;
             }else if(choice == 5){
                 test();
-            }
-                  
-        }//end while
-    }//end start
-    
-   private int writeMainMenu()
-    {       
+            }     
+        }
+   }
+   
+   /**
+    * writeMainStart - Write the main menu.
+    */
+   private int writeMainMenu(){       
             // creates a keyboard object to read input
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** MainMenu ***");
@@ -66,20 +65,30 @@ public class MainMenuUI
             return choice;
     }
     
-    private void startAddressBook()
-    {
+    /**
+     * startAddressBook - Start the AddressBookUI.
+     */
+    private void startAddressBook(){
         adrUI = new AddressBookUI();
     }
 
-    private void startDvd()
-    {
+    /**
+     * startDvd - Start the DvdUI.
+     */
+    private void startDvd(){
         dvdUI = new DvdUI();
     }
-    private void writeEnd()
-    {
+    
+    /**
+     * writeEnd - Write the shutdown confirm.
+     */
+    private void writeEnd(){
         System.out.println(" The System is shuting down ");
     }
     
+    /**
+     * test - make some test persons in the system.
+     */
     private void test(){
         AddressCtr addrCtr = new AddressCtr();
         addrCtr.createPerson("Lasse", "address", 8800, "Noget", "+4598642601");

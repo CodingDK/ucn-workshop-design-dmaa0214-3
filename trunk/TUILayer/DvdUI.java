@@ -203,10 +203,10 @@ public class DvdUI{
             System.out.print(getCopies(dvdID));
             System.out.print();
             System.out.print("What's the serialnumber of the copy you want to delete?" );
-            int deleteID = keyboard.nextInt();
-            if(confirm("Are you sure you wish to delete the copy with the following serialnumber: " + deleteID)){
-                dvdCtr.deleteDVD(deleteID);
-                System.out.println(deleteID + " was deleted");
+            int copyID = keyboard.nextInt();
+            if(confirm("Are you sure you wish to delete the copy with the following serialnumber: " + copyID)){
+                dvdCtr.deleteCopy(dvdID, copyID);
+                System.out.println(copyID + " was deleted");
                 pause();
             }
         }catch(InputMismatchException e1){
