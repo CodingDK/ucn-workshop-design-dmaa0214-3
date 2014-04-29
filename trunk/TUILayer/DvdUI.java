@@ -283,7 +283,7 @@ public class DvdUI{
             
             DVDCtr dvdCtr = new DVDCtr();
             
-            System.out.println("Select Copy(" + dvdCtr.getCopyies(dvdID) + ")");
+            System.out.println("Select Copy(" + dvdCtr.getCopies(dvdID) + ")");
             System.out.print("Serial Number: ");
             int serialNumber = keyboard.nextInt();
             keyboard.nextLine();
