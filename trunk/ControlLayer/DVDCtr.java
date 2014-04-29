@@ -107,7 +107,20 @@ public class DVDCtr
         
     }
     
-    // updateCopy -- Lasse 
+     public void updateCopy(int dvdID, int serialNumber, String purchaseDate, double purchasePrice){
+        DVD dvd = dvdCon.getDVD(dvdID);
+        if(dvd != null){
+            Copy copy = dvd.getCopy(serialNumber);
+            if(copy != null){
+                copy.setPurchaseDate(purchaseDate);
+                copy.setPurchasePrice(purchasePrice);
+            } else{
+                throw new NullPointerException("Copy was not found");            
+            }
+        throw new NullPointerException("DVD was not found");
+        }
+    } 
+
     
     /**
      * @param dvdID ID of the DVD
