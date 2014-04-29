@@ -7,7 +7,7 @@ package ModelLayer;
  * @author Group 3
  * @version (a version number or a date)
  */
-public class Copy extends DVDContainer
+public class Copy
 {
     private int serialNumber;
     private String purchaseDate;
