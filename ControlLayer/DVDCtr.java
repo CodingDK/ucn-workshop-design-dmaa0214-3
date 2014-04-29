@@ -139,7 +139,18 @@ public class DVDCtr
     
     public String listAllDvds()
     {
-          //returns a list of all dvds and their associated copies
-          return null;
+          ArrayList<DVD> dvd = dvdCon.getAllDVDs();
+          
+          String nLine = System.getProperty("line.separator");
+          String returnString = "### All DVD ###" + nLine;
+          if(!dvd.isEmpty()) {
+              for(DVD d : dvd) {
+                  returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
+                  + ", Publication date: " + d.getPublicationDate() + nLine;
+              }
+          } else {
+              throw new NullPointerException("DVD list was not found");
+          }
+          return returnString; 
     }
 }
