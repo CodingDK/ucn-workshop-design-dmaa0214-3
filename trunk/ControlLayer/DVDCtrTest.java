@@ -45,6 +45,15 @@ public class DVDCtrTest
     @Test
     public void DVDTest()
     {
+        ControlLayer.DVDCtr dVDCtr1 = new ControlLayer.DVDCtr();
+        dVDCtr1.createDVD("Batman", "Lars", "01-01-2014");
+        assertEquals("\r\nID: 1 Title: Batman Artist: Lars Publication Date: 01-01-2014", dVDCtr1.getDVDInfo(1));
+        dVDCtr1.addCopy(1, "02-02-2014", 100);
+        assertEquals("(1000)", dVDCtr1.getCopies(1));
+        dVDCtr1.deleteCopy(1, 1000);
+        dVDCtr1.updateDVD(1, "Batman 2", "Lasse", "01-02-2014");
+        assertEquals("\r\nID: 1 Title: Batman 2 Artist: Lasse Publication Date: 01-02-2014", dVDCtr1.getDVDInfo(1));
     }
 }
+
 

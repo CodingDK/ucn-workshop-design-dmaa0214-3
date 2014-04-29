@@ -37,7 +37,7 @@ public class DVDCtr{
         String nLine = System.getProperty("line.separator");
         
         if(d != null){
-            return nLine + "ID: " + d.getID() + "Title: " + d.getTitle() + "Artist: " + d.getArtist() + "Publication Date: " + d.getPublicationDate() ; 
+            return nLine + "ID: " + d.getID() + " Title: " + d.getTitle() + " Artist: " + d.getArtist() + " Publication Date: " + d.getPublicationDate() ; 
         } else {
             throw new NullPointerException("DVD was not found");
         }
