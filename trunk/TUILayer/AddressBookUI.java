@@ -80,14 +80,14 @@ public class AddressBookUI{
             Scanner keyboard = new Scanner(System.in);
             System.out.print("Name: ");
             String name = keyboard.nextLine();
-            if(name.isEmpty()){
-                System.out.println("Name cant be empty!");
+            if(name.trim().isEmpty()){
+                System.out.println("Name can't be empty!");
                 pause();
                 return;
             }
             System.out.print("Address: ");
             String address = keyboard.nextLine();
-            if(address.isEmpty()){
+            if(address.trim().isEmpty()){
                 System.out.println("Address cant be empty!");
                 pause();
                 return;
@@ -99,7 +99,7 @@ public class AddressBookUI{
             
             System.out.print("City: ");
             String city = keyboard.nextLine();
-            if(city.isEmpty()){
+            if(city.trim().isEmpty()){
                 System.out.println("City cant be empty!");
                 pause();
                 return;
@@ -129,7 +129,7 @@ public class AddressBookUI{
         try{
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("What's the ID of the person you will delete from the address book?");
+            System.out.println("What's the ID of the person you want to delete from the address book?");
             int deleteID = keyboard.nextInt();
             if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID)){
                 addrCtr.deletePerson(deleteID);
@@ -278,10 +278,10 @@ public class AddressBookUI{
             System.out.println(confirmStatement);
             System.out.println("Confirm - y/n");
             String conf = s.nextLine();
-            if(conf.equals("y")){
+            if(conf.toLowerCase().equals("y")){
                 confirm = true;
                 exit = true;
-            }else if(conf.equals("n")){
+            }else if(conf.toLowerCase().equals("n")){
                 confirm = false;
                 exit = true;
             }
