@@ -201,7 +201,7 @@ public class DvdUI{
             int dvdID = keyboard.nextInt();
             keyboard.nextLine();
             System.out.print(dvdCtr.getCopies(dvdID));
-            System.out.print();
+            System.out.print("");
             System.out.print("What's the serialnumber of the copy you want to delete?" );
             int copyID = keyboard.nextInt();
             if(confirm("Are you sure you wish to delete the copy with the following serialnumber: " + copyID)){
@@ -300,7 +300,6 @@ public class DvdUI{
             double purPrice = keyboard.nextDouble();
             
             if(confirm("Update Copy(" + serialNumber + ") to (Purchase Date: " + purDate + " / Purchase Price:" + purPrice + ")")){
-                DVDCtr dvdCtr = new DVDCtr();
                 dvdCtr.updateCopy(dvdID, serialNumber, purDate, purPrice);
             }
             

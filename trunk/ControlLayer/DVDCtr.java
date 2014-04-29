@@ -171,7 +171,7 @@ public class DVDCtr
         }
     }
     
-    public String listAllDvds()
+    public String listAllDVDs()
     {
           ArrayList<DVD> dvd = dvdCon.getAllDVDs();
           
