@@ -42,6 +42,8 @@ public class MainMenuUI
             }else if(choice == 4){
                 writeEnd();
                 exit = true;
+            }else if(choice == 5){
+                test();
             }
                   
         }//end while
@@ -56,6 +58,7 @@ public class MainMenuUI
             System.out.println(" (2) DVDs");
             System.out.println(" (3) Loan");
             System.out.println(" (4) Close");
+            System.out.println(" (5) Test");
             System.out.print("\n Make your choice: ");
             
             int choice = keyboard.nextInt();
@@ -75,5 +78,11 @@ public class MainMenuUI
     private void writeEnd()
     {
         System.out.println(" The System is shuting down ");
+    }
+    
+    private void test(){
+        AddressCtr addrCtr = new AddressCtr();
+        addrCtr.createPerson("Lasse", "address", 8800, "Noget", "+4598642601");
+        addrCtr.createPerson("Lau", "address", 8800, "Noget", "+4598642601");
     }
  }
