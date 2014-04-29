@@ -129,7 +129,7 @@ public class AddressBookUI{
         try{
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("What's the ID of the person you want to delete from the address book?");
+            System.out.print("What's the ID of the person you want to delete from the address book?" );
             int deleteID = keyboard.nextInt();
             String name = addrCtr.getNameByID(deleteID);
             if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID + " " + name)){
@@ -155,7 +155,7 @@ public class AddressBookUI{
         try {
             AddressCtr addrCtr = new AddressCtr();
             int printID;
-            System.out.println("What's the ID of the person you want to print?");
+            System.out.print("What's the ID of the person you want to print? ");
             Scanner keyboard = new Scanner(System.in);
             printID = keyboard.nextInt();
             System.out.println(addrCtr.getPersonInfo(printID));
@@ -181,10 +181,10 @@ public class AddressBookUI{
             int id;
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("What's the ID of the person?");
+            System.out.print("What's the ID of the person? ");
             id = keyboard.nextInt();
     
-            System.out.println("What's the new address?");
+            System.out.print("What's the new address? ");
             addr = keyboard.nextLine();
             if(addr.trim().isEmpty()){
                 System.out.println("Screw you!");
@@ -192,10 +192,10 @@ public class AddressBookUI{
                 return;
             }
     
-            System.out.println("What's the new city?");
+            System.out.print("What's the new city? ");
             city = keyboard.nextLine();
             
-            System.out.println("What's the new postal code?");
+            System.out.print("What's the new postal code? ");
             postalCode = keyboard.nextInt();
             if(confirm("Are you sure you wish to change the location to: " + addr + ", " + postalCode + ", " + city)){
                 addrCtr.changeLocation(id, addr, postalCode, city);
@@ -219,9 +219,9 @@ public class AddressBookUI{
             int nameID;
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("What's the new name?");
+            System.out.print("What's the new name? ");
             name = keyboard.nextLine();
-            System.out.println("What's the ID of the person?");
+            System.out.print("What's the ID of the person? ");
             nameID = keyboard.nextInt();
             if(confirm("Do you wish to change to name to: " + name)){
                 addrCtr.changeName(nameID, name);
