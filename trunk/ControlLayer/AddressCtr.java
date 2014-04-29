@@ -7,6 +7,11 @@ import ModelLayer.*;
  * 
  * @author Group 3
  * @version 0.2
+ * 
+ * 
+ * 
+ * 
+ * getNameByID
  */
 public class AddressCtr
 {
@@ -120,5 +125,15 @@ public class AddressCtr
             throw new NullPointerException("The addressbook is empty");
         }
         return returnString;
+    }
+    
+    
+    public String getNameByID(int id){
+        Person p = addressBook.getPerson(id);
+        if(p != null){
+            return p.getName();
+        } else {
+            throw new NullPointerException("Person was not found");
+        }
     }
 }

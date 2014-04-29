@@ -106,7 +106,7 @@ public class AddressBookUI{
             }
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
-            if(phone.trim().length() < 11){
+            if(phone.trim().length() < 8){
                 System.out.println("Phone number cant be less than 11");
                 pause();
                 return;
@@ -166,6 +166,9 @@ public class AddressBookUI{
     
     /**
      * Methods for change location
+     * 
+     * 
+     * ASDASDASDASD
      */
     private void changeLocation(){
         try{
@@ -180,6 +183,11 @@ public class AddressBookUI{
     
             System.out.println("What's the new address?");
             addr = keyboard.nextLine();
+            if(addr.trim().isEmpty()){
+                System.out.println("Screw you!");
+                pause();
+                return;
+            }
     
             System.out.println("What's the new city?");
             city = keyboard.nextLine();
@@ -198,6 +206,9 @@ public class AddressBookUI{
     
     /**
      * Methods for change name
+     * 
+     * 
+     * ASDASDASDASD
      */
     private void changeName(){
         try{
@@ -221,6 +232,8 @@ public class AddressBookUI{
      
     /**
      * Methods for change phone
+     * 
+     * ASDASDASDASD
      */
     private void changePhone(){
         try{
@@ -230,7 +243,7 @@ public class AddressBookUI{
             int id = keyboard.nextInt();
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
-            if(phone.trim().length() < 11){
+            if(phone.trim().length() < 8){
                 System.out.println("The phone number must be atleast 11 chars long");
                 pause();
                 return;
