@@ -1,5 +1,5 @@
 package ControlLayer;
-import java.util.ArrayList;
+import java.util.*;
 import ModelLayer.*;
 //model layer package has to be imported
 /**
@@ -57,9 +57,6 @@ public class DVDCtr
         }
     }
     
-    /**
-     * Dummy
-     */
     public void createCopy(int dvdID, String purchaseDate, double purchasePrice){
         DVD d = dvdCon.getDVD(dvdID);
         if(d != null){
@@ -67,8 +64,27 @@ public class DVDCtr
         }else{
             throw new NullPointerException("DVD was not found");
         }
-       
-        
+    }
+    
+    public String getCopies(int dvdID){
+        DVD d = dvdCon.getDVD(dvdID);
+        if(d != null){
+            HashSet<Copy> copies = d.getCopies();
+            if(!copies.isEmpty()){
+                String returnString = "(";
+                for(Copy c : copies){
+                    returnString += c.getSerialNumber() + ", ";
+                }
+                
+                returnString = returnString.substring(0, returnString.length()-2) + ")";
+                
+                return returnString;
+            }else{
+                throw new NullPointerException("There are no Copies of that DVD");
+            }
+        }else{
+            throw new NullPointerException("DVD was not found");
+        }
     }
 
   
