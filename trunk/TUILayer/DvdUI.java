@@ -245,11 +245,7 @@ public class DvdUI{
             return;
         }
     }
-    /**
-     * updateDVD(int id, String title, String artist, String publicationDate);
-     * updateCopy(int dvdID, int serialNumber, String purchaseDate, double purchasePrice);
 
-     */
     private void updateCopy(){
         try{
             Scanner keyboard = new Scanner(System.in);

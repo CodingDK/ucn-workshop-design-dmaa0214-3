@@ -68,10 +68,10 @@ public class DVDContainer
     }
     
     /**
-     * getAllDVDS - Get the ArrayList of the dvd objects.
+     * getAllDVDs - Get the ArrayList of the dvd objects.
      * @return ArrayList<DVD> The list of the dvd objects.
      */
-    public ArrayList<DVD> getAllDVDS(){
+    public ArrayList<DVD> getAllDVDs(){
         return dvds;
     }
     
