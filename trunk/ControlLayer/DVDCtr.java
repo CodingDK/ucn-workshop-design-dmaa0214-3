@@ -2,7 +2,6 @@ package ControlLayer;
 import java.util.ArrayList;
 import ModelLayer.*;
 //model layer package has to be imported
-// Skal beholdes
 /**
  * Controller class for the DVD collection
  * 
@@ -26,7 +25,7 @@ public class DVDCtr
         //set up references to containers
         dvdCon = DVDContainer.getInstance();
     }
-       
+
     /**
      * 
      * @param title Title of the DVD
@@ -58,15 +57,13 @@ public class DVDCtr
         }
     }
     
-
-    // Lau
+    /**
+     * Dummy
+     */
     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
         
     }
 
-    
-    
-    // getCopy -- Lau
   
     /**
      * addCopy - Adding a copy of a DVD
@@ -140,9 +137,6 @@ public class DVDCtr
        
     }
     
-    /**
-     * Lasse
-     */
     public String listAllDvds()
     {
           //returns a list of all dvds and their associated copies
