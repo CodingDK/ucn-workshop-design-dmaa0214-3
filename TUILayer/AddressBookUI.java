@@ -15,17 +15,11 @@ import ControlLayer.*;//The TUILayer needs to know the ControlLayer
  */
 public class AddressBookUI{   
     
-    public AddressBookUI()
-    {
-        AddressCtr addrCtr = new AddressCtr();
-        addrCtr.createPerson("Lasse", "address", 8800, "Noget", "+4598642601");
-        addrCtr.createPerson("Lau", "address", 8800, "Noget", "+4598642601");
-        
+    public AddressBookUI(){
         addressMenu();
     }
     
-    private void addressMenu()
-    {
+    private void addressMenu(){
        boolean exit = false;
        
        while(!exit)//that is: while exit is false
