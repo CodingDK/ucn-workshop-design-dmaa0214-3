@@ -43,15 +43,6 @@ public class DVDCtr{
         }
     }
     
-    public void createCopy(int dvdID, String purchaseDate, double purchasePrice){
-        DVD d = dvdCon.getDVD(dvdID);
-        if(d != null){
-            d.createCopy(purchaseDate, purchasePrice);
-        } else {
-            throw new NullPointerException("DVD was not found");
-        }
-    }
-    
     public String getCopies(int dvdID){
         DVD d = dvdCon.getDVD(dvdID);
         if(d != null){
@@ -119,7 +110,8 @@ public class DVDCtr{
             } else {
                 throw new NullPointerException("Copy was not found");            
             }
-        throw new NullPointerException("DVD was not found");
+        } else {
+            throw new NullPointerException("DVD was not found");
         }
     } 
     
