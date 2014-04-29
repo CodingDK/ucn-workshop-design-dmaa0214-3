@@ -15,6 +15,7 @@ public class DVDCtr
 {
     //declare instance variables to reference containers
     private DVDContainer dvdCon;
+    private DVD dvd;
 
     /**
      * Constructor for objects of class DVDCtr
@@ -48,12 +49,13 @@ public class DVDCtr
      * @param ID the id of the DVD.
      * @return String of the dvd information. 
      */
-    public String getDVDInfo(int id){
-        DVDContainer d = dvdcon.
+    public String getDVDInfo(int id){ 
+        DVD d = dvdCon.getDVD(id);
+        
         String nLine = System.getProperty("line.separator");
         
         if(d != null){
-            return nLine + "ID: " ; 
+            return nLine + "ID: " + id + "Title: " + d.getTitle() + "Artist: " + d.getArtist() + "Publication Date: " + d.getPublicationDate() ; 
         }
         else {
             throw new NullPointerException("DVD was not found");
