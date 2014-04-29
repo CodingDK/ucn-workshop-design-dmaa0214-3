@@ -6,17 +6,16 @@ import ModelLayer.*;
  * Controller class for the address book
  * 
  * @author Group 3
- * @version 0.2
+ * @version 0.3
  * 
- * 
- * 
- * 
- * getNameByID
  */
 public class AddressCtr
 {
     private AddressBook addressBook;
-        
+    
+    /**
+     * Constructor for controller AddressCtr.
+     */
     public AddressCtr(){
         addressBook = AddressBook.getInstance();
     }
@@ -127,7 +126,11 @@ public class AddressCtr
         return returnString;
     }
     
-    
+    /**
+     * getNameByID - Get a persons name by the id of the person.
+     * @param id - The id of the person obejct.
+     * @return String with the name of the person.
+     */
     public String getNameByID(int id){
         Person p = addressBook.getPerson(id);
         if(p != null){
