@@ -161,8 +161,7 @@ public class DVDCtr
         }
     }
     
-    public void deleteDVD(int dvdID)
-    {
+    public void deleteDVD(int dvdID) {
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
             dvdCon.deleteDVD(dvdID);
