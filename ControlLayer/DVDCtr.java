@@ -140,12 +140,7 @@ public class DVDCtr
     
     public void deleteDVD(int dvdID)
     {
-        DVD dvd = dvdCon.getDVD(dvdID);
-        if(dvd != null){
-            dvd.deleteDVD(dvdID);
-        } else {
-            throw new NullPointerExceptopn("DVD was not found");
-        }
+        dvdCon.deleteDVD(dvdID);
     }
     
     public String listAllDvds()

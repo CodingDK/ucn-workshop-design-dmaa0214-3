@@ -24,8 +24,8 @@ public class DVDContainer
     /**
      * Removes the DVD Object by ID
      */
-    public void deleteDVD(int id){
-        dvds.remove(getDVD(id));
+    public void deleteDVD(int dvdID){
+        dvds.remove(getDVD(dvdID));
     }
 
     /**
