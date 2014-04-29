@@ -73,7 +73,7 @@ public class MainMenuUI
 
     private void startDvd()
     {
-        dvdUI= new DvdUI();
+        dvdUI = new DvdUI();
     }
     private void writeEnd()
     {
