@@ -1,8 +1,7 @@
-package TUILayer;
+package TUILayer;//makes this class a part of the TUILayer package
 import java.util.*;
 import java.io.*;
-import ControlLayer.*;
- 
+import ControlLayer.*;//The TUILayer needs to know the ControlLayer
 
 /**
  * User interface class to the AddressBook
@@ -12,16 +11,10 @@ import ControlLayer.*;
  */
 public class AddressBookUI{   
     
-    /**
-     * AddressBookUI - Constructor for DvdUI.
-     */
     public AddressBookUI(){
         addressMenu();
     }
     
-    /**
-     * addressMenu - Make the addressMenu.
-     */
     private void addressMenu(){
        boolean exit = false;
        
