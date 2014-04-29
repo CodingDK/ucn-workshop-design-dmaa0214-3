@@ -129,6 +129,15 @@ public class DVDCtr
         }
     }
     
+    public String getTitleByID(int dvdID){
+        DVD dvd = dvdCon.getDVD(dvdID);
+        if(dvd != null){
+            return dvd.getTitle();
+        }else{
+            throw new NullPointerException("DVD not found");
+        }
+    }
+    
     
     public void deleteDVD(long id)
     {
