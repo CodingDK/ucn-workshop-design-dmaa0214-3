@@ -5,8 +5,8 @@ import ModelLayer.*;
 /**
  * Controller class for the address book
  * 
- * @author group 3
- * @version 0.1
+ * @author Group 3
+ * @version 0.2
  */
 public class AddressCtr
 {
