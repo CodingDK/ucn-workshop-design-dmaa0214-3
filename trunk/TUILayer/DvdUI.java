@@ -77,7 +77,7 @@ public class DvdUI{
             int dvdID = keyboard.nextInt();
             
             DVDCtr dvdCtr = new DVDCtr();
-            //System.out.println(dvdCtr.getDVDInfo(dvdID));
+            System.out.println(dvdCtr.getDVDInfo(dvdID));
             pause();        
         }catch(InputMismatchException e){
             System.out.println("Invalid values");

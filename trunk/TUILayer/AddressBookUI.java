@@ -18,38 +18,28 @@ public class AddressBookUI{
     private void addressMenu(){
        boolean exit = false;
        
-       while(!exit)//that is: while exit is false
-       {
+       while(!exit){
           int choice = writeAddressBookMenu(); 
-          if(choice == 1)
-          {   //show person
+          if(choice == 1){
               printPerson();
-          }
-          else if(choice == 2){
+          }else if(choice == 2){
               createPerson();
-          }  
-          else if(choice == 3){
+          }else if(choice == 3){
               deletePerson();
-          }  
-          else if(choice == 4){
+          }else if(choice == 4){
               updatePersonMenu();
-              // update person
-          }
-          else if(choice == 5){
+          }else if(choice == 5){
               listAllPersons();
-          }
-          else if(choice == 6){
+          }else if(choice == 6){
               exit = true;
           }
-          
-       }//end while
+       }
     }
     
     /**
      * writeAddressBookMenu - Menu for the addressbook.
      */
-    private int writeAddressBookMenu()
-    {      // makes an object keyboard to read input from the screen
+    private int writeAddressBookMenu(){
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** AddressBook Menu ***");
             System.out.println(" (1) Show information about person");
@@ -67,8 +57,7 @@ public class AddressBookUI{
     /**
      * writeUpdatePersonMenu - Menu for updating a person.
      */
-    private int writeUpdatePersonMenu()
-    {
+    private int writeUpdatePersonMenu(){
            Scanner keyboard = new Scanner(System.in);
            System.out.println("\f *** Update person Menu ***");
            System.out.println("(1) Change location");
@@ -88,22 +77,17 @@ public class AddressBookUI{
         boolean exit = false;   
         while(!exit){ 
             int c = writeUpdatePersonMenu();
-               if(c == 1){
-                   changeLocation();
-                }
-                else if(c == 2){
-                    changeName();
-                }
-                else if(c == 3){
-                    changePhone();
-                }
-                else if(c == 4){
-                    exit = true;
-                }
+            if(c == 1){
+                changeLocation();
+            }else if(c == 2){
+                changeName();
+            }else if(c == 3){
+                changePhone();
+            }else if(c == 4){
+                exit = true;
+            }
         }
     }
-    
-    
     
     /**
      * Methodes for creating a person.
@@ -112,6 +96,7 @@ public class AddressBookUI{
         try{
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
+            
             System.out.print("Name: ");
             String name = keyboard.nextLine();
             if(name.trim().isEmpty()){
@@ -119,6 +104,7 @@ public class AddressBookUI{
                 pause();
                 return;
             }
+            
             System.out.print("Address: ");
             String address = keyboard.nextLine();
             if(address.trim().isEmpty()){
@@ -126,6 +112,7 @@ public class AddressBookUI{
                 pause();
                 return;
             }
+            
             System.out.print("PostalCode: ");
             int postalCode = keyboard.nextInt();
             
@@ -138,6 +125,7 @@ public class AddressBookUI{
                 pause();
                 return;
             }
+            
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 8){
@@ -145,6 +133,7 @@ public class AddressBookUI{
                 pause();
                 return;
             }
+            
             if(confirm("Add Person(Name: " + name + ", Address: " + address + ", Postalcode: " + postalCode + ", City: " + 
             city + ", Phone Number: " + phone + ")")){
                 addrCtr.createPerson(name, address, postalCode, city, phone);
@@ -163,9 +152,11 @@ public class AddressBookUI{
         try{
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
+            
             System.out.print("What's the ID of the person you want to delete from the address book?" );
             int deleteID = keyboard.nextInt();
             String name = addrCtr.getNameByID(deleteID);
+            
             if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID + " " + name)){
                 addrCtr.deletePerson(deleteID);
                 System.out.println(name + " was deleted");
@@ -188,16 +179,19 @@ public class AddressBookUI{
     private void printPerson(){
         try {
             AddressCtr addrCtr = new AddressCtr();
-            int printID;
             System.out.print("What's the ID of the person you want to print? ");
             Scanner keyboard = new Scanner(System.in);
-            printID = keyboard.nextInt();
+            int printID = keyboard.nextInt();
             System.out.println(addrCtr.getPersonInfo(printID));
             pause();
         }catch(InputMismatchException e1){
             System.out.println("Invalid values");
+            pause();
+            return;
         }catch (NullPointerException e) {
             System.out.println(e);
+            pause();
+            return;
         }
     }
     
@@ -206,27 +200,22 @@ public class AddressBookUI{
      */
     private void changeLocation(){
         try{
-            String addr;
-            String city;
-            int postalCode;
-            int id;
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.print("What's the ID of the person? ");
-            id = keyboard.nextInt();
-            
+            System.out.print("What's the ID of the person?: ");
+            int id = keyboard.nextInt();
             keyboard.nextLine();
     
-            System.out.print("What's the new address? ");
-            addr = keyboard.nextLine();
+            System.out.print("What's the new address?: ");
+            String addr = keyboard.nextLine();
             if(addr.trim().isEmpty()){
                 System.out.println("address can't be empty!");
                 pause();
                 return;
             }
     
-            System.out.print("What's the new city? ");
-            city = keyboard.nextLine();
+            System.out.print("What's the new city?: ");
+            String city = keyboard.nextLine();
             if(city.trim().isEmpty()){
                 System.out.println("City can't be empty!");
                 pause();
@@ -234,17 +223,18 @@ public class AddressBookUI{
             }
             
             System.out.print("What's the new postal code? ");
-            postalCode = keyboard.nextInt();
-            if(addr.trim().isEmpty()){
-                System.out.println("Postalcode can't be empty!");
-                pause();
-                return;
-            }
+            int postalCode = keyboard.nextInt();
+            keyboard.nextLine();
+            
             if(confirm("Are you sure you wish to change the location to: " + addr + ", " + postalCode + ", " + city)){
                 addrCtr.changeLocation(id, addr, postalCode, city);
             }
         } catch (InputMismatchException e){
-            System.out.println(e);
+            System.out.println("Invalid values");
+            pause();
+            return;
+        } catch (NullPointerException e1){
+            System.out.println(e1);
             pause();
             return;
         }
@@ -255,21 +245,24 @@ public class AddressBookUI{
      */
     private void changeName(){
         try{
-            String name;        
-            int nameID;
             AddressCtr addrCtr = new AddressCtr();
             Scanner keyboard = new Scanner(System.in);
-            System.out.print("What's the new name? ");
-            name = keyboard.nextLine();
-            System.out.print("What's the ID of the person? ");
-            nameID = keyboard.nextInt();
+            System.out.print("What's the new name?: ");
+            String name = keyboard.nextLine();
+            System.out.print("What's the ID of the person?: ");
+            int nameID = keyboard.nextInt();
+            
             if(confirm("Do you wish to change to name to: " + name)){
                 addrCtr.changeName(nameID, name);
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
+            pause();
+            return;
         }catch(NullPointerException e1){
             System.out.println(e1);
+            pause();
+            return;
         }
     }
      
@@ -282,7 +275,6 @@ public class AddressBookUI{
             Scanner keyboard = new Scanner(System.in);
             System.out.print("Person ID: ");
             int id = keyboard.nextInt();
-            
             keyboard.nextLine(); // Consumes the new line when enter is pressed.
             
             System.out.print("Phone Number: ");

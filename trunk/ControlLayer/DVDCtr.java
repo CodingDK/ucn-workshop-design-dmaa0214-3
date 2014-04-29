@@ -51,8 +51,7 @@ public class DVDCtr
         
         if(d != null){
             return nLine + "ID: " + d.getID() + "Title: " + d.getTitle() + "Artist: " + d.getArtist() + "Publication Date: " + d.getPublicationDate() ; 
-        }
-        else {
+        } else {
             throw new NullPointerException("DVD was not found");
         }
     }
