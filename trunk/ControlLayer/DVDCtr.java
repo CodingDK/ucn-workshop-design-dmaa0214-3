@@ -26,18 +26,7 @@ public class DVDCtr
         //set up references to containers
         dvdCon = DVDContainer.getInstance();
     }
-    
-    //Dummy implementation: after implementing the model layer 
-    //objects of class DVD are to be returned, not String
-    public String findDVD( int no)
-    {
-        //this method is to search the container for a DVD
-        //with an id-number equal to the parameter no
-        //when the dvd is found, the method is to call print-methods in the TUI layer
        
-       return "dvd"; 
-    }
-    
     /**
      * 
      * @param title Title of the DVD
@@ -78,12 +67,7 @@ public class DVDCtr
     
     
     // getCopy -- Lau
-    /**
-     * addCopy - Adding a copy of a DVD
-     * @Param dvdID of the DVD.
-     * @param purchaseDate when it is purchased.
-     * @param purchasePrice is the price of the dvd.
-     */
+  
     /**
      * addCopy - Adding a copy of a DVD
      * @Param dvdID of the DVD.
@@ -148,8 +132,6 @@ public class DVDCtr
         }
     }
     
-    // listAllDVD -- Lasse
-      // number of copies - get copies i hashSet
     
     public void deleteDVD(long id)
     {
@@ -158,12 +140,9 @@ public class DVDCtr
        
     }
     
-    public void createCopy(long id)
-    {
-        //create a copy of the specified dvd and add it to the dvd
-    }
-    
-    
+    /**
+     * Lasse
+     */
     public String listAllDvds()
     {
           //returns a list of all dvds and their associated copies
