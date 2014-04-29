@@ -22,7 +22,7 @@ public class DvdUI{
         while(!exit){
             int choice = writeDVDMenu();
             if (choice == 1){
-                getDVD();
+                printDVD();
             }else if(choice == 2){
                 createDVD();
             }else if(choice == 3){
@@ -60,7 +60,7 @@ public class DvdUI{
         return choice;
     }
     
-    private void getDVD(){
+    private void printDVD(){
         try{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f ### DVD Information ###");
