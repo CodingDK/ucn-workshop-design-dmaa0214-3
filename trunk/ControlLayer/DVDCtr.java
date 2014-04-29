@@ -2,6 +2,7 @@ package ControlLayer;
 import java.util.ArrayList;
 import ModelLayer.*;
 //model layer package has to be imported
+// Denne skal beholdes
 /**
  * Controller class for the DVD collection
  * 
