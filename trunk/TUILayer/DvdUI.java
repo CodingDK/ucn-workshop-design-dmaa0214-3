@@ -208,7 +208,14 @@ public class DvdUI{
     }
     
     private void listAll(){
-        DVDCtr dvdCtr = new DVDCtr();
+        try{
+            DVDCtr dvdCtr = new DVDCtr();
+            System.out.println(dvdCtr.listAllDVDs());
+            pause();
+        }catch(NullPointerException e){
+            System.out.println(e);
+            pause();
+        }
     }
     
     private void pause(){
