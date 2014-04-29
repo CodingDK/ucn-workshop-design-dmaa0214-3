@@ -79,13 +79,22 @@ public class DVDCtr
     
     // getCopy -- Lau
     
+    /**
+     * addCopy - Adding a copy of a DVD
+     * @Param dvdID of the DVD.
+     * @param purchaseDate when it is purchased.
+     * @param purchasePrice is the price of the dvd.
+     */
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
         DVD d = dvdCon.getDVD(dvdID);
-        
+        if(d != null){
         d.createCopy(purchaseDate, purchasePrice);
-       
+        } else{
+            throw new NullPointerException("DVD ID was not found");
+        }
         
     }
+
     
     /**
      * Changes the DVD info based on the parameters
