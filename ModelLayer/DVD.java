@@ -21,7 +21,7 @@ public class DVD{
      * @param artist The artist of the dvd.
      * @param publicationDate The publicationDate of the dvd.
      */
-    public DVD(String title, String artist, String publicationDate) {
+    public DVD(String title, String artist, String publicationDate){
         copies = new HashSet<Copy>();
         idIterator++;
         this.id = idIterator;

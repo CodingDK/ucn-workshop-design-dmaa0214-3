@@ -7,8 +7,7 @@ import java.util.*;
  * @author Group 3 
  * @version 0.3
  */
-public class DVDContainer
-{
+public class DVDContainer{
     // instance variables
     private static DVDContainer instance;
     private ArrayList<DVD> dvds;
@@ -16,8 +15,7 @@ public class DVDContainer
     /**
      * Constructor for objects of class DVDContainer
      */
-    private DVDContainer()
-    {
+    private DVDContainer(){
         dvds = new ArrayList<DVD>();
     }
     

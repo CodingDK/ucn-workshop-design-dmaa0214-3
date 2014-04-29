@@ -7,8 +7,7 @@ import java.util.ArrayList;
  * @author Group 3
  * @version 0.2
  */
-public class AddressBook
-{
+public class AddressBook{
     private static AddressBook instance;
     private ArrayList<Person> persons;
 
