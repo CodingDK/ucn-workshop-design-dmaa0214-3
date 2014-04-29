@@ -20,7 +20,8 @@ public class DVDCtr
      */
     public DVDCtr()
     {
-        //set up references to containers    
+        //set up references to containers
+        DVDContainer dvdCon = new DVDContainer();
     }
     
     //Dummy implementation: after implementing the model layer 
@@ -41,23 +42,25 @@ public class DVDCtr
           //and stores it in the container
     }
     
-//     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
-//     
-//     }
     
-    // getDVD
+    // Lau
+    public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
+        
+    }
     
-    // getCopy
+    // getDVD -- Lasse
     
-    // addCopy
+    // getCopy -- Lau
     
-    // updateDVD
+    // addCopy -- Lasse 
     
-    // updateCopy
+    // updateDVD -- Lau
     
-    // deleteCopy
+    // updateCopy -- Lasse 
     
-    // listAllDVD
+    // deleteCopy -- Lau
+    
+    // listAllDVD -- Lasse
       // number of copies - get copies i hashSet
     
     public void deleteDVD(long id)
