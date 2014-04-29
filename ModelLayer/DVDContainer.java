@@ -20,6 +20,13 @@ public class DVDContainer
     {
         dvds = new ArrayList<DVD>();
     }
+    
+    /**
+     * Removes the DVD Object by ID
+     */
+    public void deleteDVD(int id){
+        dvds.remove(getDVD(id));
+    }
 
     /**
      * Returns the instance of the DVDContainer
