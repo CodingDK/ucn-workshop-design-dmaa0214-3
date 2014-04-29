@@ -131,8 +131,11 @@ public class AddressBookUI{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("What's the ID of the person you want to delete from the address book?");
             int deleteID = keyboard.nextInt();
-            if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID)){
+            String name = addrCtr.getNameByID(deleteID);
+            if(confirm("Are you sure you wish to delete the person with the following id: " + deleteID + " " + name)){
                 addrCtr.deletePerson(deleteID);
+                System.out.println(name + " was deleted");
+                pause();
             }
         }catch(InputMismatchException e1){
             System.out.println("Invalid values");
