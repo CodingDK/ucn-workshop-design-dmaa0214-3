@@ -69,7 +69,7 @@ public class DvdUI{
     /**
      * printDVD - print info about a dvd.
      */
-    private void getDVD(){
+    private void printDVD(){
         try{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f ### DVD Information ###");
@@ -272,6 +272,7 @@ public class DvdUI{
     
     /**
      * updateCopy - update a copy of a dvd.
+     */
     private void updateCopy(){
         try{
             Scanner keyboard = new Scanner(System.in);
