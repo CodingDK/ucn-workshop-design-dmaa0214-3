@@ -1,24 +1,27 @@
-package TUILayer;//makes this class a part of the TUILayer package
+package TUILayer;
 import java.util.*;
 import java.io.*;
-import ControlLayer.*;//The TUILayer needs to know the ControlLayer
+import ControlLayer.*;
  
 
 /**
  * User interface class to the AddressBook
  * 
  * @author Group 3 
- * @version (2005.03.31)
- * (FEN): 2006.03.21: Comments translated into English
- * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
- *                    and loose coupling
+ * @version 0.3
  */
 public class AddressBookUI{   
     
+    /**
+     * AddressBookUI - Constructor for DvdUI.
+     */
     public AddressBookUI(){
         addressMenu();
     }
     
+    /**
+     * addressMenu - Make the addressMenu.
+     */
     private void addressMenu(){
        boolean exit = false;
        
