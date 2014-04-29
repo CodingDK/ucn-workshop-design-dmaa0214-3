@@ -36,6 +36,7 @@ public class AddressBookUI{
               deletePerson();
           }  
           else if(choice == 4){
+              updatePersonMenu();
               // update person
           }
           else if(choice == 5){
@@ -66,6 +67,47 @@ public class AddressBookUI{
             int choice = keyboard.nextInt();
             return choice;
     }
+    
+    /**
+     * writeUpdatePersonMenu - Menu for updating a person.
+     */
+    private int writeUpdatePersonMenu()
+    {
+           Scanner keyboard = new Scanner(System.in);
+           System.out.println("\f *** Update person Menu ***");
+           System.out.println("(1) Change location");
+           System.out.println("(2) Change name");
+           System.out.println("(3) Change phone");
+           System.out.println("(4) Return");
+           System.out.print("\n Make your choice: ");
+            
+           int c = keyboard.nextInt();
+           return c;
+    }
+    
+    /**
+     * updatePersonMenu - Choose in the update person menu.
+     */
+    private void updatePersonMenu(){
+        boolean exit = false;   
+        while(!exit){ 
+            int c = writeUpdatePersonMenu();
+               if(c == 1){
+                   changeLocation();
+                }
+                else if(c == 2){
+                    changeName();
+                }
+                else if(c == 3){
+                    changePhone();
+                }
+                else if(c == 4){
+                    exit = true;
+                }
+        }
+    }
+    
+    
     
     /**
      * Methodes for creating a person.
@@ -176,6 +218,8 @@ public class AddressBookUI{
             Scanner keyboard = new Scanner(System.in);
             System.out.print("What's the ID of the person? ");
             id = keyboard.nextInt();
+            
+            keyboard.nextLine();
     
             System.out.print("What's the new address? ");
             addr = keyboard.nextLine();
