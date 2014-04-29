@@ -7,18 +7,32 @@ package ModelLayer;
  * @author Group 3
  * @version (a version number or a date)
  */
-public class Copy{
+public class Copy
+{
     private int serialNumber;
     private String purchaseDate;
     private double purchasePrice;
+    private static int serialIterator = 999;
 
     /**
      * Constructor for objects of class Copy
      */
     public Copy(){
-        serialNumber = 24;
+        serialIterator++;
+        serialNumber = serialIterator;
         purchaseDate = "29/04/2014";
         purchasePrice = 9001;
+    }
+    
+    /**
+     * Constructor for objects of class Copy
+     * 
+     * @param date The date of the purchase
+     * @param price The price of the purchase
+     */
+    public Copy(String date, double price){
+        purchaseDate = date;
+        purchasePrice = price;
     }
     
     /**
