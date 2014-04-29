@@ -11,59 +11,32 @@ import ControlLayer.DVDCtr;
  * (KBH): 2008.10.24: dvdmenu changed to If                   
  */
 
-public class DvdUI
-{
-    private DVDCtr dvdCtr;//DVD UI must know the DVD controller 
+public class DvdUI{
     
-    public DvdUI()
-    {
-        
-    }
-    
-    public void start(DVDCtr ctr)
-    {
-        dvdCtr= ctr;
+    public DvdUI(){
         dvdMenu();
     }
     
-    public void dvdMenu()
-    {   
+    public void dvdMenu(){   
         boolean exit = false;
-        while(!exit)
-        {
-            //show menu and return the user's choise
+        while(!exit){
             int choice =   writeDVDMenu();
-            if (choice == 1)
-            {
+            if (choice == 1){
                 findDVD();
+            }else if(choice == 2){
+                createDVD();
+            }else if(choice == 3){
+                createCopy();
+            }else if(choice == 4){
+                deleteDVD();
+            }else if(choice == 5){
+                listAllDvds();
+            }else if(choice == 6){
+                exit = true;
             }
-            else{if(choice == 2){
-                   createDVD();
-                }
-                else{
-                    if(choice == 3){
-                        createCopy();
-                    }
-                    else{
-                        if(choice == 4){
-                             deleteDVD();
-                        }
-                        else{
-                            if(choice == 5){
-                                listAllDvds();
-                            }
-                            else{
-                                exit = true;
-                            }//end else
-                        }//end else
-                    }//end else
-                }//end else
-            }//end else
-            
-        }//end while
+        }
     }
-    private int writeDVDMenu()
-    {
+    private int writeDVDMenu(){
            // creates an object keyboard to read data from the keyboard
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** DVD Menu ***");
@@ -78,8 +51,7 @@ public class DvdUI
             int choice = keyboard.nextInt();
             return choice;
     }
-    private int inputDVDNo()
-    {
+    private int inputDVDNo(){
         // creates an object keyboard to read data from the keyboard
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Type DVD number: ");
@@ -87,16 +59,14 @@ public class DvdUI
         return no;
     }
         
-    private String inputTitle()
-    {
+    private String inputTitle(){
         // creates an object keyboard to read data from the keyboard
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Type DVD title: " );
         String title = keyboard.nextLine();
         return title;
     }
-    private int inputCopyNo()
-    {
+    private int inputCopyNo(){
         // creates an object keyboard to read data from the keyboard
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Type the copy number: ");
@@ -104,26 +74,23 @@ public class DvdUI
         return no;
     }
     
-    //there is need for more methods to read information about DVDs
-    //and methods to display the information
   
-    private void findDVD()
-    {     
+    private void findDVD(){     
         int no = inputDVDNo();
+        DVDCtr dvdCtr = new DVDCtr();
         //is to be changed when the DVD controller is completed
         String dvd = dvdCtr.findDVD(no);
     }
-    private void createDVD()
-    {
-    }
-    private void createCopy()
-    {
+    
+    private void createDVD(){
     }
     
-    private void deleteDVD()
-    {
+    private void createCopy(){
     }
-    private void listAllDvds()
-    {
+    
+    private void deleteDVD(){
+    }
+    
+    private void listAllDvds(){
     }
 }
