@@ -27,10 +27,11 @@ public class AddressCtr
      */
     public String getPersonInfo(int id){
         Person p = addressBook.getPerson(id);
+        String nLine = System.getProperty("line.separator");
         
         if (p != null){
-            return "ID: " + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
-        ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone();
+            return nLine + "ID: " + p.getID() + nLine + "Name: " + p.getName() + nLine + "Address: " + p.getAddress() + nLine +  
+        "Postal: " + p.getPostalCode() + nLine + "City: " + p.getCity() + nLine + "Phone: " + p.getPhone();
         } else {
             throw new NullPointerException("Person was not found ");
         }
