@@ -39,7 +39,7 @@ public class AddressBookUI{
               createPerson();
           }  
           else if(choice == 3){
-              //delete person
+              deletePerson();
           }  
           else if(choice == 4){
               // update person
