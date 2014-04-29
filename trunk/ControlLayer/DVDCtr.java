@@ -55,13 +55,13 @@ public class DVDCtr
      * @param ID the id of the DVD.
      * @return String of the dvd information. 
      */
-    public String getDVDInfo(int id){ 
-        DVD d = dvdCon.getDVD(id);
+    public String getDVDInfo(int dvdID){ 
+        DVD d = dvdCon.getDVD(dvdID);
         
         String nLine = System.getProperty("line.separator");
         
         if(d != null){
-            return nLine + "ID: " + id + "Title: " + d.getTitle() + "Artist: " + d.getArtist() + "Publication Date: " + d.getPublicationDate() ; 
+            return nLine + "ID: " + d.getID() + "Title: " + d.getTitle() + "Artist: " + d.getArtist() + "Publication Date: " + d.getPublicationDate() ; 
         }
         else {
             throw new NullPointerException("DVD was not found");
@@ -78,7 +78,13 @@ public class DVDCtr
     
     // getCopy -- Lau
     
-    // addCopy -- Lasse 
+    public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
+        DVD d = dvdCon.getDVD(dvdID);
+        
+        d.createCopy(purchaseDate, purchasePrice);
+       
+        
+    }
     
     /**
      * Changes the DVD info based on the parameters
