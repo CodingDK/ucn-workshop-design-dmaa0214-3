@@ -37,11 +37,17 @@ public class DVDCtr
        return "dvd"; 
     }
     
-    //Dummy implementation: more parameters are probaly to added
-    public void createDVD(String dvd)
+    /**
+     * 
+     * @param title Title of the DVD
+     * @param artist Artist of the DVD
+     * @param publicationDate Date of the DVD publication
+     */
+    public void createDVD(String title, String artist, String publicationDate)
     {       
           //this method constructs a new dvd object 
           //and stores it in the container
+          dvdCon.createDVD(title, artist, publicationDate);
     }
     
     /**
@@ -74,11 +80,40 @@ public class DVDCtr
     
     // addCopy -- Lasse 
     
-    // updateDVD -- Lau
+    /**
+     * Changes the DVD info based on the parameters
+     * 
+     * @param id ID of the DVD
+     * @param title Title of the DVD
+     * @param artist Artist of the DVD
+     * @param publicationDate Publication date of the DVD
+     */
+    public void updateDVD(int id, String title, String artist, String publicationDate){
+        DVD dvd = dvdCon.getDVD(id);
+        if(dvd != null){
+            dvd.setTitle(title);
+            dvd.setArtist(artist);
+            dvd.setPublicationDate(publicationDate);
+        } else {
+            throw new NullPointerException("DVD not found");
+        }
+        
+    }
     
     // updateCopy -- Lasse 
     
-    // deleteCopy -- Lau
+    /**
+     * @param dvdID ID of the DVD
+     * @param serialNumber Serialnumber of the DVD
+     */
+    public void deleteCopy(int dvdID, int serialNumber){
+        DVD dvd = dvdCon.getDVD(dvdID);
+        if(dvd != null){
+            dvd.deleteCopy(dvd.getCopy(serialNumber));
+        } else {
+            throw new NullPointerException("DVD not found");
+        }
+    }
     
     // listAllDVD -- Lasse
       // number of copies - get copies i hashSet
