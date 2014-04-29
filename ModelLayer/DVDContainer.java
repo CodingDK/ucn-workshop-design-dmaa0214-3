@@ -1,35 +1,35 @@
 package ModelLayer;
+import java.util.*;
 
 
 /**
- * Write a description of class DVDContainer here.
+ * Container for objects of DVD
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 3 
+ * @version 0.2
  */
 public class DVDContainer
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private static DVDContainer instance;
+    private ArrayList<DVD> dvds;
 
     /**
      * Constructor for objects of class DVDContainer
      */
-    public DVDContainer()
+    private DVDContainer()
     {
-        // initialise instance variables
-        x = 0;
+        dvds = new ArrayList<DVD>();
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Returns the instance of the DVDContainer
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public DVDContainer getInstance(){
+        if(instance == null){
+            instance = new DVDContainer();
+        }
+        
+        return instance;
     }
 }
