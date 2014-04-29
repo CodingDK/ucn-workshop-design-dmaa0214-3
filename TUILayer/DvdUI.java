@@ -68,7 +68,7 @@ public class DvdUI{
             int dvdID = keyboard.nextInt();
             
             DVDCtr dvdCtr = new DVDCtr();
-            System.out.println(dvdCtr.getDVDInfo(dvdID));
+            //System.out.println(dvdCtr.getDVDInfo(dvdID));
             pause();        
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
@@ -136,7 +136,7 @@ public class DvdUI{
             
             if(confirm("Do you wish to add Copy(Purchase Date: " + purDate + " / Publication Price: " + purPrice + ") to DVD(" + dvdID + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                dvdCtr.createCopy(dvdID, purDate, purPrice);
+                //dvdCtr.createCopy(dvdID, purDate, purPrice);
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
@@ -200,11 +200,100 @@ public class DvdUI{
     }
     
     private void updateDVD(){
-    
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("### Update DVD ###");
+            System.out.print("DVD ID: ");
+            int dvdID = keyboard.nextInt();
+            keyboard.nextLine();
+            
+            System.out.print("Title: ");
+            String title = keyboard.nextLine();
+            if(title.trim().isEmpty()){
+                System.out.println("Title cant be empty!");
+                pause();
+                return;
+            }
+            System.out.print("Artist: ");
+            String artist = keyboard.nextLine();
+            if(artist.trim().isEmpty()){
+                System.out.println("Artist cant be empty!");
+                pause();
+                return;
+            }
+            
+            System.out.print("Publication Date: ");
+            String pubDate = keyboard.nextLine();
+            if(pubDate.trim().isEmpty()){
+                System.out.println("Publication Date cant be empty!");
+                pause();
+                return;
+            }
+            
+            if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Date: " + pubDate + ")")){
+                DVDCtr dvdCtr = new DVDCtr();
+                dvdCtr.updateDVD(dvdID, title, artist, pubDate);
+            }
+            
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
-    
+    /**
+     * updateDVD(int id, String title, String artist, String publicationDate);
+     * updateCopy(int dvdID, int serialNumber, String purchaseDate, double purchasePrice);
+
+     */
     private void updateCopy(){
-    
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("### Update Copy ###");
+            System.out.print("DVD ID: ");
+            int dvdID = keyboard.nextInt();
+            keyboard.nextLine();
+            
+            DVDCtr dvdCtr = new DVDCtr();
+            
+            System.out.println("Select Copy(" + dvdCtr.getCopys(dvdID) + ")");
+            System.out.print("Serial Number: ");
+            int serialNumber = keyboard.nextInt();
+
+            System.out.print("Artist: ");
+            String artist = keyboard.nextLine();
+            if(artist.trim().isEmpty()){
+                System.out.println("Artist cant be empty!");
+                pause();
+                return;
+            }
+            
+            System.out.print("Publication Date: ");
+            String pubDate = keyboard.nextLine();
+            if(pubDate.trim().isEmpty()){
+                System.out.println("Publication Date cant be empty!");
+                pause();
+                return;
+            }
+            
+            if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Date: " + pubDate + ")")){
+                DVDCtr dvdCtr = new DVDCtr();
+                dvdCtr.updateDVD(dvdID, title, artist, pubDate);
+            }
+            
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     private void listAll(){
