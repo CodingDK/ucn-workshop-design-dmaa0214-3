@@ -1,28 +1,18 @@
 package ControlLayer;
 import java.util.*;
 import ModelLayer.*;
-//model layer package has to be imported
 /**
  * Controller class for the DVD collection
  * 
  * @author (kbh) 
- * @version (2005.03.31)
- * @revised version English (Ab)
- * (FEN): 2006.03.21: Some changes to the architecture in order to assure layering
- *                    and loose coupling
+ * @version 0.1
  */
-public class DVDCtr
-{
-    //declare instance variables to reference containers
+public class DVDCtr{
     private DVDContainer dvdCon;
-
-
     /**
      * Constructor for objects of class DVDCtr
      */
-    public DVDCtr()
-    {
-        //set up references to containers
+    public DVDCtr(){
         dvdCon = DVDContainer.getInstance();
     }
 
@@ -32,10 +22,7 @@ public class DVDCtr
      * @param artist Artist of the DVD
      * @param publicationDate Date of the DVD publication
      */
-    public void createDVD(String title, String artist, String publicationDate)
-    {       
-          //this method constructs a new dvd object 
-          //and stores it in the container
+    public void createDVD(String title, String artist, String publicationDate){       
           dvdCon.createDVD(title, artist, publicationDate);
     }
     
@@ -60,7 +47,7 @@ public class DVDCtr
         DVD d = dvdCon.getDVD(dvdID);
         if(d != null){
             d.createCopy(purchaseDate, purchasePrice);
-        }else{
+        } else {
             throw new NullPointerException("DVD was not found");
         }
     }
@@ -78,14 +65,13 @@ public class DVDCtr
                 returnString = returnString.substring(0, returnString.length()-2) + ")";
                 
                 return returnString;
-            }else{
+            } else {
                 throw new NullPointerException("There are no Copies of that DVD");
             }
-        }else{
+        } else {
             throw new NullPointerException("DVD was not found");
         }
     }
-
   
     /**
      * addCopy - Adding a copy of a DVD
@@ -96,13 +82,12 @@ public class DVDCtr
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
         DVD d = dvdCon.getDVD(dvdID);
         if(d != null){
-        d.createCopy(purchaseDate, purchasePrice);
-        } else{
+            d.createCopy(purchaseDate, purchasePrice);
+        } else {
             throw new NullPointerException("DVD ID was not found");
         }
         
     }
-
     
     /**
      * Changes the DVD info based on the parameters
@@ -131,7 +116,7 @@ public class DVDCtr
             if(copy != null){
                 copy.setPurchaseDate(purchaseDate);
                 copy.setPurchasePrice(purchasePrice);
-            } else{
+            } else {
                 throw new NullPointerException("Copy was not found");            
             }
         throw new NullPointerException("DVD was not found");
@@ -155,7 +140,7 @@ public class DVDCtr
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
             return dvd.getTitle();
-        }else{
+        } else {
             throw new NullPointerException("DVD not found");
         }
     }
@@ -164,25 +149,24 @@ public class DVDCtr
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
             dvdCon.deleteDVD(dvdID);
-        } else{
+        } else {
             throw new NullPointerException("DVD was not found");
         }
     }
     
-    public String listAllDVDs()
-    {
-          ArrayList<DVD> dvd = dvdCon.getAllDVDs();
-          
-          String nLine = System.getProperty("line.separator");
-          String returnString = "### All DVD ###" + nLine;
-          if(!dvd.isEmpty()) {
-              for(DVD d : dvd) {
-                  returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
-                  + ", Publication date: " + d.getPublicationDate() + nLine;
-              }
-          } else {
-              throw new NullPointerException("DVD list was not found");
-          }
-          return returnString; 
+    public String listAllDVDs(){
+        ArrayList<DVD> dvd = dvdCon.getAllDVDs();
+      
+        String nLine = System.getProperty("line.separator");
+        String returnString = "### All DVD ###" + nLine;
+        if(!dvd.isEmpty()) {
+            for(DVD d : dvd) {
+                returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
+                + ", Publication date: " + d.getPublicationDate() + nLine;
+            }
+        } else {
+            throw new NullPointerException("DVD list was not found");
+        }
+        return returnString; 
     }
 }
