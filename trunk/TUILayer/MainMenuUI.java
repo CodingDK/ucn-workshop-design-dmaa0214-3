@@ -33,17 +33,13 @@ public class MainMenuUI
         boolean exit=false;
         while (!exit){ //! means while exit not is true (that is: false)
             int choice = writeMainMenu();
-            if(choice == 1)
-            {
+            if(choice == 1){
                 startAddressBook();
-            }
-            else if(choice == 2){ 
+            }else if(choice == 2){ 
                 startDvd();
-            }
-            else if(choice == 3){
+            }else if(choice == 3){
                 //start loanController 
-            }//end if
-            else if(choice == 4){
+            }else if(choice == 4){
                 writeEnd();
                 exit = true;
             }
@@ -75,8 +71,6 @@ public class MainMenuUI
     private void startDvd()
     {
         dvdUI= new DvdUI();
-
-     
     }
     private void writeEnd()
     {
