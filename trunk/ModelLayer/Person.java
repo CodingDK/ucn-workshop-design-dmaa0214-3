@@ -1,10 +1,10 @@
 package ModelLayer;
 
 /**
- * Write a description of class Person here.
+ * The Person class holds information of a person.
  * 
  * @author Group 3 
- * @version 0.1
+ * @version 0.2
  */
 public class Person{
     private static int idIterator;
@@ -14,7 +14,15 @@ public class Person{
     private int postalCode;
     private String city;
     private String phone;
-
+    
+    /**
+     * Constructor for objects of class AddressBook.
+     * @param name The name of the Person.
+     * @param address The address of the person.
+     * @param postalCode The postalCode of the person.
+     * @param city The city of the person.
+     * @param phone The phone number of the person.
+     */
     public Person(String name, String address, int postalCode, String city, String phone){
         idIterator++;
         this.id = idIterator;
@@ -30,7 +38,7 @@ public class Person{
     * @return ID
     */
     public int getID(){
-    	return id;
+        return id;
     }
     
     /**
@@ -38,7 +46,7 @@ public class Person{
     * @param ID - value as int
     */
     public void setID(int id){
-    	this.id = id;
+        this.id = id;
     }
     
     /**
@@ -46,7 +54,7 @@ public class Person{
     * @return name
     */
     public String getName(){
-    	return name;
+        return name;
     }
     
     /**
@@ -54,7 +62,7 @@ public class Person{
     * @param name - value as String
     */
     public void setName(String name){
-    	this.name = name;
+        this.name = name;
     }
     
     /**
@@ -62,7 +70,7 @@ public class Person{
     * @return address
     */
     public String getAddress(){
-    	return address;
+        return address;
     }
     
     /**
@@ -70,7 +78,7 @@ public class Person{
     * @param address - value as String
     */
     public void setAddress(String address){
-    	this.address = address;
+        this.address = address;
     }
     
     /**
@@ -78,7 +86,7 @@ public class Person{
     * @return postalCode
     */
     public int getPostalCode(){
-    	return postalCode;
+        return postalCode;
     }
     
     /**
@@ -86,7 +94,7 @@ public class Person{
     * @param postalCode - value as int
     */
     public void setPostalCode(int postalCode){
-    	this.postalCode = postalCode;
+        this.postalCode = postalCode;
     }
     
     /**
@@ -94,7 +102,7 @@ public class Person{
     * @return city
     */
     public String getCity(){
-    	return city;
+        return city;
     }
     
     /**
@@ -102,7 +110,7 @@ public class Person{
     * @param city - value as String
     */
     public void setCity(String city){
-    	this.city = city;
+        this.city = city;
     }
     
     /**
@@ -110,7 +118,7 @@ public class Person{
     * @return phone
     */
     public String getPhone(){
-    	return phone;
+        return phone;
     }
     
     /**
@@ -118,6 +126,6 @@ public class Person{
     * @param phone - value as String
     */
     public void setPhone(String phone){
-    	this.phone = phone;
+        this.phone = phone;
     }
 }
