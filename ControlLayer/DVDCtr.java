@@ -2,7 +2,7 @@ package ControlLayer;
 import java.util.ArrayList;
 import ModelLayer.*;
 //model layer package has to be imported
-//Denne skal slettesss
+// Skal beholdes
 /**
  * Controller class for the DVD collection
  * 
@@ -25,6 +25,17 @@ public class DVDCtr
     {
         //set up references to containers
         dvdCon = DVDContainer.getInstance();
+    }
+    
+    //Dummy implementation: after implementing the model layer 
+    //objects of class DVD are to be returned, not String
+    public String findDVD( int no)
+    {
+        //this method is to search the container for a DVD
+        //with an id-number equal to the parameter no
+        //when the dvd is found, the method is to call print-methods in the TUI layer
+       
+       return "dvd"; 
     }
     
     /**
@@ -59,43 +70,21 @@ public class DVDCtr
     }
     
 
-    /**
-     * Creates a copy of a DVD
-     * 
-     * @param dvd DVD object
-     * @param purchaseDate Date of purchase
-     * @param purchasePrice Price of purchase
-     */
+    // Lau
     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
-        dvd.createCopy(purchaseDate, purchasePrice);
+        
     }
+
     
-    /**
-     * Gets all copies of the DVD and prepares them for print
-     * 
-     * @param dvdID ID of the DVD
-     * @return String
-     */
-    public String getCopies(int dvdID){
-        String returnCopies = null;
-        
-        dvd = dvdCon.getDVD(dvdID);
-        if(dvd != null){
-            dvd.getCopies();
-        } else {
-            throw new NullPointerException("DVD was not found");
-        }
-        
-        return returnCopies;
-    }
+    
+    // getCopy -- Lau
     
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
-        DVD dvd = dvdCon.getDVD(dvdID);
-        if (dvd != null){
-            dvd.createCopy(purchaseDate, purchasePrice);
-        } else {
-            throw new NullPointerException("DVD was not found");
-        }
+        DVD d = dvdCon.getDVD(dvdID);
+        
+        d.createCopy(purchaseDate, purchasePrice);
+       
+        
     }
     
     /**
@@ -118,6 +107,8 @@ public class DVDCtr
         
     }
     
+    // updateCopy -- Lasse 
+    
     /**
      * @param dvdID ID of the DVD
      * @param serialNumber Serialnumber of the DVD
@@ -131,32 +122,25 @@ public class DVDCtr
         }
     }
     
-    /**
-     * Returns all DVDs in a string
-     * @return A string with all DVDs
-     */
-    public String listAllDVDs(){
-        String returnList = null;
-        
-        return returnList;
-    }
+    // listAllDVD -- Lasse
       // number of copies - get copies i hashSet
     
-    /**
-      * Deletes a DVD by ID
-      * @param id ID of the DVD
-      */
-    public void deleteDVD(int id){
-        DVD dvd = dvdCon.getDVD(id);
-        if(dvd != null){
-            
-        } else {
-            throw new NullPointerException("DVD not found");
-        }
+    public void deleteDVD(long id)
+    {
+        
+        //search for the dvd and delete the object from the container
+       
     }
     
- 
+    public void createCopy(long id)
+    {
+        //create a copy of the specified dvd and add it to the dvd
+    }
     
     
-
+    public String listAllDvds()
+    {
+          //returns a list of all dvds and their associated copies
+          return null;
+    }
 }
