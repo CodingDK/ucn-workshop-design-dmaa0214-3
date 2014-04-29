@@ -1,14 +1,11 @@
 package ModelLayer;
-
-
 /**
  * Aggregation of DVDContainer
  * 
  * @author Group 3
  * @version (a version number or a date)
  */
-public class Copy
-{
+public class Copy{
     private int serialNumber;
     private String purchaseDate;
     private double purchasePrice;
@@ -16,23 +13,15 @@ public class Copy
 
     /**
      * Constructor for objects of class Copy
-     */
-    public Copy(){
-        serialIterator++;
-        serialNumber = serialIterator;
-        purchaseDate = "29/04/2014";
-        purchasePrice = 9001;
-    }
-    
-    /**
-     * Constructor for objects of class Copy
      * 
      * @param date The date of the purchase
      * @param price The price of the purchase
      */
-    public Copy(String date, double price){
-        purchaseDate = date;
-        purchasePrice = price;
+    public Copy(String purchaseDate, double purchasePrice){
+        serialIterator++;
+        this.serialNumber = serialIterator;
+        this.purchaseDate = purchaseDate;
+        this.purchasePrice = purchasePrice;
     }
     
     /**
