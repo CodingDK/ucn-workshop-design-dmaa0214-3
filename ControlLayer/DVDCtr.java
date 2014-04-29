@@ -14,7 +14,7 @@ import ModelLayer.*;
 public class DVDCtr
 {
     //declare instance variables to reference containers
-    
+    private DVDContainer dvdCon;
 
     /**
      * Constructor for objects of class DVDCtr
@@ -22,7 +22,7 @@ public class DVDCtr
     public DVDCtr()
     {
         //set up references to containers
-        DVDContainer dvdCon = new DVDContainer();
+        dvdCon = DVDContainer.getInstance();
     }
     
     //Dummy implementation: after implementing the model layer 
@@ -51,7 +51,7 @@ public class DVDCtr
        // if(d != null){
          //   return nLine + "ID: " + 
         }
-    }
+    
 
     // Lau
     public void createCopy(DVD dvd, String purchaseDate, double purchasePrice){
