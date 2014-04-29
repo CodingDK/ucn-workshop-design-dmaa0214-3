@@ -1,12 +1,11 @@
 package ModelLayer;
 import java.util.*;
 
-
 /**
- * Write a description of class DVD here.
+ * DVD Class holds information of a dvd, and a list of copies of it.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author group 3
+ * @version 0.2
  */
 public class DVD{
     private HashSet<Copy> copys;
@@ -18,6 +17,9 @@ public class DVD{
 
     /**
      * Constructor for objects of class DVD
+     * @param title The title of the dvd.
+     * @param artist The artist of the dvd.
+     * @param publicationDate The publicationDate of the dvd.
      */
     public DVD(String title, String artist, String publicationDate) {
         copys = new HashSet<Copy>();
@@ -29,23 +31,34 @@ public class DVD{
     }
     
     /**
-     * addCopy - Adds an Copy object to the container
+     * createCopy - Create a Copy object of a the dvd object.
+     * @param date The date of the purchase
+     * @param price The price of the purchase
      */
-    public void addCopy(Copy copy){
+    public void createCopy(String purchaseDate, double purchasePrice){
+        addCopy(new Copy(purchaseDate, purchasePrice));
+    }
+    
+    /**
+     * addCopy - Add a Copy object to the copy container.
+     * @param copy The Copy object to add to the copy container.
+     */
+    private void addCopy(Copy copy){
         copys.add(copy);
     }
     
     /**
-     * deleteCopy - Deletes the Copy object from the container
+     * deleteCopy - Delete the Copy object from the copy container.
+     * @param copy The Copy object to delete from the copy container.
      */
     public void deleteCopy(Copy copy){
         copys.remove(copy);
     }
     
     /**
-     * getCopy - Returns the Copy associated with the serialNumber
-     * @param serialNumber The serialNumber of the Copy Object
-     * @return c The Copy object / null if none is found
+     * getCopy - Returns the Copy associated with the serialNumber.
+     * @param serialNumber The serialNumber of the Copy Object.
+     * @return c The Copy object / null if none is found.
      */
     public Copy getCopy(int serialNumber){
         Copy c = null;
@@ -58,6 +71,14 @@ public class DVD{
         }
         
         return c;
+    }
+    
+    /**
+     * getCopys - Get the HashSet list of Copy objects.
+     * @return HashSet<Copy> - The list of copies objects.
+     */
+    public HashSet<Copy> getCopys(){
+        return copys;
     }
 
     /**
