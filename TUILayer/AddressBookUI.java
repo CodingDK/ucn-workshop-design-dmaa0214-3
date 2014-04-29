@@ -54,6 +54,9 @@ public class AddressBookUI{
        }//end while
     }
     
+    /**
+     * writeAddressBookMenu - Menu for the addressbook.
+     */
     private int writeAddressBookMenu()
     {      // makes an object keyboard to read input from the screen
             Scanner keyboard = new Scanner(System.in);
@@ -71,9 +74,8 @@ public class AddressBookUI{
     }
     
     /**
-     * Methodes for creating a person
+     * Methodes for creating a person.
      */
-    
     private void createPerson(){
         try{
             AddressCtr addrCtr = new AddressCtr();
@@ -100,7 +102,7 @@ public class AddressBookUI{
             System.out.print("City: ");
             String city = keyboard.nextLine();
             if(city.trim().isEmpty()){
-                System.out.println("City cant be empty!");
+                System.out.println("City can't be empty!");
                 pause();
                 return;
             }
@@ -123,7 +125,7 @@ public class AddressBookUI{
     }
         
     /**
-     * Methods for deleting a person
+     * deletePerson - deleting a person from the ID
      */
     private void deletePerson(){
         try{
@@ -149,7 +151,7 @@ public class AddressBookUI{
     }
     
     /**
-     * Methods for printing a person
+     * printPerson - Printing information about a person from the ID.
      */
     private void printPerson(){
         try {
@@ -168,10 +170,7 @@ public class AddressBookUI{
     }
     
     /**
-     * Methods for change location
-     * 
-     * 
-     * ASDASDASDASD
+     * changeLocation - Change the address, city and postalcode from the ID.
      */
     private void changeLocation(){
         try{
@@ -187,16 +186,26 @@ public class AddressBookUI{
             System.out.print("What's the new address? ");
             addr = keyboard.nextLine();
             if(addr.trim().isEmpty()){
-                System.out.println("Screw you!");
+                System.out.println("address can't be empty!");
                 pause();
                 return;
             }
     
             System.out.print("What's the new city? ");
             city = keyboard.nextLine();
+            if(city.trim().isEmpty()){
+                System.out.println("City can't be empty!");
+                pause();
+                return;
+            }
             
             System.out.print("What's the new postal code? ");
             postalCode = keyboard.nextInt();
+            if(addr.trim().isEmpty()){
+                System.out.println("Postalcode can't be empty!");
+                pause();
+                return;
+            }
             if(confirm("Are you sure you wish to change the location to: " + addr + ", " + postalCode + ", " + city)){
                 addrCtr.changeLocation(id, addr, postalCode, city);
             }
@@ -208,10 +217,7 @@ public class AddressBookUI{
     }
     
     /**
-     * Methods for change name
-     * 
-     * 
-     * ASDASDASDASD
+     * changeName - Changing the name from the ID and old name.
      */
     private void changeName(){
         try{
@@ -234,9 +240,7 @@ public class AddressBookUI{
     }
      
     /**
-     * Methods for change phone
-     * 
-     * ASDASDASDASD
+     * changePhone - Changing the phone number from the ID.
      */
     private void changePhone(){
         try{
@@ -244,10 +248,13 @@ public class AddressBookUI{
             Scanner keyboard = new Scanner(System.in);
             System.out.print("Person ID: ");
             int id = keyboard.nextInt();
+            
+            keyboard.nextLine(); // Consumes the new line when enter is pressed.
+            
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 8){
-                System.out.println("The phone number must be atleast 11 chars long");
+                System.out.println("The phone number must be atleast 8 chars long");
                 pause();
                 return;
             }
@@ -267,7 +274,7 @@ public class AddressBookUI{
     }
     
     /**
-     * Methods for listing all persons 
+     * listAllPersons - Listing all persons. 
      */
     private void listAllPersons(){
         try{
@@ -280,11 +287,17 @@ public class AddressBookUI{
         }
     }
     
+    /**
+     * pause - Waiting for user to press enter.
+     */
     private void pause(){
         Scanner keyboard = new Scanner(System.in);
         String pause = keyboard.nextLine();
     }
     
+    /**
+     * confirmStatement - Using the user confirmation.
+     */
     private boolean confirm(String confirmStatement){
         boolean confirm = true;
         Scanner s = new Scanner(System.in);
