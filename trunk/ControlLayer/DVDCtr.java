@@ -28,7 +28,7 @@ public class DVDCtr{
     
     /**
      * getDVDInfo - Returns a String of information, by person id.
-     * @param ID the id of the DVD.
+     * @param ID The id of the DVD.
      * @return String of the dvd information. 
      */
     public String getDVDInfo(int dvdID){ 
@@ -43,6 +43,11 @@ public class DVDCtr{
         }
     }
     
+    /**
+     * getCopies - Returns a string of information, by DVD ID.
+     * @param dvdID The ID of the DVD.
+     * @return String of the copy information.
+     */
     public String getCopies(int dvdID){
         DVD d = dvdCon.getDVD(dvdID);
         if(d != null){
@@ -66,9 +71,9 @@ public class DVDCtr{
   
     /**
      * addCopy - Adding a copy of a DVD
-     * @Param dvdID of the DVD.
-     * @param purchaseDate when it is purchased.
-     * @param purchasePrice is the price of the dvd.
+     * @Param dvdID The ID of the DVD.
+     * @param purchaseDate When the DVD is purchased.
+     * @param purchasePrice The purchase price of the dvd.
      */
     public void addCopy(int dvdID, String purchaseDate, double purchasePrice){
         DVD d = dvdCon.getDVD(dvdID);
@@ -100,6 +105,12 @@ public class DVDCtr{
         
     }
     
+    /**
+     * updateCopy - Updating the copy information
+     * @param serialNumber The serialnumber of the DVD.
+     * @param purchaseDate The date the DVD is purchased.
+     * @param purchasePrise The DVD purchase price.
+     */
     public void updateCopy(int dvdID, int serialNumber, String purchaseDate, double purchasePrice){
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
@@ -116,8 +127,9 @@ public class DVDCtr{
     } 
     
     /**
-     * @param dvdID ID of the DVD
-     * @param serialNumber Serialnumber of the DVD
+     * deleteCopy - Delete a Copy object
+     * @param dvdID ID of the DVD.
+     * @param serialNumber Serialnumber of the DVD.
      */
     public void deleteCopy(int dvdID, int serialNumber){
         DVD dvd = dvdCon.getDVD(dvdID);
@@ -128,6 +140,11 @@ public class DVDCtr{
         }
     }
     
+    /**
+     * getTitleByID - Return the DVD title
+     * @param dvdID The ID of the DVD.
+     * @return String with the DVD title.
+     */
     public String getTitleByID(int dvdID){
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
@@ -137,6 +154,10 @@ public class DVDCtr{
         }
     }
     
+    /**
+     * deleteDVD - Delete a DVD object, by the DVD id.
+     * @param dvdID The ID of the DVD.
+     */
     public void deleteDVD(int dvdID) {
         DVD dvd = dvdCon.getDVD(dvdID);
         if(dvd != null){
@@ -146,6 +167,10 @@ public class DVDCtr{
         }
     }
     
+    /**
+     * listAllDVDs - List all DVD in the collection
+     * @return String with the list of all dvds.
+     */
     public String listAllDVDs(){
         ArrayList<DVD> dvd = dvdCon.getAllDVDs();
       
