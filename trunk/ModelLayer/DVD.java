@@ -36,9 +36,9 @@ public class DVD{
     }
     
     /**
-     * removeCopy - Removes a Copy object from the container
+     * deleteCopy - Deletes the Copy object from the container
      */
-    public void removeCopy(Copy copy){
+    public void deleteCopy(Copy copy){
         copys.remove(copy);
     }
     
