@@ -150,11 +150,53 @@ public class DvdUI{
     }
     
     private void deleteDVD(){
-        DVDCtr dvdCtr = new DVDCtr();
+        try{
+            DVDCtr dvdCtr = new DVDCtr();
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("What's the ID of the dvd you want to delete?" );
+            int deleteID = keyboard.nextInt();
+            String title = dvdCtr.getTitleByID(deleteID);
+            if(confirm("Are you sure you wish to delete the dvd with the following ID: " + deleteID + " " + title)){
+                dvdCtr.deleteDVD(deleteID);
+                System.out.println(title + " was deleted");
+                pause();
+            }
+        }catch(InputMismatchException e1){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e){
+            System.out.println(e);
+            pause();
+            return;
+        }
     }
     
     private void deleteCopy(){
-    
+        try{
+            DVDCtr dvdCtr = new DVDCtr();
+            Scanner keyboard = new Scanner(System.in);
+            System.out.print("What's the ID of the dvd you want to delete a copy from?" );
+            int dvdID = keyboard.nextInt();
+            keyboard.nextLine();
+            System.out.print(getCopys(dvdID));
+            System.out.print();
+            System.out.print("What's the serialnumber of the copy you want to delete?" );
+            int deleteID = keyboard.nextInt();
+            if(confirm("Are you sure you wish to delete the copy with the following serialnumber: " + deleteID)){
+                dvdCtr.deleteDVD(deleteID);
+                System.out.println(deleteID + " was deleted");
+                pause();
+            }
+        }catch(InputMismatchException e1){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e){
+            System.out.println(e);
+            pause();
+            return;
+        }
     }
     
     private void updateDVD(){
