@@ -263,26 +263,22 @@ public class DvdUI{
             System.out.println("Select Copy(" + dvdCtr.getCopys(dvdID) + ")");
             System.out.print("Serial Number: ");
             int serialNumber = keyboard.nextInt();
+            keyboard.nextLine();
 
-            System.out.print("Artist: ");
-            String artist = keyboard.nextLine();
-            if(artist.trim().isEmpty()){
-                System.out.println("Artist cant be empty!");
+            System.out.print("Purchase Date: ");
+            String purDate = keyboard.nextLine();
+            if(purDate.trim().isEmpty()){
+                System.out.println("Purchase Date cant be empty!");
                 pause();
                 return;
             }
             
-            System.out.print("Publication Date: ");
-            String pubDate = keyboard.nextLine();
-            if(pubDate.trim().isEmpty()){
-                System.out.println("Publication Date cant be empty!");
-                pause();
-                return;
-            }
+            System.out.print("Purchase Price: ");
+            double purPrice = keyboard.nextDouble();
             
-            if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Date: " + pubDate + ")")){
+            if(confirm("Update Copy(" + serialNumber + ") to (Purchase Date: " + purDate + " / Purchase Price:" + purPrice + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                dvdCtr.updateDVD(dvdID, title, artist, pubDate);
+                dvdCtr.updateCopy(dvdID, serialNumber, purDate, purPrice);
             }
             
         }catch(InputMismatchException e){
