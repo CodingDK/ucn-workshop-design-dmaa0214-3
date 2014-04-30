@@ -160,7 +160,7 @@ public class DvdUI{
             
             if(confirm("Do you wish to add Copy(Purchase Date: " + purDate + " / Publication Price: " + purPrice + ") to DVD(" + dvdID + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                //dvdCtr.createCopy(dvdID, purDate, purPrice);
+                dvdCtr.addCopy(dvdID, purDate, purPrice);
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
