@@ -27,24 +27,32 @@ public class LoanContainer
         return instance;
     }
     
-    public void createLoan(Person person){
-    
+    public void createLoan(Person person, ArrayList<Copy> copies){
+        addLoan(person, new Loan(copies));
     }
     
     private void addLoan(Person person, Loan loan){
-       // loans.put(person, loan);
+        ArrayList<Loan> pLoans = getLoans(person);
+        if(pLoans == null){
+            pLoans = new ArrayList<Loan>();
+        }
+        pLoans.add(loan);
+        loans.put(person, pLoans);
     }
     
     public Loan getLoan(Person person, int loanID){
         ArrayList<Loan> pLoan = getLoans(person);
-        
-        for(Loan l : pLoan){
-            //if(l.getID() == loanID){
-            
-           // }
+        Loan retLoan = null;
+        if(pLoan != null){
+            for(Loan l : pLoan){
+                if(l.getId() == loanID){
+                    retLoan = l;
+                    break;
+                }
+            }
         }
         
-        return null;
+        return retLoan;
     }
     
     public ArrayList<Loan> getLoans(Person person){
