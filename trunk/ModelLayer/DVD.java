@@ -144,4 +144,18 @@ public class DVD{
     public void setPublicationDate(String publicationDate){
         this.publicationDate = publicationDate;
     }
+    
+    public boolean hasCopies(){
+        boolean has = false;
+        if(copies != null){
+            for(Copy c : copies){
+                if(!c.getLent()){
+                    has = true;
+                    break;
+                }
+            }
+        }
+        
+        return has;
+    }
 }

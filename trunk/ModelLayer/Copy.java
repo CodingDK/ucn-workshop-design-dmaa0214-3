@@ -10,6 +10,7 @@ public class Copy{
     private String purchaseDate;
     private double purchasePrice;
     private static int serialIterator = 999;
+    private boolean lent;
 
     /**
      * Constructor for objects of class Copy
@@ -22,6 +23,23 @@ public class Copy{
         this.serialNumber = serialIterator;
         this.purchaseDate = purchaseDate;
         this.purchasePrice = purchasePrice;
+        this.lent = false;
+    }
+    
+    /**
+    * getLent() - Returns the Lent
+    * @return lent
+    */
+    public boolean getLent(){
+    	return lent;
+    }
+    
+    /**
+    * setLent() - sets the Lent
+    * @param lent - value as boolean
+    */
+    public void setLent(boolean lent){
+    	this.lent = lent;
     }
     
     /**
