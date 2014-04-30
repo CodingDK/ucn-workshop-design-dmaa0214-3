@@ -108,7 +108,7 @@ public class MainMenuUI
         addrCtr.createPerson("Lasse", "address", 8800, "Noget", "+4598642601");
         addrCtr.createPerson("Lau", "address", 8800, "Noget", "+4598642601");
         DVDCtr dvdCtr = new DVDCtr();
-        dvdCtr.createDVD("Batman", "Børge fra lem", "30-01-2012");
+        dvdCtr.createDVD("Batman", "Børge fra lem", 2012);
         dvdCtr.addCopy(1, "03-02-2012", 50);
     }
  }
