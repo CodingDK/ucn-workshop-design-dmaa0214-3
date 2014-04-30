@@ -43,7 +43,7 @@ public class DVDContainer{
      * @param artist The artist of the dvd.
      * @param publicationDate The publicationYear of the dvd.
      */
-    public void createDVD(String title, String artist, String publicationYear){
+    public void createDVD(String title, String artist, int publicationYear){
         addDVD(new DVD(title, artist, publicationYear));
     }
     
