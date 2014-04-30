@@ -1,5 +1,5 @@
 package ModelLayer;
-
+import java.util.*;
 
 /**
  * Write a description of class LoanContainer here.
@@ -9,27 +9,50 @@ package ModelLayer;
  */
 public class LoanContainer
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private static LoanContainer instance;
+    private HashMap<Person, ArrayList<Loan>> loans;
 
     /**
      * Constructor for objects of class LoanContainer
      */
-    public LoanContainer()
-    {
-        // initialise instance variables
-        x = 0;
+    private LoanContainer(){
+        loans = new HashMap<Person, ArrayList<Loan>>();
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public static LoanContainer getInstance() {
+        if(instance == null){
+            instance = new LoanContainer();
+        }
+        
+        return instance;
     }
+    
+    public void createLoan(Person person){
+    
+    }
+    
+    private void addLoan(Person person, Loan loan){
+       // loans.put(person, loan);
+    }
+    
+    public Loan getLoan(Person person, int loanID){
+        ArrayList<Loan> pLoan = getLoans(person);
+        
+        for(Loan l : pLoan){
+            //if(l.getID() == loanID){
+            
+           // }
+        }
+        
+        return null;
+    }
+    
+    public ArrayList<Loan> getLoans(Person person){
+        return loans.get(person);
+    }
+    
+    public HashMap<Person, ArrayList<Loan>> getAllLoans(){
+        return loans;
+    }
+    
 }
