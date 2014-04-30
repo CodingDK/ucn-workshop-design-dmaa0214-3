@@ -116,24 +116,35 @@ public class LoanCtr{
     
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
+        String nL = System.getProperty("line.separater");
         
         if(p != null){
             ArrayList<Loan> loans = loanCon.getLoans(p);
             if(!loans.isEmpty()){
-                String returnString = "(";
+                String returnString = "";
                 for(Loan l : loans){
-                    
-                    /*
-                     * ### Loan ID: 1 ###
-                     * Copies:
-                     *   - Batman
-                     *   - Cookie
-                     * Returned: Yes/No
-                     */
-                    returnString += "";//l.getLoan() + ", ";
+                    String loanString = " ### Loan ID: " + l.getId() + " ### " + nL + "Copies:" + nL;
+                    ArrayList<Copy> copies = l.getCopies();
+                    for(Copy c : copies){
+                        ArrayList<DVD> dvds = dvdCont.getAllDVDs();
+                        for(DVD dvd : dvds){
+                            boolean thisIsIt = false;
+                            HashSet<Copy> dvdCopies = dvd.getCopies();
+                            for(Copy dvdC : dvdCopies){
+                                if(dvdC.getSerialNumber() == c.getSerialNumber()){
+                                    thisIsIt = true;
+                                }
+                            }
+                            if(thisIsIt){
+                                loanString += "  - " + dvd.getTitle() + nL;
+                            }
+                        }
+                    }
+                    loanString += "Returned: " + l.getReturned() + nL;
+                    returnString += loanString;
                 }
             
-                returnString = returnString.substring(0, returnString.length()-2) + ")";
+                //returnString = returnString.substring(0, returnString.length()-2) + ")";
                 
                 return returnString;
             } else{
@@ -166,4 +177,4 @@ public class LoanCtr{
         return returnString;
     }
 
-    }
+}
