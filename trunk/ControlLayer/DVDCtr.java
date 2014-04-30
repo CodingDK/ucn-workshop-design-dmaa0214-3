@@ -50,17 +50,23 @@ public class DVDCtr{
      */
     public String getCopies(int dvdID){
         DVD d = dvdCon.getDVD(dvdID);
+        StringBuilder sb = new StringBuilder();
         if(d != null){
             HashSet<Copy> copies = d.getCopies();
             if(!copies.isEmpty()){
-                String returnString = "(";
+                //String returnString = "(";
+                sb.append("(");
                 for(Copy c : copies){
-                    returnString += c.getSerialNumber() + ", ";
+                    //returnString += c.getSerialNumber() + ", ";
+                    sb.append(c.getSerialNumber() + ", ");
                 }
                 
-                returnString = returnString.substring(0, returnString.length()-2) + ")";
+                //returnString = returnString.substring(0, returnString.length()-2) + ")";
+                sb.setLength(sb.length() -2);
+                sb.append(")");
                 
-                return returnString;
+                //return returnString;
+                return sb.toString();
             } else {
                 throw new NullPointerException("There are no Copies of that DVD");
             }
@@ -175,15 +181,19 @@ public class DVDCtr{
         ArrayList<DVD> dvd = dvdCon.getAllDVDs();
       
         String nLine = System.getProperty("line.separator");
-        String returnString = "### All DVD ###" + nLine;
+        StringBuilder sb = new StringBuilder();
+        //String returnString = "### All DVD ###" + nLine;
+        sb.append("### All DVD ###" + nLine);
         if(!dvd.isEmpty()) {
             for(DVD d : dvd) {
-                returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
-                + ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine;
+                //returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
+                //+ ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine;
+                sb.append("#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() + ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine);
             }
         } else {
             throw new NullPointerException("DVD list was not found");
         }
-        return returnString; 
+        //return returnString; 
+        return sb.toString();
     }
 }

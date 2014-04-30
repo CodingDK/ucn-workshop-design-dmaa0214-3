@@ -120,13 +120,16 @@ public class LoanCtr{
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
         String nL = System.getProperty("line.separator");
+        StringBuilder sb = new StringBuilder();
         
         if(p != null){
             ArrayList<Loan> loans = loanCont.getLoans(p);
             if(!loans.isEmpty()){
-                String returnString = " ### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL;
+                //String returnString = "### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL;
+                sb.append("### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL);
                 for(Loan l : loans){
-                    String loanString = "*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL;
+                    //String loanString = "*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL;
+                    sb.append("*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL);
                     ArrayList<Copy> copies = l.getCopies();
                     for(Copy c : copies){
                         ArrayList<DVD> dvds = dvdCont.getAllDVDs();
@@ -139,14 +142,17 @@ public class LoanCtr{
                                 }
                             }
                             if(thisIsIt){
-                                loanString += "  - " + dvd.getTitle() + nL;
+                                //loanString += "  - " + dvd.getTitle() + nL;
+                                sb.append("  - " + dvd.getTitle() + nL);
                             }
                         }
                     }
-                    loanString += "Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL;
-                    returnString += loanString;
+                    //loanString += "Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL;
+                    sb.append("Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL);
+                    //returnString += loanString;
                 }
-                return returnString;
+                //return returnString;
+                return sb.toString();
             } else{
                throw new NullPointerException("There are no Loans"); 
             }
@@ -162,17 +168,21 @@ public class LoanCtr{
     public String listAllLoans(){
         HashMap<Person, ArrayList<Loan>> loans = loanCont.getAllLoans();
         String nLine = System.getProperty("line.separator");
-        String returnString = nLine + "\f  *** All Loans *** " + nLine;
+        StringBuilder sb = new StringBuilder();
+        //String returnString = nLine + "\f  *** All Loans *** " + nLine;
+        sb.append(nLine + "\f  *** All Loans *** " + nLine);
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
-                returnString += nLine + getLoansByID(p.getID()) + nLine;
+                //returnString += nLine + getLoansByID(p.getID()) + nLine;
+                sb.append(nLine + getLoansByID(p.getID()) + nLine);
             }
         } else{
             throw new NullPointerException("Loans could not be found");
         }
         
-        return returnString;
+        //return returnString;
+        return sb.toString();
     }
 
 }

@@ -173,7 +173,7 @@ public class AddressBookUI{
             pause();
             return;
         }catch(NullPointerException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
             return;
         }
@@ -185,7 +185,8 @@ public class AddressBookUI{
     private void printPerson(){
         try {
             AddressCtr addrCtr = new AddressCtr();
-            System.out.print("What's the ID of the person you want to print? ");
+            System.out.println("\f### Person Info ###");
+            System.out.print("Person ID: ");
             Scanner keyboard = new Scanner(System.in);
             int printID = keyboard.nextInt();
             System.out.println(addrCtr.getPersonInfo(printID));
@@ -195,7 +196,7 @@ public class AddressBookUI{
             pause();
             return;
         }catch (NullPointerException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
             return;
         }
@@ -240,7 +241,7 @@ public class AddressBookUI{
             pause();
             return;
         } catch (NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -266,7 +267,7 @@ public class AddressBookUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -299,7 +300,7 @@ public class AddressBookUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -311,10 +312,10 @@ public class AddressBookUI{
     private void listAllPersons(){
         try{
             AddressCtr addrCtr = new AddressCtr();
-            System.out.println(addrCtr.listAllPersons());
+            System.out.println("\f" + addrCtr.listAllPersons());
             pause();
         }catch(NullPointerException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
         }
     }

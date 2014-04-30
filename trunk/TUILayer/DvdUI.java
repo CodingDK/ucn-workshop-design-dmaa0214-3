@@ -90,7 +90,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -167,7 +167,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -193,7 +193,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
             return;
         }
@@ -223,7 +223,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
             return;
         }
@@ -275,7 +275,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -319,7 +319,7 @@ public class DvdUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -331,10 +331,10 @@ public class DvdUI{
     private void listAllDVDs(){
         try{
             DVDCtr dvdCtr = new DVDCtr();
-            System.out.println(dvdCtr.listAllDVDs());
+            System.out.println("\f" + dvdCtr.listAllDVDs());
             pause();
         }catch(NullPointerException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             pause();
         }
     }
