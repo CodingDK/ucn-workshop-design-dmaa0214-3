@@ -47,7 +47,6 @@ public class LoanCtr{
             }
         } else {
             throw new NullPointerException("Person does not exist, or there are no dvds added to the list");
-            return;
         }
         
         loanCon.createLoan(p, copies);
@@ -123,7 +122,15 @@ public class LoanCtr{
             if(!loans.isEmpty()){
                 String returnString = "(";
                 for(Loan l : loans){
-                    returnString += l.getLoan() + ", ";
+                    
+                    /*
+                     * ### Loan ID: 1 ###
+                     * Copies:
+                     *   - Batman
+                     *   - Cookie
+                     * Returned: Yes/No
+                     */
+                    returnString += "";//l.getLoan() + ", ";
                 }
             
                 returnString = returnString.substring(0, returnString.length()-2) + ")";
