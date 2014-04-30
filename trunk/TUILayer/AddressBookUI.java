@@ -43,7 +43,7 @@ public class AddressBookUI{
        int choice;
        try{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("*** AddressBook Menu ***");
+            System.out.println("\f*** AddressBook Menu ***");
             System.out.println("(1) Show information about person");
             System.out.println("(2) Add person");
             System.out.println("(3) Delete person");

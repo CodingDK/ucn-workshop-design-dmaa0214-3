@@ -153,6 +153,8 @@ public class LoanCtr{
         String returnString = null;
         String nLine = System.getProperty("line.seperator");
         
+        Iterator it = loans.keySet().iterator();
+        
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
                 returnString += getLoansByID(p.getID());

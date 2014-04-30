@@ -17,7 +17,7 @@ public class LoanUI{
         LoanMenu();
     }
 
-        public void LoanMenu(){   
+    public void LoanMenu(){   
         boolean exit = false;
         while(!exit){
             int choice = writeLoanMenu();
@@ -44,7 +44,7 @@ public class LoanUI{
         int choice;
         try{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("*** Loan Menu ***");
+            System.out.println("\f *** Loan Menu ***");
             System.out.println("(1) Loan DVD");
             System.out.println("(2) Return DVD");
             System.out.println("(3) Extend Loan");
