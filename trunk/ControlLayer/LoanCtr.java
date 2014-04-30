@@ -20,6 +20,7 @@ public class LoanCtr{
     {
         loanCon = LoanContainer.getInstance();
         dvdCont = DVDContainer.getInstance();
+        addressBook = AddressBook.getInstance();
     }
 
     /**
@@ -65,7 +66,11 @@ public class LoanCtr{
     
     public boolean hasCopies(int dvdID){
         DVD dvd = dvdCont.getDVD(dvdID);
-        return dvd.hasCopies();
+        if(dvd != null){
+            return dvd.hasCopies();
+        } else{
+            throw new NullPointerException("DVD id dont exits");
+        }
     }
 
     /**
