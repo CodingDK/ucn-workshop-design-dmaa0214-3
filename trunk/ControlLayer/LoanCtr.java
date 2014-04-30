@@ -6,7 +6,7 @@ import ModelLayer.*;
  * Controller of Loans
  * 
  * @author Group 3
- * @version 0.1
+ * @version 0.1 
  */
 public class LoanCtr{
     private LoanContainer loanCon;
