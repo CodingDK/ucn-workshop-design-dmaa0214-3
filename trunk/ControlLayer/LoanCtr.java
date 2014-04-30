@@ -9,7 +9,7 @@ import ModelLayer.*;
  * @version 0.1
  */
 public class LoanCtr{
-    private LoanContainer loanCtr;
+    private LoanContainer loanCon;
     private AddressBook addressBook;
     
     /**
@@ -17,7 +17,7 @@ public class LoanCtr{
      */
     public LoanCtr()
     {
-        loanCtr = LoanContainer.getInstance();
+        loanCon = LoanContainer.getInstance();
     }
 
     /**
@@ -29,11 +29,14 @@ public class LoanCtr{
     //}
 
     /**
-     * @param int loanID : The ID of the loan
+     * Ends the loan -- All DVDs are handed in.
      * 
+     * @param int loanID : The ID of the loan
+     * @param int personID : The ID of the person
      */
     public void endLoan(int personID, int loanID){
-        loan = loanCon.getLoans(loanID);
+        Person p = addressBook.getPerson(personID);
+        Loan loan = loanCon.getLoans(loanID);
         if(loan != null){
            
         } else{
@@ -44,7 +47,11 @@ public class LoanCtr{
         
     
     /**
+     * Extends the specific loan by 7 days
+     * Can only be extended once
      * 
+     * @param int loanID : The ID of the loan
+     * @return boolean true/false : The loan was/n't extended
      */
     public boolean extendLoan(int loanID){
         boolean returnBoolean;
@@ -62,8 +69,12 @@ public class LoanCtr{
     }
 
     /**
+     * Gets all of the person's loans and returns them all in a string
      * 
+     * @param int personID : The ID of the person
+     * @return String : All of the person's loans
      */
+    
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
         
