@@ -97,7 +97,7 @@ public class MainMenuUI
      * writeEnd - Write the shutdown confirm.
      */
     private void writeEnd(){
-        System.out.println(" The System is shuting down ");
+        System.out.println("The system is shuting down.");
     }
     
     /**

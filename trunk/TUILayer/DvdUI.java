@@ -117,9 +117,12 @@ public class DvdUI{
             }
             
             System.out.print("Publication Year: ");
-            String pubYear = keyboard.nextLine();
-            if(pubYear.trim().isEmpty()){
-                System.out.println("The publication year cant be empty!");
+            System.out.print("Publication Year: ");
+            int pubYear = keyboard.nextInt();
+            int pubLength = String.valueOf(pubYear).length();
+            keyboard.nextLine();
+            if(pubLength != 4){
+                System.out.println("The publication date must be 4 characters long");
             }
             
             if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Year: " + pubYear + ")")){
