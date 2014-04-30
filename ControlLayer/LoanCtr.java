@@ -10,7 +10,8 @@ import ModelLayer.*;
  */
 public class LoanCtr{
     private LoanContainer loanCtr;
-
+    private AddressBook addressBook;
+    
     /**
      * Constructor for objects of class LoanCtr
      */
@@ -64,7 +65,11 @@ public class LoanCtr{
      * 
      */
     public String getLoansByID(int personID){
-
+        Person p = addressBook.getPerson(personID);
+        
+        if(p != null){
+            
+        }
     }
 
     /**
