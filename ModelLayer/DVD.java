@@ -13,7 +13,7 @@ public class DVD{
     private int id;
     private String title;
     private String artist;
-    private String publicationDate;
+    private String publicationYear;
 
     /**
      * Constructor for objects of class DVD
@@ -21,22 +21,22 @@ public class DVD{
      * @param artist The artist of the dvd.
      * @param publicationDate The publicationDate of the dvd.
      */
-    public DVD(String title, String artist, String publicationDate){
+    public DVD(String title, String artist, String publicationYear){
         copies = new HashSet<Copy>();
         idIterator++;
         this.id = idIterator;
         this.title = title;
         this.artist = artist;
-        this.publicationDate = publicationDate;
+        this.publicationYear = publicationYear;
     }
     
     /**
      * createCopy - Create a Copy object of a the dvd object.
-     * @param date The date of the purchase
+     * @param year The year of the purchase
      * @param price The price of the purchase
      */
-    public void createCopy(String purchaseDate, double purchasePrice){
-        addCopy(new Copy(purchaseDate, purchasePrice));
+    public void createCopy(String purchaseYear, double purchasePrice){
+        addCopy(new Copy(purchaseYear, purchasePrice));
     }
     
     /**
@@ -130,19 +130,19 @@ public class DVD{
     }
     
     /**
-    * getPublicationDate() - Returns the PublicationDate
+    * getPublicationYear() - Returns the PublicationYear
     * @return publicationDate
     */
-    public String getPublicationDate(){
-        return publicationDate;
+    public String getPublicationYear(){
+        return publicationYear;
     }
     
     /**
-    * setPublicationDate() - sets the PublicationDate
-    * @param publicationDate - value as String
+    * setPublicationYear() - sets the PublicationYear
+    * @param publicationYear - value as String
     */
-    public void setPublicationDate(String publicationDate){
-        this.publicationDate = publicationDate;
+    public void setPublicationDate(String publicationYear){
+        this.publicationYear = publicationYear;
     }
     
     public boolean hasCopies(){
