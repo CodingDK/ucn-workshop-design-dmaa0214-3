@@ -75,13 +75,10 @@ public class LoanCtr{
 
     /**
      * Ends the loan -- All DVDs are handed in.
-     * 
      * @param int loanID : The ID of the loan
-     * @param int personID : The ID of the person
      */
-    public void endLoan(int personID, int loanID){
-        Person p = addressBook.getPerson(personID);
-        Loan loan = loanCont.getLoan(p, loanID);
+    public void endLoan(int loanID){
+        Loan loan = loanCont.getLoan(loanID);
         if(loan != null){
             if(loan.getReturned()){
                 throw new NullPointerException("Loan already returned.");
@@ -98,27 +95,21 @@ public class LoanCtr{
     /**
      * Extends the specific loan.
      * Can only be extended once
-     * 
      * @param int loanID : The ID of the loan
      * @return boolean true/false : The loan was/n't extended
      */
-    public boolean extendLoan(int personID, int loanID){
+    public boolean extendLoan(int loanID){
         boolean returnBoolean = false;
-        Person p = addressBook.getPerson(personID);
-        if(p != null){
-            Loan loan = loanCont.getLoan(p, loanID);
-            if(loan != null){
-                if(!loan.getExtended()){
-                    loan.extend();
-                    returnBoolean = true;
-                }
-            } else{
-                throw new NullPointerException("Loan ID was not found");
+        Loan loan = loanCont.getLoan(loanID);
+        if(loan != null){
+            if(!loan.getExtended()){
+                loan.extend();
+                returnBoolean = true;
             }
-            return returnBoolean;
-        } else {
-            throw new NullPointerException("Person ID was not found");
+        } else{
+                throw new NullPointerException("Loan ID was not found");
         }
+        return returnBoolean;
     }
 
     /**
@@ -126,7 +117,6 @@ public class LoanCtr{
      * @param personID : The ID of the person.
      * @return String : The persons loans.
      */
-    
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
         String nL = System.getProperty("line.separator");
@@ -173,8 +163,6 @@ public class LoanCtr{
         HashMap<Person, ArrayList<Loan>> loans = loanCont.getAllLoans();
         String nLine = System.getProperty("line.separator");
         String returnString = nLine + "\f  *** All Loans *** " + nLine;
-        
-        Iterator it = loans.keySet().iterator();
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
