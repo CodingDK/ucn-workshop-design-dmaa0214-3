@@ -144,20 +144,20 @@ public class LoanUI{
             Scanner keyboard = new Scanner(System.in);
             LoanCtr loanCtr = new LoanCtr();
             
-            System.out.print("Person ID: ");
-            int personID = keyboard.nextInt();
-            keyboard.nextLine();
-            if(!loanCtr.personExist(personID)){
-                System.out.println("Person ID dont exist!");
-                pause();
-                return;
-            }
+//             System.out.print("Person ID: ");
+//             int personID = keyboard.nextInt();
+//             keyboard.nextLine();
+//             if(!loanCtr.personExist(personID)){
+//                 System.out.println("Person ID dont exist!");
+//                 pause();
+//                 return;
+//             }
             
             System.out.print("Loan ID: ");
             int loanID = keyboard.nextInt();
             keyboard.nextLine();
             
-            loanCtr.endLoan(personID, loanID);
+            loanCtr.endLoan(loanID);
             System.out.println("Loan ended.");
             pause();
             
@@ -179,21 +179,12 @@ public class LoanUI{
         try{
             Scanner keyboard = new Scanner(System.in);
             LoanCtr loanCtr = new LoanCtr();
-            
-            System.out.print("Person ID: ");
-            int personID = keyboard.nextInt();
-            keyboard.nextLine();
-            if(!loanCtr.personExist(personID)){
-                System.out.println("Person ID dont exist!");
-                pause();
-                return;
-            }
-            
+                        
             System.out.print("Loan ID: ");
             int loanID = keyboard.nextInt();
             keyboard.nextLine();
             
-            if(loanCtr.extendLoan(personID, loanID)){
+            if(loanCtr.extendLoan(loanID)){
                 System.out.println("Loan extended.");
             } else {
                 System.out.println("Loan already extended before.");
