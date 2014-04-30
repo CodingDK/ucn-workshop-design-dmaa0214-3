@@ -116,7 +116,7 @@ public class LoanUI{
                     }catch(InputMismatchException e){
                         choice = 0;
                     }catch(NullPointerException e1){
-                        System.out.println(e1);
+                        System.out.println(e1.getMessage());
                         pause();
                     }
                 }else if(choice == 2){
@@ -133,7 +133,7 @@ public class LoanUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -143,15 +143,6 @@ public class LoanUI{
         try{
             Scanner keyboard = new Scanner(System.in);
             LoanCtr loanCtr = new LoanCtr();
-            
-//             System.out.print("Person ID: ");
-//             int personID = keyboard.nextInt();
-//             keyboard.nextLine();
-//             if(!loanCtr.personExist(personID)){
-//                 System.out.println("Person ID dont exist!");
-//                 pause();
-//                 return;
-//             }
             
             System.out.print("Loan ID: ");
             int loanID = keyboard.nextInt();
@@ -166,7 +157,7 @@ public class LoanUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -197,7 +188,7 @@ public class LoanUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }
@@ -208,6 +199,7 @@ public class LoanUI{
             Scanner keyboard = new Scanner(System.in);
             LoanCtr loanCtr = new LoanCtr();
             
+            System.out.println("\f### Print Loans ###");
             System.out.print("Person ID: ");
             int personID = keyboard.nextInt();
             keyboard.nextLine();
@@ -224,7 +216,7 @@ public class LoanUI{
             pause();
             return;
         }catch(NullPointerException e1){
-            System.out.println(e1);
+            System.out.println(e1.getMessage());
             pause();
             return;
         }

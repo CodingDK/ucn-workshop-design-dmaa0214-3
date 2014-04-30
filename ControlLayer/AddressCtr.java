@@ -115,16 +115,20 @@ public class AddressCtr
     public String listAllPersons(){
         ArrayList<Person> persons = addressBook.getAllPersons();
         String nLine = System.getProperty("line.separator");
-        String returnString = "### All Persons ###" + nLine;
+        StringBuilder sb = new StringBuilder();
+        //String returnString = "### All Persons ###" + nLine;
+        sb.append("### All Persons ###" + nLine);
         if (!persons.isEmpty()) {
             for(Person p : persons) {
-                returnString += "#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
-                ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine;
+                //returnString += "#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
+                //", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine;
+                sb.append("#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine);
             }
         } else {
             throw new NullPointerException("The addressbook is empty");
         }
-        return returnString;
+        //return returnString;
+        return sb.toString();
     }
     
     /**
