@@ -69,17 +69,30 @@ public class LoanCtr{
     }
 
     /**
-     * Gets all of the person's loans and returns them all in a string
-     * 
-     * @param int personID : The ID of the person
-     * @return String : All of the person's loans
+     * getLoansByID - Return a String with the Loans from the person ID
+     * @param personID : The ID of the person.
+     * @return String : The persons loans.
      */
     
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
         
         if(p != null){
+            ArrayList<Loan> loans = loanCon.getLoans(p);
+            if(!loans.isEmpty()){
+                String returnString = "(";
+                for(Loan l : loans){
+                    returnString += l.getLoan() + ", ";
+                }
             
+                returnString = returnString.substring(0, returnString.length()-2) + ")";
+                
+                return returnString;
+            } else{
+               throw new NullPointerException("There are no Loans"); 
+            }
+        } else{
+            throw new NullPointerException("Person ID not found");
         }
     }
 
