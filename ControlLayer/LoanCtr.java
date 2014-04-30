@@ -53,6 +53,17 @@ public class LoanCtr{
         loanCon.createLoan(p, copies);
     }
     
+    public boolean personExist(int personID){
+        Person p = addressBook.getPerson(personID);
+        boolean retBool = false;
+        
+        if(p != null){
+            retBool = true;
+        }
+        
+        return retBool;
+    }
+    
     public boolean hasCopies(int dvdID){
         DVD dvd = dvdCont.getDVD(dvdID);
         return dvd.hasCopies();
@@ -68,7 +79,7 @@ public class LoanCtr{
         Person p = addressBook.getPerson(personID);
         Loan loan = loanCon.getLoan(p, loanID);
         if(loan != null){
-           
+            loan.setReturned(true);
         } else{
             throw new NullPointerException("Loan not found");
         }
@@ -83,12 +94,12 @@ public class LoanCtr{
      * @param int loanID : The ID of the loan
      * @return boolean true/false : The loan was/n't extended
      */
-    public boolean extendLoan(int loanID){
+    public boolean extendLoan(int personID, int loanID){
         boolean returnBoolean;
-        loan = loanCon.getLoan(loanID);
-
-        if(loan != 0 && !loan.getExtended()){
-            period = loan.getPeriod();
+        Person p = addressBook.getPerson(personID);
+        Loan loan = loanCon.getLoan(p, loanID);
+        if(loan != null && !loan.getExtended()){
+            int period = loan.getPeriod();
             loan.setPeriod(period+7);
             returnBoolean = true;
         } else{
