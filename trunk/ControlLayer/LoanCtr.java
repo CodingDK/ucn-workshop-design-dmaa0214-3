@@ -1,35 +1,69 @@
 package ControlLayer;
-
+import java.util.*;
+import ModelLayer.*;
 
 /**
- * Write a description of class LoanCtr here.
+ * Controller of Loans
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 3
+ * @version 0.1
  */
-public class LoanCtr
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
+public class LoanCtr{
+    private LoanContainer loanCtr;
+    
     /**
      * Constructor for objects of class LoanCtr
      */
     public LoanCtr()
     {
-        // initialise instance variables
-        x = 0;
+        loanCtr = LoanContainer.getInstance();
+    }
+    
+    /**
+     * @
+     * @
+     */
+    //public void createLoan(int personID, ArrayList<Copy>){
+        
+    //}
+    
+    /**
+     * 
+     */
+    public void returnDVD(int loanID){
+    
+    }
+    
+    /**
+     * 
+     */
+    public boolean extendLoan(int loanID){
+        boolean returnBoolean;
+        loan = loanCon.getLoan(loanID);
+        
+        if(loan != 0 && !loan.getExtended()){
+            period = loan.getPeriod();
+            loan.setPeriod(period+7);
+            returnBoolean = true;
+        } else{
+            returnBoolean = false;
+        }
+        
+        return returnBoolean;
+    }
+    
+    /**
+     * 
+     */
+    public String getLoansByID(int personID){
+        
+    }
+    
+    /**
+     * 
+     */
+    public String listAllLoans(){
+        String nLine = System.getProperty("line.seperator");
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }
