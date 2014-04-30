@@ -152,9 +152,6 @@ public class LoanCtr{
                     loanString += "Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL;
                     returnString += loanString;
                 }
-            
-                //returnString = returnString.substring(0, returnString.length()-2) + ")";
-                
                 return returnString;
             } else{
                throw new NullPointerException("There are no Loans"); 
