@@ -145,16 +145,17 @@ public class LoanCtr{
     }
 
     /**
-     * 
+     * listAllLoans - Lists all loans from all persons
+     * @return String : Returns a string with all persons loans.
      */
     public String listAllLoans(){
         HashMap<Person, ArrayList<Loan>> loans = loanCon.getAllLoans();
-        String returnString;
+        String returnString = null;
         String nLine = System.getProperty("line.seperator");
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
-                
+                returnString += getLoansByID(p.getID());
             }
         } else{
             throw new NullPointerException("Loans could not be found");
