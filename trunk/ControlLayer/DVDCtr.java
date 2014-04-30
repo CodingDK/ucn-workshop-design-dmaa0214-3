@@ -28,7 +28,7 @@ public class DVDCtr{
     
     /**
      * getDVDInfo - Returns a String of information, by person id.
-     * @param ID The id of the DVD.
+     * @param dvdID The id of the DVD.
      * @return String of the dvd information. 
      */
     public String getDVDInfo(int dvdID){ 
@@ -37,7 +37,7 @@ public class DVDCtr{
         String nLine = System.getProperty("line.separator");
         
         if(d != null){
-            return nLine + "ID: " + d.getID() + " Title: " + d.getTitle() + " Artist: " + d.getArtist() + " Publication Date: " + d.getPublicationDate() ; 
+            return nLine + "ID: " + d.getID() + " Title: " + d.getTitle() + " Artist: " + d.getArtist() + " Publication Date: " + d.getPublicationDate() + " Copies: " + d.getCopies().size() ; 
         } else {
             throw new NullPointerException("DVD was not found");
         }
@@ -179,7 +179,7 @@ public class DVDCtr{
         if(!dvd.isEmpty()) {
             for(DVD d : dvd) {
                 returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
-                + ", Publication date: " + d.getPublicationDate() + nLine;
+                + ", Publication date: " + d.getPublicationDate() + ", Copies: " + d.getCopies().size() + nLine;
             }
         } else {
             throw new NullPointerException("DVD list was not found");

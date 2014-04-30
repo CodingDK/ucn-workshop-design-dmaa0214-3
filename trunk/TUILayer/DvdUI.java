@@ -83,6 +83,7 @@ public class DvdUI{
             
             DVDCtr dvdCtr = new DVDCtr();
             System.out.println(dvdCtr.getDVDInfo(dvdID));
+            System.out.println("Copies Ids: " + dvdCtr.getCopies(dvdID));
             pause();        
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
