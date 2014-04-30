@@ -9,7 +9,7 @@ import ModelLayer.*;
  * @version 0.1 
  */
 public class LoanCtr{
-    private LoanContainer loanCon;
+    private LoanContainer loanCont;
     private AddressBook addressBook;
     private DVDContainer dvdCont;
     
@@ -18,7 +18,7 @@ public class LoanCtr{
      */
     public LoanCtr()
     {
-        loanCon = LoanContainer.getInstance();
+        loanCont = LoanContainer.getInstance();
         dvdCont = DVDContainer.getInstance();
         addressBook = AddressBook.getInstance();
     }
@@ -50,7 +50,7 @@ public class LoanCtr{
             throw new NullPointerException("Person does not exist, or there are no dvds added to the list");
         }
         
-        loanCon.createLoan(p, copies);
+        loanCont.createLoan(p, copies);
     }
     
     public boolean personExist(int personID){
@@ -81,9 +81,13 @@ public class LoanCtr{
      */
     public void endLoan(int personID, int loanID){
         Person p = addressBook.getPerson(personID);
-        Loan loan = loanCon.getLoan(p, loanID);
+        Loan loan = loanCont.getLoan(p, loanID);
         if(loan != null){
-            loan.setReturned(true);
+            if(loan.getReturned()){
+                throw new NullPointerException("Loan already returned.");
+            } else {
+                loan.setReturned(true);
+            }
         } else{
             throw new NullPointerException("Loan not found");
         }
@@ -92,7 +96,7 @@ public class LoanCtr{
         
     
     /**
-     * Extends the specific loan by 7 days
+     * Extends the specific loan.
      * Can only be extended once
      * 
      * @param int loanID : The ID of the loan
@@ -102,7 +106,7 @@ public class LoanCtr{
         boolean returnBoolean = false;
         Person p = addressBook.getPerson(personID);
         if(p != null){
-            Loan loan = loanCon.getLoan(p, loanID);
+            Loan loan = loanCont.getLoan(p, loanID);
             if(loan != null){
                 if(!loan.getExtended()){
                     loan.extend();
@@ -128,9 +132,9 @@ public class LoanCtr{
         String nL = System.getProperty("line.separator");
         
         if(p != null){
-            ArrayList<Loan> loans = loanCon.getLoans(p);
+            ArrayList<Loan> loans = loanCont.getLoans(p);
             if(!loans.isEmpty()){
-                String returnString = "";
+                String returnString = " ### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL;
                 for(Loan l : loans){
                     String loanString = "*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL;
                     ArrayList<Copy> copies = l.getCopies();
@@ -166,15 +170,15 @@ public class LoanCtr{
      * @return String : Returns a string with all Loans.
      */
     public String listAllLoans(){
-        HashMap<Person, ArrayList<Loan>> loans = loanCon.getAllLoans();
+        HashMap<Person, ArrayList<Loan>> loans = loanCont.getAllLoans();
         String nLine = System.getProperty("line.separator");
-        String returnString = nLine + "\f  *** All Loans *** " + nLine + nLine;
+        String returnString = nLine + "\f  *** All Loans *** " + nLine;
         
         Iterator it = loans.keySet().iterator();
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
-                returnString += " ### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nLine + getLoansByID(p.getID()) + nLine;
+                returnString += nLine + getLoansByID(p.getID()) + nLine;
             }
         } else{
             throw new NullPointerException("Loans could not be found");

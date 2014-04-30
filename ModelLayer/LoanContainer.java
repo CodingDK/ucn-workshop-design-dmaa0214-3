@@ -4,8 +4,8 @@ import java.util.*;
 /**
  * Write a description of class LoanContainer here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 3 
+ * @version 0.3
  */
 public class LoanContainer
 {

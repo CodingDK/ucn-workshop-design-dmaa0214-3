@@ -40,7 +40,7 @@ public class MainMenuUI
             }else if(choice == 3){
                 startLoan();
             }else if(choice == 4){
-                writeEnd();
+                System.out.println("The system is shuting down.");
                 exit = true;
             }else if(choice == 5){
                 test();
@@ -91,13 +91,6 @@ public class MainMenuUI
      */
     private void startLoan(){
         loanUI = new LoanUI();
-    }
-    
-    /**
-     * writeEnd - Write the shutdown confirm.
-     */
-    private void writeEnd(){
-        System.out.println("The system is shuting down.");
     }
     
     /**
