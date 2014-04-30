@@ -11,6 +11,7 @@ import ModelLayer.*;
 public class LoanCtr{
     private LoanContainer loanCon;
     private AddressBook addressBook;
+    private DVDContainer dvdCont;
     
     /**
      * Constructor for objects of class LoanCtr
@@ -18,15 +19,44 @@ public class LoanCtr{
     public LoanCtr()
     {
         loanCon = LoanContainer.getInstance();
+        dvdCont = DVDContainer.getInstance();
     }
 
     /**
      * @
      * @
      */
-    //public void createLoan(int personID, ArrayList<Copy>){
-
-    //}
+    public void createLoan(int personID, ArrayList<Integer> dvdIds){
+        Person p = addressBook.getPerson(personID);
+        ArrayList<DVD> dvds = dvdCont.getAllDVDs();
+        ArrayList<Copy> copies = new ArrayList<Copy>();
+        if(p != null && !dvdIds.isEmpty()){
+            for(Integer i : dvdIds){
+                for(DVD dvd : dvds){
+                    if(dvd.getID() == i){
+                        HashSet<Copy> dvdCopies = dvd.getCopies();
+                        for(Copy c : dvdCopies){
+                            if(!c.getLent()){
+                                copies.add(c);
+                                c.setLent(true);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            throw new NullPointerException("Person does not exist, or there are no dvds added to the list");
+            return;
+        }
+        
+        loanCon.createLoan(p, copies);
+    }
+    
+    public boolean hasCopies(int dvdID){
+        DVD dvd = dvdCont.getDVD(dvdID);
+        return dvd.hasCopies();
+    }
 
     /**
      * Ends the loan -- All DVDs are handed in.
