@@ -83,7 +83,9 @@ public class LoanUI{
     }
     
     private void printAllLoans(){
-    
+        LoanCtr loanCtr = new LoanCtr();
+        System.out.println(loanCtr.listAllLoans());
+        pause();
     }
 
     /**
