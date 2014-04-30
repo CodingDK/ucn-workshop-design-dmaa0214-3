@@ -43,14 +43,14 @@ public class AddressBookUI{
        int choice;
        try{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** AddressBook Menu ***");
-            System.out.println(" (1) Show information about person");
-            System.out.println(" (2) Add person");
-            System.out.println(" (3) Delete person");
-            System.out.println(" (4) Update person");
-            System.out.println(" (5) List all persons");
-            System.out.println(" (6) Return");
-            System.out.print("\n Make your choice: ");
+            System.out.println("*** AddressBook Menu ***");
+            System.out.println("(1) Show information about person");
+            System.out.println("(2) Add person");
+            System.out.println("(3) Delete person");
+            System.out.println("(4) Update person");
+            System.out.println("(5) List all persons");
+            System.out.println("(6) Return");
+            System.out.print("\nMake your choice: ");
             
             choice = keyboard.nextInt();
        }catch(InputMismatchException e){
@@ -65,12 +65,12 @@ public class AddressBookUI{
      */
     private int writeUpdatePersonMenu(){
            Scanner keyboard = new Scanner(System.in);
-           System.out.println("\f *** Update person Menu ***");
+           System.out.println("*** Update person Menu ***");
            System.out.println("(1) Change location");
            System.out.println("(2) Change name");
            System.out.println("(3) Change phone");
            System.out.println("(4) Return");
-           System.out.print("\n Make your choice: ");
+           System.out.print("\nMake your choice: ");
             
            int c = keyboard.nextInt();
            return c;
@@ -135,7 +135,7 @@ public class AddressBookUI{
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 8){
-                System.out.println("Phone number cant be less than 11");
+                System.out.println("Phone number cant be less than 8");
                 pause();
                 return;
             }
@@ -215,7 +215,7 @@ public class AddressBookUI{
             System.out.print("What's the new address?: ");
             String addr = keyboard.nextLine();
             if(addr.trim().isEmpty()){
-                System.out.println("address can't be empty!");
+                System.out.println("Address can't be empty!");
                 pause();
                 return;
             }
@@ -286,7 +286,7 @@ public class AddressBookUI{
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 8){
-                System.out.println("The phone number must be atleast 8 chars long");
+                System.out.println("The phone number must be at least 8 chars long");
                 pause();
                 return;
             }
