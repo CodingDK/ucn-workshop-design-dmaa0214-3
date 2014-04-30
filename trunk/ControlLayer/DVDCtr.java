@@ -22,7 +22,7 @@ public class DVDCtr{
      * @param artist Artist of the DVD
      * @param publicationDate Date of the DVD publication
      */
-    public void createDVD(String title, String artist, String publicationYear){       
+    public void createDVD(String title, String artist, int publicationYear){       
           dvdCon.createDVD(title, artist, publicationYear);
     }
     
@@ -93,7 +93,7 @@ public class DVDCtr{
      * @param artist Artist of the DVD
      * @param publicationDate Publication year of the DVD
      */
-    public void updateDVD(int id, String title, String artist, String publicationYear){
+    public void updateDVD(int id, String title, String artist, int publicationYear){
         DVD dvd = dvdCon.getDVD(id);
         if(dvd != null){
             dvd.setTitle(title);

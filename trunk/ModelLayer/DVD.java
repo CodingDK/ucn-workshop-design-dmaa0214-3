@@ -13,15 +13,15 @@ public class DVD{
     private int id;
     private String title;
     private String artist;
-    private String publicationYear;
+    private int publicationYear;
 
     /**
      * Constructor for objects of class DVD
      * @param title The title of the dvd.
      * @param artist The artist of the dvd.
-     * @param publicationDate The publicationDate of the dvd.
+     * @param publicationYear The publicationDate of the dvd.
      */
-    public DVD(String title, String artist, String publicationYear){
+    public DVD(String title, String artist, int publicationYear){
         copies = new HashSet<Copy>();
         idIterator++;
         this.id = idIterator;
@@ -35,8 +35,8 @@ public class DVD{
      * @param year The year of the purchase
      * @param price The price of the purchase
      */
-    public void createCopy(String purchaseYear, double purchasePrice){
-        addCopy(new Copy(purchaseYear, purchasePrice));
+    public void createCopy(String purchaseDate, double purchasePrice){
+        addCopy(new Copy(purchaseDate, purchasePrice));
     }
     
     /**
@@ -133,7 +133,7 @@ public class DVD{
     * getPublicationYear() - Returns the PublicationYear
     * @return publicationDate
     */
-    public String getPublicationYear(){
+    public int getPublicationYear(){
         return publicationYear;
     }
     
@@ -141,7 +141,7 @@ public class DVD{
     * setPublicationYear() - sets the PublicationYear
     * @param publicationYear - value as String
     */
-    public void setPublicationDate(String publicationYear){
+    public void setPublicationDate(int publicationYear){
         this.publicationYear = publicationYear;
     }
     
