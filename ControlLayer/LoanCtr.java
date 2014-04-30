@@ -141,7 +141,19 @@ public class LoanCtr{
      * 
      */
     public String listAllLoans(){
+        HashMap<Person, ArrayList<Loan>> loans = loanCon.getAllLoans();
+        String returnString;
         String nLine = System.getProperty("line.seperator");
+        
+        if(!loans.isEmpty()){
+            for(Person p : loans.keySet()) {
+                
+            }
+        } else{
+            throw new NullPointerException("Loans could not be found");
+        }
+        
+        return returnString;
     }
 
     }
