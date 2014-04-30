@@ -37,7 +37,7 @@ public class Loan{
     * @return id
     */
     public int getId(){
-    	return id;
+        return id;
     }
     
     /**
@@ -45,7 +45,7 @@ public class Loan{
     * @param id - value as int
     */
     public void setId(int id){
-    	this.id = id;
+        this.id = id;
     }
     
     /**
@@ -53,7 +53,7 @@ public class Loan{
     * @return borrowDate
     */
     public String getBorrowDate(){
-    	return borrowDate;
+        return borrowDate;
     }
     
     /**
@@ -61,23 +61,16 @@ public class Loan{
     * @param borrowDate - value as String
     */
     public void setBorrowDate(String borrowDate){
-    	this.borrowDate = borrowDate;
+        this.borrowDate = borrowDate;
     }
     
     /**
-    * getPeriod() - Returns the Period
-    * @return period
-    */
-    public int getPeriod(){
-    	return period;
-    }
-    
-    /**
-    * setPeriod() - sets the Period
-    * @param period - value as int
-    */
-    public void setPeriod(int period){
-    	this.period = period;
+     * e
+     */
+    public void extend(){
+        if(!extended){
+            this.period += this.period; 
+        }
     }
     
     /**
@@ -85,7 +78,7 @@ public class Loan{
     * @return returned
     */
     public boolean getReturned(){
-    	return returned;
+        return returned;
     }
     
     /**
@@ -93,7 +86,7 @@ public class Loan{
     * @param returned - value as boolean
     */
     public void setReturned(boolean returned){
-    	this.returned = returned;
+        this.returned = returned;
     }
     
     /**
@@ -101,7 +94,7 @@ public class Loan{
     * @return extended
     */
     public boolean getExtended(){
-    	return extended;
+        return extended;
     }
     
     /**
@@ -109,7 +102,7 @@ public class Loan{
     * @param extended - value as boolean
     */
     public void setExtended(boolean extended){
-    	this.extended = extended;
+        this.extended = extended;
     }
     
     /**
@@ -117,7 +110,7 @@ public class Loan{
     * @return copies
     */
     public ArrayList<Copy> getCopies(){
-    	return copies;
+        return copies;
     }
     
     /**
@@ -125,6 +118,27 @@ public class Loan{
     * @param copies - value as ArrayList<Copy>
     */
     public void setCopies(ArrayList<Copy> copies){
-    	this.copies = copies;
+        this.copies = copies;
+    }
+    
+    public String getDueDate(){
+        String dueDateD = "";
+        try{
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");        
+            Date dueDate = format.parse(borrowDate);
+            dueDate = addDays(dueDate, period);
+            dueDateD = new SimpleDateFormat("dd-MM-yyyy").format(dueDate);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return dueDateD;
+    }
+    
+    private Date addDays(Date date, int days){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days);
+        
+        return cal.getTime();
     }
 }

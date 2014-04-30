@@ -109,6 +109,21 @@ public class MainMenuUI
         addrCtr.createPerson("Lau", "address", 8800, "Noget", "+4598642601");
         DVDCtr dvdCtr = new DVDCtr();
         dvdCtr.createDVD("Batman", "Børge fra lem", 2012);
+        dvdCtr.createDVD("Batman 2", "Lasse", 2013);
         dvdCtr.addCopy(1, "03-02-2012", 50);
+        dvdCtr.addCopy(1, "03-02-2013", 50);
+        dvdCtr.addCopy(2, "03-02-2014", 150);
+        dvdCtr.addCopy(2, "03-02-2013", 150);
+        
+        LoanCtr lCtr = new LoanCtr();
+        ArrayList<Integer> loan = new ArrayList<Integer>();
+        loan.add(1);
+        loan.add(2);
+        lCtr.createLoan(1, loan);
+        
+        ArrayList<Integer> loan2 = new ArrayList<Integer>();
+        loan2.add(1);
+        loan2.add(2);
+        lCtr.createLoan(2, loan2);
     }
  }
