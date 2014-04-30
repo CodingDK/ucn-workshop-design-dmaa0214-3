@@ -99,15 +99,22 @@ public class LoanCtr{
      * @return boolean true/false : The loan was/n't extended
      */
     public boolean extendLoan(int personID, int loanID){
-        boolean returnBoolean = false;;
+        boolean returnBoolean = false;
         Person p = addressBook.getPerson(personID);
-        Loan loan = loanCon.getLoan(p, loanID);
-        if(loan != null && !loan.getExtended()){
-            loan.extend();
-            returnBoolean = true;
+        if(p == null){
+            Loan loan = loanCon.getLoan(p, loanID);
+            if(loan != null){
+                if(!loan.getExtended()){
+                    loan.extend();
+                    returnBoolean = true;
+                }
+            } else{
+                throw new NullPointerException("Loan ID was not found");
+            }
+            return returnBoolean;
+        } else {
+            throw new NullPointerException("Person ID was not found");
         }
-
-        return returnBoolean;
     }
 
     /**

@@ -60,6 +60,9 @@ public class LoanUI{
         return choice;
     }
     
+    /**
+     * createLoan - Create a loan.
+     */
     private void createLoan(){
         boolean exit = false;
         
@@ -137,11 +140,41 @@ public class LoanUI{
     }
     
     private void endLoan(){
-    
+        
     }
     
+    /**
+     * extendLoan - Extend a loan. 
+     */
     private void extendLoan(){
-    
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            LoanCtr loanCtr = new LoanCtr();
+            
+            System.out.print("Person ID: ");
+            int personID = keyboard.nextInt();
+            keyboard.nextLine();
+            if(!loanCtr.personExist(personID)){
+                System.out.println("Person ID dont exist!");
+                pause();
+                return;
+            }
+            
+            System.out.print("Loan ID: ");
+            int loanID = keyboard.nextInt();
+            keyboard.nextLine();
+            
+            loanCtr.extendLoan(personID, loanID);
+            
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     private void printLoans(){
