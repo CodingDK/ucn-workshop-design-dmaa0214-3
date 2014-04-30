@@ -49,20 +49,25 @@ public class DvdUI{
      * writeDVDMenu - Write the dvd menu.
      */
     private int writeDVDMenu(){
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\f *** DVD Menu ***");
-        System.out.println(" (1) Show DVD information");
-        System.out.println(" (2) Create DVD");
-        System.out.println(" (3) Create Copy");
-        System.out.println(" (4) Delete DVD");
-        System.out.println(" (5) Delete Copy");
-        System.out.println(" (6) Update DVD");
-        System.out.println(" (7) Update Copy");
-        System.out.println(" (8) Show current DVD list");
-        System.out.println(" (9) Return");
-        System.out.print("\n Make your choice: ");
-        
-        int choice = keyboard.nextInt();
+        int choice;
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("\f *** DVD Menu ***");
+            System.out.println(" (1) Show DVD information");
+            System.out.println(" (2) Create DVD");
+            System.out.println(" (3) Create Copy");
+            System.out.println(" (4) Delete DVD");
+            System.out.println(" (5) Delete Copy");
+            System.out.println(" (6) Update DVD");
+            System.out.println(" (7) Update Copy");
+            System.out.println(" (8) Show current DVD list");
+            System.out.println(" (9) Return");
+            System.out.print("\n Make your choice: ");
+            
+            choice = keyboard.nextInt();
+        }catch(InputMismatchException e){
+            choice = 0;
+        }
         return choice;
     }
     
