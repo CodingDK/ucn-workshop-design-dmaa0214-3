@@ -17,14 +17,14 @@ public class LoanUI{
         LoanMenu();
     }
 
-    public void LoanMenu(){   
+    private void LoanMenu(){   
         boolean exit = false;
         while(!exit){
             int choice = writeLoanMenu();
             if (choice == 1){
                 createLoan();
             }else if(choice == 2){
-                returnDVD();
+                endLoan();
             }else if(choice == 3){
                 extendLoan();
             }else if(choice == 4){
@@ -44,9 +44,9 @@ public class LoanUI{
         int choice;
         try{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** Loan Menu ***");
-            System.out.println("(1) Loan DVD");
-            System.out.println("(2) Return DVD");
+            System.out.println("\f*** Loan Menu ***");
+            System.out.println("(1) Create Loan");
+            System.out.println("(2) End Loan");
             System.out.println("(3) Extend Loan");
             System.out.println("(4) Print Loan");
             System.out.println("(5) Print All Loans");
@@ -61,16 +61,82 @@ public class LoanUI{
     }
     
     private void createLoan(){
-        /*
-         * Ny menu, 
-         * Tilføj - Afslut
-         * etc.
-         * Loop
-         * 
-         */
+        boolean exit = false;
+        
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            ArrayList<Integer> dvdIDs = new ArrayList<Integer>();
+            LoanCtr loanCtr = new LoanCtr();
+            
+            System.out.print("Person ID: ");
+            int personID = keyboard.nextInt();
+            keyboard.nextLine();
+            if(!loanCtr.personExist(personID)){
+                System.out.println("Person ID dont exist!");
+                pause();
+                return;
+            }
+            
+            while(!exit){
+                int choice;
+                
+                try{
+                                       
+                    System.out.println("\f*** Create Loan Menu ***");
+                    System.out.println("(1) Loan DVD");
+                    System.out.println("(2) End create loan");
+                    System.out.println("(3) Cancel create loan");
+                    System.out.print("\nMake your choice: ");
+                    choice = keyboard.nextInt();
+                    keyboard.nextLine();
+                    
+                }catch(InputMismatchException e){
+                    choice = 0;
+                } 
+                if (choice == 1){
+                    try{
+                        System.out.print("DVDid: ");
+                        int dvdID = keyboard.nextInt();
+                        keyboard.nextLine();
+            
+                        if(dvdIDs.contains(dvdID)){
+                            System.out.println("DVD already on the list");
+                            pause();
+                        }else if(loanCtr.hasCopies(dvdID)){
+                            System.out.println("DVD added to loan");
+                            dvdIDs.add(dvdID);
+                            pause();
+                        } else {
+                            System.out.println("DVD dont have available copies.");
+                            pause();
+                        }
+                    }catch(InputMismatchException e){
+                        choice = 0;
+                    }catch(NullPointerException e1){
+                        System.out.println(e1);
+                        pause();
+                    }
+                }else if(choice == 2){
+                    loanCtr.createLoan(personID, dvdIDs);
+                    System.out.println("Loan created.");
+                    pause();
+                    exit = true;
+                }else if(choice == 3){
+                    exit = true;
+                }
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
-    private void returnDVD(){
+    private void endLoan(){
     
     }
     
