@@ -40,6 +40,8 @@ public class AddressBookUI{
      * writeAddressBookMenu - Menu for the addressbook.
      */
     private int writeAddressBookMenu(){
+       int choice;
+       try{
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** AddressBook Menu ***");
             System.out.println(" (1) Show information about person");
@@ -50,8 +52,12 @@ public class AddressBookUI{
             System.out.println(" (6) Return");
             System.out.print("\n Make your choice: ");
             
-            int choice = keyboard.nextInt();
-            return choice;
+            choice = keyboard.nextInt();
+       }catch(InputMismatchException e){
+            choice = 0;
+       }
+            
+       return choice;
     }
     
     /**

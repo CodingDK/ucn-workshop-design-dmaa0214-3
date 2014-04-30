@@ -41,17 +41,22 @@ public class LoanUI{
      * writeLoanMenu - Write the Loan menu.
      */
     private int writeLoanMenu(){
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\f *** Loan Menu ***");
-        System.out.println(" (1) Loan DVD");
-        System.out.println(" (2) Return DVD");
-        System.out.println(" (3) Extend Loan");
-        System.out.println(" (4) Print Loan");
-        System.out.println(" (5) Print All Loans");
-        System.out.println(" (6) Return");
-        System.out.print("\n Make your choice: ");
-        
-        int choice = keyboard.nextInt();
+        int choice;
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("\f *** Loan Menu ***");
+            System.out.println(" (1) Loan DVD");
+            System.out.println(" (2) Return DVD");
+            System.out.println(" (3) Extend Loan");
+            System.out.println(" (4) Print Loan");
+            System.out.println(" (5) Print All Loans");
+            System.out.println(" (6) Return");
+            System.out.print("\n Make your choice: ");
+            
+            choice = keyboard.nextInt();
+        }catch(InputMismatchException e){
+            choice = 0;
+        } 
         return choice;
     }
     
