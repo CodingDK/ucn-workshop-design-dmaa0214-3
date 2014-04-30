@@ -121,7 +121,7 @@ public class LoanCtr{
     
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
-        String nL = System.getProperty("line.separater");
+        String nL = System.getProperty("line.separator");
         
         if(p != null){
             ArrayList<Loan> loans = loanCon.getLoans(p);
@@ -167,7 +167,7 @@ public class LoanCtr{
     public String listAllLoans(){
         HashMap<Person, ArrayList<Loan>> loans = loanCon.getAllLoans();
         String returnString = null;
-        String nLine = System.getProperty("line.seperator");
+        String nLine = System.getProperty("line.separator");
         
         Iterator it = loans.keySet().iterator();
         
