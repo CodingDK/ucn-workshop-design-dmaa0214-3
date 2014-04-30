@@ -101,7 +101,7 @@ public class LoanCtr{
     public boolean extendLoan(int personID, int loanID){
         boolean returnBoolean = false;
         Person p = addressBook.getPerson(personID);
-        if(p == null){
+        if(p != null){
             Loan loan = loanCon.getLoan(p, loanID);
             if(loan != null){
                 if(!loan.getExtended()){
