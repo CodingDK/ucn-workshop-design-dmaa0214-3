@@ -117,11 +117,11 @@ public class DvdUI{
             }
             
             System.out.print("Publication Year: ");
-            System.out.print("Publication Year: ");
             int pubYear = keyboard.nextInt();
-            int pubLength = String.valueOf(pubYear).length();
+
             keyboard.nextLine();
-            if(pubLength != 4){
+            
+            if(String.valueOf(pubYear).length() != 4){
                 System.out.println("The publication date must be 4 characters long");
             }
             
@@ -256,12 +256,14 @@ public class DvdUI{
             }
             
             System.out.print("Publication Year: ");
-            String pubYear = keyboard.nextLine();
-            if(pubYear.trim().isEmpty()){
-                System.out.println("Publication Year cant be empty!");
-                pause();
-                return;
+            int pubYear = keyboard.nextInt();
+
+            keyboard.nextLine();
+            
+            if(String.valueOf(pubYear).length() != 4){
+                System.out.println("The publication date must be 4 characters long");
             }
+            
             
             if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Year: " + pubYear + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
