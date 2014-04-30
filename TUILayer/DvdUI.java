@@ -4,7 +4,7 @@ import ControlLayer.DVDCtr;
 /**
  * User interface to the DVD controller
  * @author Group 3
- * @version 0.2                 
+ * @version 0.3                 
  */
 
 public class DvdUI{
