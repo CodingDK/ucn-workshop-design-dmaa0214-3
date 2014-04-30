@@ -66,7 +66,7 @@ public class LoanCtr{
      */
     public void endLoan(int personID, int loanID){
         Person p = addressBook.getPerson(personID);
-        Loan loan = loanCon.getLoans(loanID);
+        Loan loan = loanCon.getLoan(p, loanID);
         if(loan != null){
            
         } else{
