@@ -4,7 +4,7 @@ import ModelLayer.*;
 /**
  * Controller class for the DVD collection
  * 
- * @author (kbh) 
+ * @author Group 3
  * @version 0.1
  */
 public class DVDCtr{

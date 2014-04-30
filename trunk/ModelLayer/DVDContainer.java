@@ -8,7 +8,6 @@ import java.util.*;
  * @version 0.3
  */
 public class DVDContainer{
-    // instance variables
     private static DVDContainer instance;
     private ArrayList<DVD> dvds;
 

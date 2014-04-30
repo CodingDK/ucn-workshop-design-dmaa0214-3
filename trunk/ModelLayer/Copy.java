@@ -3,7 +3,7 @@ package ModelLayer;
  * Aggregation of DVDContainer
  * 
  * @author Group 3
- * @version (a version number or a date)
+ * @version 0.3
  */
 public class Copy{
     private int serialNumber;

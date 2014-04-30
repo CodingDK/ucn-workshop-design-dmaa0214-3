@@ -14,10 +14,10 @@ public class LoanUI{
      * Constructor for objects of class LoanUI
      */
     public LoanUI(){
-        LoanMenu();
+        loanMenu();
     }
 
-    private void LoanMenu(){   
+    private void loanMenu(){   
         boolean exit = false;
         while(!exit){
             int choice = writeLoanMenu();
@@ -140,7 +140,36 @@ public class LoanUI{
     }
     
     private void endLoan(){
-        
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            LoanCtr loanCtr = new LoanCtr();
+            
+            System.out.print("Person ID: ");
+            int personID = keyboard.nextInt();
+            keyboard.nextLine();
+            if(!loanCtr.personExist(personID)){
+                System.out.println("Person ID dont exist!");
+                pause();
+                return;
+            }
+            
+            System.out.print("Loan ID: ");
+            int loanID = keyboard.nextInt();
+            keyboard.nextLine();
+            
+            loanCtr.endLoan(personID, loanID);
+            System.out.println("Loan ended.");
+            pause();
+            
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     /**
@@ -164,7 +193,13 @@ public class LoanUI{
             int loanID = keyboard.nextInt();
             keyboard.nextLine();
             
-            loanCtr.extendLoan(personID, loanID);
+            if(loanCtr.extendLoan(personID, loanID)){
+                System.out.println("Loan extended.");
+            } else {
+                System.out.println("Loan already extended before.");
+            }
+            pause();
+            
             
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
@@ -178,7 +213,30 @@ public class LoanUI{
     }
     
     private void printLoans(){
-    
+        try{
+            Scanner keyboard = new Scanner(System.in);
+            LoanCtr loanCtr = new LoanCtr();
+            
+            System.out.print("Person ID: ");
+            int personID = keyboard.nextInt();
+            keyboard.nextLine();
+            if(!loanCtr.personExist(personID)){
+                System.out.println("Person ID dont exist!");
+                pause();
+                return;
+            }
+            
+            System.out.println("\f" + loanCtr.getLoansByID(personID));
+            pause();
+        }catch(InputMismatchException e){
+            System.out.println("Invalid values");
+            pause();
+            return;
+        }catch(NullPointerException e1){
+            System.out.println(e1);
+            pause();
+            return;
+        }
     }
     
     private void printAllLoans(){

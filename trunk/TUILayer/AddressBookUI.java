@@ -1,7 +1,7 @@
-package TUILayer;//makes this class a part of the TUILayer package
+package TUILayer;
 import java.util.*;
 import java.io.*;
-import ControlLayer.*;//The TUILayer needs to know the ControlLayer
+import ControlLayer.*;
 
 /**
  * User interface class to the AddressBook

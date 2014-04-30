@@ -122,6 +122,10 @@ public class Loan{
         this.copies = copies;
     }
     
+    /**
+     * getDueDate - Get the DueDate.
+     * @return String with dueDate.
+     */
     public String getDueDate(){
         String dueDateD = "";
         try{
@@ -130,11 +134,16 @@ public class Loan{
             dueDate = addDays(dueDate, period);
             dueDateD = new SimpleDateFormat("dd-MM-yyyy").format(dueDate);
         }catch(Exception e){
-            System.out.println(e);
+            dueDateD = "Error";
         }
         return dueDateD;
     }
     
+    /**
+     * addDays - Adds days to a date.
+     * @param date Date to add too.
+     * @return Date The day calulated date.
+     */
     private Date addDays(Date date, int days){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
