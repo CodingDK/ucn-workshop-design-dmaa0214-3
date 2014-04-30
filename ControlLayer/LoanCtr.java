@@ -10,7 +10,7 @@ import ModelLayer.*;
  */
 public class LoanCtr{
     private LoanContainer loanCtr;
-    
+
     /**
      * Constructor for objects of class LoanCtr
      */
@@ -18,21 +18,29 @@ public class LoanCtr{
     {
         loanCtr = LoanContainer.getInstance();
     }
-    
+
     /**
      * @
      * @
      */
     //public void createLoan(int personID, ArrayList<Copy>){
-        
+
     //}
-    
+
     /**
+     * @param int loanID : The ID of the loan
      * 
      */
-    public void returnDVD(int loanID){
-    
+    public void endLoan(int personID, int loanID){
+        loan = loanCon.getLoans(loanID);
+        if(loan != null){
+           
+        } else{
+            throw new NullPointerException("Loan not found");
+        }
+        
     }
+        
     
     /**
      * 
@@ -40,7 +48,7 @@ public class LoanCtr{
     public boolean extendLoan(int loanID){
         boolean returnBoolean;
         loan = loanCon.getLoan(loanID);
-        
+
         if(loan != 0 && !loan.getExtended()){
             period = loan.getPeriod();
             loan.setPeriod(period+7);
@@ -48,17 +56,17 @@ public class LoanCtr{
         } else{
             returnBoolean = false;
         }
-        
+
         return returnBoolean;
     }
-    
+
     /**
      * 
      */
     public String getLoansByID(int personID){
-        
+
     }
-    
+
     /**
      * 
      */
@@ -66,4 +74,4 @@ public class LoanCtr{
         String nLine = System.getProperty("line.seperator");
     }
 
-}
+    }
