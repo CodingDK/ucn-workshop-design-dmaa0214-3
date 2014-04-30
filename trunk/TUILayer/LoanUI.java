@@ -28,12 +28,10 @@ public class LoanUI{
             }else if(choice == 3){
                 extendLoan();
             }else if(choice == 4){
-                addCopy();
-            }else if(choice == 5){
                 printLoans();
-            }else if(choice == 6){
+            }else if(choice == 5){
                 printAllLoans();
-            }else if(choice == 7){
+            }else if(choice == 6){
                 exit = true;
             }
         }
@@ -48,10 +46,9 @@ public class LoanUI{
         System.out.println(" (1) Loan DVD");
         System.out.println(" (2) Return DVD");
         System.out.println(" (3) Extend Loan");
-        System.out.println(" (4) Add Copy To Existing Loan");
-        System.out.println(" (5) Print Loan");
-        System.out.println(" (6) Print All Loans");
-        System.out.println(" (7) Return");
+        System.out.println(" (4) Print Loan");
+        System.out.println(" (5) Print All Loans");
+        System.out.println(" (6) Return");
         System.out.print("\n Make your choice: ");
         
         int choice = keyboard.nextInt();
@@ -59,7 +56,13 @@ public class LoanUI{
     }
     
     private void createLoan(){
-    
+        /*
+         * Ny menu, 
+         * Tilføj - Afslut
+         * etc.
+         * Loop
+         * 
+         */
     }
     
     private void returnDVD(){
@@ -67,10 +70,6 @@ public class LoanUI{
     }
     
     private void extendLoan(){
-    
-    }
-    
-    private void addCopy(){
     
     }
     
