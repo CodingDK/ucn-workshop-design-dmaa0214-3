@@ -99,15 +99,12 @@ public class LoanCtr{
      * @return boolean true/false : The loan was/n't extended
      */
     public boolean extendLoan(int personID, int loanID){
-        boolean returnBoolean;
+        boolean returnBoolean = false;;
         Person p = addressBook.getPerson(personID);
         Loan loan = loanCon.getLoan(p, loanID);
         if(loan != null && !loan.getExtended()){
-            int period = loan.getPeriod();
-            loan.setPeriod(period+7);
+            loan.extend();
             returnBoolean = true;
-        } else{
-            returnBoolean = false;
         }
 
         return returnBoolean;
@@ -128,7 +125,7 @@ public class LoanCtr{
             if(!loans.isEmpty()){
                 String returnString = "";
                 for(Loan l : loans){
-                    String loanString = " ### Loan ID: " + l.getId() + " ### " + nL + "Copies:" + nL;
+                    String loanString = "*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL;
                     ArrayList<Copy> copies = l.getCopies();
                     for(Copy c : copies){
                         ArrayList<DVD> dvds = dvdCont.getAllDVDs();
@@ -145,7 +142,7 @@ public class LoanCtr{
                             }
                         }
                     }
-                    loanString += "Returned: " + l.getReturned() + nL;
+                    loanString += "Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL;
                     returnString += loanString;
                 }
             
@@ -162,18 +159,18 @@ public class LoanCtr{
 
     /**
      * listAllLoans - Lists all loans from all persons
-     * @return String : Returns a string with all persons loans.
+     * @return String : Returns a string with all Loans.
      */
     public String listAllLoans(){
         HashMap<Person, ArrayList<Loan>> loans = loanCon.getAllLoans();
-        String returnString = null;
         String nLine = System.getProperty("line.separator");
+        String returnString = nLine + "\f  *** All Loans *** " + nLine + nLine;
         
         Iterator it = loans.keySet().iterator();
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
-                returnString += getLoansByID(p.getID());
+                returnString += " ### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nLine + getLoansByID(p.getID()) + nLine;
             }
         } else{
             throw new NullPointerException("Loans could not be found");
