@@ -22,8 +22,8 @@ public class DVDCtr{
      * @param artist Artist of the DVD
      * @param publicationDate Date of the DVD publication
      */
-    public void createDVD(String title, String artist, String publicationDate){       
-          dvdCon.createDVD(title, artist, publicationDate);
+    public void createDVD(String title, String artist, String publicationYear){       
+          dvdCon.createDVD(title, artist, publicationYear);
     }
     
     /**
@@ -37,7 +37,7 @@ public class DVDCtr{
         String nLine = System.getProperty("line.separator");
         
         if(d != null){
-            return nLine + "ID: " + d.getID() + " Title: " + d.getTitle() + " Artist: " + d.getArtist() + " Publication Date: " + d.getPublicationDate() + " Copies: " + d.getCopies().size() ; 
+            return nLine + "ID: " + d.getID() + " Title: " + d.getTitle() + " Artist: " + d.getArtist() + " Publication Year: " + d.getPublicationYear() + " Copies: " + d.getCopies().size() ; 
         } else {
             throw new NullPointerException("DVD was not found");
         }
@@ -91,14 +91,14 @@ public class DVDCtr{
      * @param id ID of the DVD
      * @param title Title of the DVD
      * @param artist Artist of the DVD
-     * @param publicationDate Publication date of the DVD
+     * @param publicationDate Publication year of the DVD
      */
-    public void updateDVD(int id, String title, String artist, String publicationDate){
+    public void updateDVD(int id, String title, String artist, String publicationYear){
         DVD dvd = dvdCon.getDVD(id);
         if(dvd != null){
             dvd.setTitle(title);
             dvd.setArtist(artist);
-            dvd.setPublicationDate(publicationDate);
+            dvd.setPublicationDate(publicationYear);
         } else {
             throw new NullPointerException("DVD not found");
         }
@@ -179,7 +179,7 @@ public class DVDCtr{
         if(!dvd.isEmpty()) {
             for(DVD d : dvd) {
                 returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
-                + ", Publication date: " + d.getPublicationDate() + ", Copies: " + d.getCopies().size() + nLine;
+                + ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine;
             }
         } else {
             throw new NullPointerException("DVD list was not found");

@@ -41,10 +41,10 @@ public class DVDContainer{
      * createDVD - Create a DVD and add it to the DVDcontainer.
      * @param title The title of the dvd.
      * @param artist The artist of the dvd.
-     * @param publicationDate The publicationDate of the dvd.
+     * @param publicationDate The publicationYear of the dvd.
      */
-    public void createDVD(String title, String artist, String publicationDate){
-        addDVD(new DVD(title, artist, publicationDate));
+    public void createDVD(String title, String artist, String publicationYear){
+        addDVD(new DVD(title, artist, publicationYear));
     }
     
     /**

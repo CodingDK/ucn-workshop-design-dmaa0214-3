@@ -116,15 +116,15 @@ public class DvdUI{
                 System.out.println("Artist cant be empty!");
             }
             
-            System.out.print("Publication Date: ");
-            String pubDate = keyboard.nextLine();
-            if(pubDate.trim().isEmpty()){
-                System.out.println("The publication date cant be empty!");
+            System.out.print("Publication Year: ");
+            String pubYear = keyboard.nextLine();
+            if(pubYear.trim().isEmpty()){
+                System.out.println("The publication year cant be empty!");
             }
             
-            if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Date: " + pubDate + ")")){
+            if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Year: " + pubYear + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                dvdCtr.createDVD(title, artist, pubDate);
+                dvdCtr.createDVD(title, artist, pubYear);
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid values");
@@ -252,17 +252,17 @@ public class DvdUI{
                 return;
             }
             
-            System.out.print("Publication Date: ");
-            String pubDate = keyboard.nextLine();
-            if(pubDate.trim().isEmpty()){
-                System.out.println("Publication Date cant be empty!");
+            System.out.print("Publication Year: ");
+            String pubYear = keyboard.nextLine();
+            if(pubYear.trim().isEmpty()){
+                System.out.println("Publication Year cant be empty!");
                 pause();
                 return;
             }
             
-            if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Date: " + pubDate + ")")){
+            if(confirm("Update DVD(" + dvdID + ") to (Title: " + title + " / Artist" + artist + " / Publication Year: " + pubYear + ")")){
                 DVDCtr dvdCtr = new DVDCtr();
-                dvdCtr.updateDVD(dvdID, title, artist, pubDate);
+                dvdCtr.updateDVD(dvdID, title, artist, pubYear);
             }
             
         }catch(InputMismatchException e){
@@ -294,10 +294,10 @@ public class DvdUI{
             int serialNumber = keyboard.nextInt();
             keyboard.nextLine();
 
-            System.out.print("Purchase Date: ");
-            String purDate = keyboard.nextLine();
-            if(purDate.trim().isEmpty()){
-                System.out.println("Purchase Date cant be empty!");
+            System.out.print("Purchase Year: ");
+            String purYear = keyboard.nextLine();
+            if(purYear.trim().isEmpty()){
+                System.out.println("Purchase Year cant be empty!");
                 pause();
                 return;
             }
@@ -305,8 +305,8 @@ public class DvdUI{
             System.out.print("Purchase Price: ");
             double purPrice = keyboard.nextDouble();
             
-            if(confirm("Update Copy(" + serialNumber + ") to (Purchase Date: " + purDate + " / Purchase Price:" + purPrice + ")")){
-                dvdCtr.updateCopy(dvdID, serialNumber, purDate, purPrice);
+            if(confirm("Update Copy(" + serialNumber + ") to (Purchase Year: " + purYear + " / Purchase Price:" + purPrice + ")")){
+                dvdCtr.updateCopy(dvdID, serialNumber, purYear, purPrice);
             }
             
         }catch(InputMismatchException e){
