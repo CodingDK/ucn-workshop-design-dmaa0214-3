@@ -41,7 +41,6 @@ public class LoanContainer
     }
     
     public Loan getLoan(int loanID){
-        
         Loan retLoan = null;
         
         if(!loans.isEmpty()){
@@ -54,18 +53,6 @@ public class LoanContainer
                 }
             }
         }
-        
-//         ArrayList<Loan> pLoan = getLoans(person);
-//         Loan retLoan = null;
-//         if(pLoan != null){
-//             for(Loan l : pLoan){
-//                 if(l.getId() == loanID){
-//                     retLoan = l;
-//                     break;
-//                 }
-//             }
-//         }
-        
         return retLoan;
     }
     
@@ -75,26 +62,5 @@ public class LoanContainer
     
     public HashMap<Person, ArrayList<Loan>> getAllLoans(){
         return loans;
-    }
-    
-//     public Person getPersonByLoanID(int loanID){
-//         Person returnPerson = null;
-//         
-//         if(!loans.isEmpty()){
-//             for(ArrayList<Loan> list : loans.values()) {
-//                 for(Loan loan : list){
-//                     if(loan.getId() == loanID) {
-//                         for (Person key : loans.keySet()) {
-//                             if (loans.get(key).equals(list)) {
-//                                 returnPerson = key;
-//                                 break;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         return returnPerson;
-//     }
-    
+    }    
 }
