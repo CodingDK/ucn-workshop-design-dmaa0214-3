@@ -70,6 +70,7 @@ public class Loan{
     public void extend(){
         if(!extended){
             this.period += this.period; 
+            extended = true;
         }
     }
     
