@@ -9,8 +9,7 @@ import ModelLayer.*;
  * @version 0.3
  * 
  */
-public class AddressCtr
-{
+public class AddressCtr{
     private AddressBook addressBook;
     
     /**
@@ -130,18 +129,14 @@ public class AddressCtr
         ArrayList<Person> persons = addressBook.getAllPersons();
         String nLine = System.getProperty("line.separator");
         StringBuilder sb = new StringBuilder();
-        //String returnString = "### All Persons ###" + nLine;
         sb.append("### All Persons ###" + nLine);
         if (!persons.isEmpty()) {
             for(Person p : persons) {
-                //returnString += "#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + 
-                //", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine;
                 sb.append("#" + p.getID() + ", Name: " + p.getName() + ", Address: " + p.getAddress() + ", Postal: " + p.getPostalCode() + ", City: " + p.getCity() + ", Phone: " + p.getPhone() + nLine);
             }
         } else {
             throw new NullPointerException("The addressbook is empty");
         }
-        //return returnString;
         return sb.toString();
     }
     
