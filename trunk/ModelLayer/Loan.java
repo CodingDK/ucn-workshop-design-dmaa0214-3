@@ -1,5 +1,4 @@
 package ModelLayer;
-
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -21,6 +20,7 @@ public class Loan{
 
     /**
      * Constructor for objects of class Loan
+     * @param copies The ArrayList<Copy> of copies to lent.
      */
     public Loan(ArrayList<Copy> copies){
         this.idIterator++;
@@ -65,7 +65,7 @@ public class Loan{
     }
     
     /**
-     * e
+     * extend - extend period.
      */
     public void extend(){
         if(!extended){

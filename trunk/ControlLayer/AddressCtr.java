@@ -39,8 +39,8 @@ public class AddressCtr
     
     /**
      * getPerson - Get person object from the person id.
-     * @param id : The person id.
-     * @return Person : Person object.
+     * @param id The person id.
+     * @return Person - The Person object or null.
      */
     public Person getPerson(int id){
         Person p = addressBook.getPerson(id);
