@@ -38,6 +38,20 @@ public class AddressCtr
     }
     
     /**
+     * getPerson - Get person object from the person id.
+     * @param id : The person id.
+     * @return Person : Person object.
+     */
+    public Person getPerson(int id){
+        Person p = addressBook.getPerson(id);
+        if(p != null){
+            return p;
+        } else{
+            throw new NullPointerException("Person was not found");
+        }
+    }
+    
+    /**
      * createPerson - Creates a Person object and adds it to the AddressBook
      * @param name The name of the Person.
      * @param address The address of the person.
