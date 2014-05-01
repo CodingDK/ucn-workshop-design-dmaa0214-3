@@ -183,7 +183,7 @@ public class LoanCtr{
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
                 //returnString += nLine + getLoansByID(p.getID()) + nLine;
-                sb.append(nLine + getLoansByID(p.getID()) + nLine);
+                sb.append(nLine + getLoansByID(p.getID()));
             }
         } else{
             throw new NullPointerException("Loans could not be found");
