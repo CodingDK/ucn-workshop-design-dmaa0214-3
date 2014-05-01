@@ -177,4 +177,14 @@ public class LoanCtr{
         
         return sb.toString();
     }
+    
+    /**
+     * getDVDTitleByID - Returns the title of DVD
+     * @return String - DVD Title
+     */
+    public String getDVDTitleByID(int dvdID){
+        DVDCtr dvdCtr = new DVDCtr();
+        return dvdCtr.getTitleByID(dvdID);
+    }
+    
 }
