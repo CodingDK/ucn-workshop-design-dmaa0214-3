@@ -5,7 +5,7 @@ import ModelLayer.*;
  * Controller class for the DVD collection
  * 
  * @author Group 3
- * @version 0.1
+ * @version 0.3
  */
 public class DVDCtr{
     private DVDContainer dvdCon;
@@ -17,7 +17,7 @@ public class DVDCtr{
     }
 
     /**
-     * 
+     * Create a DVD object and add it to the DVDcontainer.
      * @param title Title of the DVD
      * @param artist Artist of the DVD
      * @param publicationDate Date of the DVD publication
@@ -46,7 +46,7 @@ public class DVDCtr{
     /**
      * getCopies - Returns a string of information, by DVD ID.
      * @param dvdID The ID of the DVD.
-     * @return String of the copy information.
+     * @return String with the copy information.
      */
     public String getCopies(int dvdID){
         DVD d = dvdCon.getDVD(dvdID);
@@ -54,18 +54,13 @@ public class DVDCtr{
         if(d != null){
             HashSet<Copy> copies = d.getCopies();
             if(!copies.isEmpty()){
-                //String returnString = "(";
                 sb.append("(");
                 for(Copy c : copies){
-                    //returnString += c.getSerialNumber() + ", ";
                     sb.append(c.getSerialNumber() + ", ");
                 }
-                
-                //returnString = returnString.substring(0, returnString.length()-2) + ")";
                 sb.setLength(sb.length() -2);
                 sb.append(")");
                 
-                //return returnString;
                 return sb.toString();
             } else {
                 throw new NullPointerException("There are no Copies of that DVD");
@@ -93,7 +88,6 @@ public class DVDCtr{
     
     /**
      * Changes the DVD info based on the parameters
-     * 
      * @param id ID of the DVD
      * @param title Title of the DVD
      * @param artist Artist of the DVD
@@ -182,22 +176,22 @@ public class DVDCtr{
       
         String nLine = System.getProperty("line.separator");
         StringBuilder sb = new StringBuilder();
-        //String returnString = "### All DVD ###" + nLine;
         sb.append("### All DVD ###" + nLine);
         if(!dvd.isEmpty()) {
             for(DVD d : dvd) {
-                //returnString += "#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() 
-                //+ ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine;
                 sb.append("#" + d.getID() + ", Title: " + d.getTitle() + ", Artist: " + d.getArtist() + ", Publication Year: " + d.getPublicationYear() + ", Copies: " + d.getCopies().size() + nLine);
             }
         } else {
             throw new NullPointerException("DVD list was not found");
         }
-        //return returnString; 
         return sb.toString();
     }
     
-    
+    /**
+     * getDVD - Get a DVD object by dvdID.
+     * @param dvdID The id of the dvd object to get.
+     * @return DVD - The dvd object found.
+     */
     public DVD getDVD(int dvdID){
         return dvdCon.getDVD(dvdID);
     }
