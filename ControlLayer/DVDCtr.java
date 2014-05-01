@@ -155,7 +155,7 @@ public class DVDCtr{
     }
     
     /**
-     * deleteDVD - Delete a DVD object, by the DVD id.
+     * deleteDVD - Delete a DVD object, by the DVD ID.
      * @param dvdID The ID of the DVD.
      */
     public void deleteDVD(int dvdID) {
