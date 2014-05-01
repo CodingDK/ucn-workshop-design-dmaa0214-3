@@ -17,16 +17,10 @@ public class DVDContainer{
     private DVDContainer(){
         dvds = new ArrayList<DVD>();
     }
-    
-    /**
-     * Removes the DVD Object by ID
-     */
-    public void deleteDVD(int dvdID){
-        dvds.remove(getDVD(dvdID));
-    }
 
     /**
      * Returns the instance of the DVDContainer
+     * @return DVDContainer - The instance of the DVDContainer.
      */
     public static DVDContainer getInstance(){
         if(instance == null){
@@ -34,6 +28,14 @@ public class DVDContainer{
         }
         
         return instance;
+    }
+    
+    /**
+     * Removes the DVD Object by ID
+     * @param dvdID The id of the dvd object.
+     */
+    public void deleteDVD(int dvdID){
+        dvds.remove(getDVD(dvdID));
     }
     
     /**
@@ -56,14 +58,14 @@ public class DVDContainer{
         
     /**
      * getDVD - Get DVD object by id.
-     * @param id The id of the dvd.
+     * @param dvdID The id of the dvd.
      * @return DVD - The DVD object or null.
      */
-    public DVD getDVD(int id){
+    public DVD getDVD(int dvdID){
         DVD returnDVD = null;
         
         for(DVD dvd : dvds){
-            if(dvd.getID() == id){
+            if(dvd.getID() == dvdID){
                 returnDVD = dvd;
             }
         }

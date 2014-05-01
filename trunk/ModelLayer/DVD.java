@@ -4,8 +4,8 @@ import java.util.*;
 /**
  * DVD Class holds information of a dvd, and a list of copies of it.
  * 
- * @author group 3
- * @version 0.2
+ * @author Group 3
+ * @version 0.3
  */
 public class DVD{
     private HashSet<Copy> copies;
@@ -145,6 +145,10 @@ public class DVD{
         this.publicationYear = publicationYear;
     }
     
+    /**
+     * hasCopies - Check the DVD for copies.
+     * @return boolean - false if no copies available and true if any cpies available.
+     */
     public boolean hasCopies(){
         boolean has = false;
         if(copies != null){
