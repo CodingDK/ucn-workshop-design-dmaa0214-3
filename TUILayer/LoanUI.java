@@ -90,8 +90,8 @@ public class LoanUI extends MenuUI{
                                        
                     System.out.println("\f*** Create Loan Menu ***");
                     System.out.println("(1) Loan DVD");
-                    System.out.println("(2) End create loan");
-                    System.out.println("(3) Cancel create loan");
+                    System.out.println("(2) Save loan");
+                    System.out.println("(3) Cancel loan");
                     System.out.print("\nMake your choice: ");
                     choice = keyboard.nextInt();
                     keyboard.nextLine();
