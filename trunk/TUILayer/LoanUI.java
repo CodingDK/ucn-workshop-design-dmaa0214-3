@@ -109,9 +109,11 @@ public class LoanUI extends MenuUI{
                             System.out.println("DVD already on the list");
                             pause();
                         }else if(loanCtr.hasCopies(dvdID)){
-                            System.out.println("DVD added to loan");
-                            dvdIDs.add(dvdID);
-                            pause();
+                            if(confirm("Selected DVD: " + loanCtr.getDVDTitleByID(dvdID))){
+                                System.out.println("DVD added to loan");
+                                dvdIDs.add(dvdID);
+                                pause();
+                            }
                         } else {
                             System.out.println("DVD dont have available copies.");
                             pause();
@@ -128,7 +130,9 @@ public class LoanUI extends MenuUI{
                     pause();
                     exit = true;
                 }else if(choice == 3){
-                    exit = true;
+                    if(confirm("Are you sure you wish to cancel the loan?")){
+                        exit = true;
+                    }
                 }
             }
         }catch(InputMismatchException e){
