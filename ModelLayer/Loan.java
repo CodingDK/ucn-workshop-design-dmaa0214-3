@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
  * The Loan Class holds information about a loan.
  * 
  * @author Group 3 
- * @version 0.1
+ * @version 0.3
  */
 public class Loan{
     
