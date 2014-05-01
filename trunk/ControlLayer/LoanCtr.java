@@ -26,20 +26,24 @@ public class LoanCtr{
      * @param dvdIDs a ArrayList<Integer> of integers with dvdID to lent.
      */
     public void createLoan(ArrayList<Integer> dvdIDs){
-        DVDCtr dvdCtr = new DVDCtr();
-        AddressCtr addrCtr = new AddressCtr();
-        ArrayList<Copy> copies = new ArrayList<Copy>();
-        if(!dvdIDs.isEmpty()){
-            for(Integer i : dvdIDs){
-                Copy c = dvdCtr.getDVD(i).getAvailableCopy();
-                copies.add(c);
-                c.setLent(true);
+        if(person != null){
+            DVDCtr dvdCtr = new DVDCtr();
+            AddressCtr addrCtr = new AddressCtr();
+            ArrayList<Copy> copies = new ArrayList<Copy>();
+            if(!dvdIDs.isEmpty()){
+                for(Integer i : dvdIDs){
+                    Copy c = dvdCtr.getDVD(i).getAvailableCopy();
+                    copies.add(c);
+                    c.setLent(true);
+                }
+            } else {
+                throw new NullPointerException("There are no dvds added to the list");
             }
+            
+            loanCont.addLoan(person, new Loan(copies));
         } else {
-            throw new NullPointerException("There are no dvds added to the list");
+            throw new NullPointerException("You have to create a loan!");
         }
-        
-        loanCont.addLoan(person, new Loan(copies));
     }
     
     /**
