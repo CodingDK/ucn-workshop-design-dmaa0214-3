@@ -17,6 +17,9 @@ public class LoanUI extends MenuUI{
         loanMenu();
     }
 
+    /**
+     * loanMenu - Starts the menu selection
+     */
     private void loanMenu(){   
         boolean exit = false;
         while(!exit){
@@ -139,6 +142,9 @@ public class LoanUI extends MenuUI{
         }
     }
     
+    /**
+     * endLoan - Ends the specified loan
+     */
     private void endLoan(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -194,6 +200,9 @@ public class LoanUI extends MenuUI{
         }
     }
     
+    /**
+     * printLoans - Prints out a persons loans
+     */
     private void printLoans(){
         try{
             Scanner keyboard = new Scanner(System.in);
@@ -222,6 +231,9 @@ public class LoanUI extends MenuUI{
         }
     }
     
+    /**
+     * printAllLoans - Prints out all loans
+     */
     private void printAllLoans(){
         LoanCtr loanCtr = new LoanCtr();
         System.out.println(loanCtr.listAllLoans());
