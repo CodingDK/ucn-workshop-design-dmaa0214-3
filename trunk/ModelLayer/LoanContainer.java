@@ -32,20 +32,11 @@ public class LoanContainer
     }
     
     /**
-     * createLoan - Create a loan with a person object and a list of copies.
-     * @param person The Person object who borrows the copies.
-     * @param copies A ArrayList of Copy objects added to the loan.
-     */
-    public void createLoan(Person person, ArrayList<Copy> copies){
-        addLoan(person, new Loan(copies));
-    }
-    
-    /**
      * addLoan - Adds the loan to the container.
      * @param person The Person object who borrows the copies.
      * @param loan The new Loan object.
      */
-    private void addLoan(Person person, Loan loan){
+    public void addLoan(Person person, Loan loan){
         ArrayList<Loan> pLoans = getLoans(person);
         if(pLoans == null){
             pLoans = new ArrayList<Loan>();
