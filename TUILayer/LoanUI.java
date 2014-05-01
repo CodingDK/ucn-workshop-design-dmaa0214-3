@@ -8,7 +8,7 @@ import ControlLayer.*;
  * @author Group 3
  * @version 0.1
  */
-public class LoanUI{
+public class LoanUI extends MenuUI{
 
     /**
      * Constructor for objects of class LoanUI
@@ -226,36 +226,5 @@ public class LoanUI{
         LoanCtr loanCtr = new LoanCtr();
         System.out.println(loanCtr.listAllLoans());
         pause();
-    }
-
-    /**
-     * pause - Waiting for user to press enter.
-     */
-    private void pause(){
-        Scanner keyboard = new Scanner(System.in);
-        String pause = keyboard.nextLine();
-    }
-    
-    /**
-     * confirmStatement - Using the user confirmation.
-     */
-    private boolean confirm(String confirmStatement){
-        boolean confirm = true;
-        Scanner s = new Scanner(System.in);
-        boolean exit = false;
-        while(!exit){
-            System.out.println();
-            System.out.println(confirmStatement);
-            System.out.println("Confirm - y/n");
-            String conf = s.nextLine();
-            if(conf.toLowerCase().equals("y")){
-                confirm = true;
-                exit = true;
-            }else if(conf.toLowerCase().equals("n")){
-                confirm = false;
-                exit = true;
-            }
-        }
-        return confirm;
     }
 }
