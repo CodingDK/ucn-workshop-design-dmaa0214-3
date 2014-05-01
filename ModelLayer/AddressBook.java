@@ -31,18 +31,6 @@ public class AddressBook{
     }
     
     /**
-     * createPerson - Create a person obejct and add it to the AddressBook.
-     * @param name The name of the Person.
-     * @param address The address of the person.
-     * @param postalCode The postalCode of the person.
-     * @param city The city of the person.
-     * @param phone The phone number of the person.
-     */
-    public void createPerson(String name, String address, int postalCode, String city, String phone){
-        addPerson(new Person(name, address, postalCode, city, phone));
-    }
-    
-    /**
      * deletePerson - Delete a person from the AddressBook.
      * @param person The person obejct to delete.
      */
@@ -54,7 +42,7 @@ public class AddressBook{
      * addPerson - Add a person obejct to the AddressBook.
      * @param person The person obejct to add.
      */
-    private void addPerson(Person person){
+    public void addPerson(Person person){
         persons.add(person);
     }
     

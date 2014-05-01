@@ -33,22 +33,6 @@ public class LoanCtr{
         Person p = addrCtr.getPerson(personID);
         ArrayList<Copy> copies = new ArrayList<Copy>();
         if(p != null && !dvdIds.isEmpty()){
-            /*
-            for(Integer i : dvdIds){
-                for(DVD dvd : dvds){
-                    if(dvd.getID() == i){
-                        HashSet<Copy> dvdCopies = dvd.getCopies();
-                        for(Copy c : dvdCopies){
-                            if(!c.getLent()){
-                                copies.add(c);
-                                c.setLent(true);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            */
             for(Integer i : dvdIds){
                 Copy c = dvdCtr.getDVD(i).getAvailableCopy();
                 copies.add(c);
