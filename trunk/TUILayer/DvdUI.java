@@ -126,7 +126,7 @@ public class DvdUI extends MenuUI{
             keyboard.nextLine();
             
             if(String.valueOf(pubYear).length() != 4){
-                System.out.println("The publication date must be 4 characters long");
+                System.out.println("The publication year must be 4 characters long");
             }
             
             if(confirm("Do you wish to create the DVD (Title: " + title + " / Artist: " + artist + " / Publication Year: " + pubYear + ")")){
@@ -268,7 +268,7 @@ public class DvdUI extends MenuUI{
             keyboard.nextLine();
             
             if(String.valueOf(pubYear).length() != 4){
-                System.out.println("The publication date must be 4 characters long");
+                System.out.println("The publication year must be 4 characters long");
             }
             
             
