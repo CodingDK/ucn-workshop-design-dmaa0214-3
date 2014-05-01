@@ -78,7 +78,7 @@ public class LoanUI extends MenuUI{
             int personID = keyboard.nextInt();
             keyboard.nextLine();
             if(!loanCtr.personExist(personID)){
-                System.out.println("Person ID dont exist!");
+                System.out.println("Person ID don't exist!");
                 pause();
                 return;
             }
@@ -115,7 +115,7 @@ public class LoanUI extends MenuUI{
                                 pause();
                             }
                         } else {
-                            System.out.println("DVD dont have available copies.");
+                            System.out.println("DVD don't have available copies.");
                             pause();
                         }
                     }catch(InputMismatchException e){
@@ -217,7 +217,7 @@ public class LoanUI extends MenuUI{
             int personID = keyboard.nextInt();
             keyboard.nextLine();
             if(!loanCtr.personExist(personID)){
-                System.out.println("Person ID dont exist!");
+                System.out.println("Person ID don't exist!");
                 pause();
                 return;
             }

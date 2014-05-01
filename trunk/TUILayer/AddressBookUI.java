@@ -99,7 +99,7 @@ public class AddressBookUI extends MenuUI{
     }
     
     /**
-     * Methodes for creating a person.
+     * Method for creating a person.
      */
     private void createPerson(){
         try{
