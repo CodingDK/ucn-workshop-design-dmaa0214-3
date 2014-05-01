@@ -107,13 +107,17 @@ public class DvdUI extends MenuUI{
             System.out.print("Title: ");
             String title = keyboard.nextLine();
             if(title.trim().isEmpty()){
-                System.out.println("Title cant be empty!");
+                System.out.println("Title can't be empty!");
+				pause();
+				return;
             }
             
             System.out.print("Artist: ");
             String artist = keyboard.nextLine();
             if(artist.trim().isEmpty()){
-                System.out.println("Artist cant be empty!");
+                System.out.println("Artist can't be empty!");
+				pause();
+				return;
             }
             
             System.out.print("Publication Year: ");
@@ -151,7 +155,9 @@ public class DvdUI extends MenuUI{
             System.out.print("Purchase Date: ");
             String purDate = keyboard.nextLine();
             if(purDate.trim().isEmpty()){
-                System.out.println("Purchase Date cant be empty!");
+                System.out.println("Purchase Date can't be empty!");
+                pause();
+				return;
             }
             
             System.out.print("Purchase Price: ");
@@ -243,14 +249,14 @@ public class DvdUI extends MenuUI{
             System.out.print("Title: ");
             String title = keyboard.nextLine();
             if(title.trim().isEmpty()){
-                System.out.println("Title cant be empty!");
+                System.out.println("Title can't be empty!");
                 pause();
                 return;
             }
             System.out.print("Artist: ");
             String artist = keyboard.nextLine();
             if(artist.trim().isEmpty()){
-                System.out.println("Artist cant be empty!");
+                System.out.println("Artist can't be empty!");
                 pause();
                 return;
             }
@@ -302,7 +308,7 @@ public class DvdUI extends MenuUI{
             System.out.print("Purchase Year: ");
             String purYear = keyboard.nextLine();
             if(purYear.trim().isEmpty()){
-                System.out.println("Purchase Year cant be empty!");
+                System.out.println("Purchase Year can't be empty!");
                 pause();
                 return;
             }

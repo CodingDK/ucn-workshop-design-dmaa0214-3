@@ -117,7 +117,7 @@ public class AddressBookUI extends MenuUI{
             System.out.print("Address: ");
             String address = keyboard.nextLine();
             if(address.trim().isEmpty()){
-                System.out.println("Address cant be empty!");
+                System.out.println("Address can't be empty!");
                 pause();
                 return;
             }
@@ -138,7 +138,7 @@ public class AddressBookUI extends MenuUI{
             System.out.print("Phone Number: ");
             String phone = keyboard.nextLine();
             if(phone.trim().length() < 8){
-                System.out.println("Phone number cant be less than 8");
+                System.out.println("Phone number can't be less than 8");
                 pause();
                 return;
             }
