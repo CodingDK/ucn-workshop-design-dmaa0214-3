@@ -74,7 +74,7 @@ public class LoanCtr{
         if(dvd != null){
             return dvd.hasCopies();
         } else{
-            throw new NullPointerException("DVD id don't exits");
+            throw new NullPointerException("DVD ID don't exits");
         }
     }
 
