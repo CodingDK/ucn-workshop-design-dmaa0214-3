@@ -195,4 +195,15 @@ public class DVDCtr{
     public DVD getDVD(int dvdID){
         return dvdCon.getDVD(dvdID);
     }
+    
+    
+    public DVD getDVDByCopy(Copy copy){
+        DVD retDVD = null;
+        for(DVD dvd : dvdCon.getAllDVDs()){
+            if(dvd.getCopies().contains(copy)) {
+                retDVD = dvd;
+            }
+        }
+        return retDVD;
+    }
 }
