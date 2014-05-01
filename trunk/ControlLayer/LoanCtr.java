@@ -23,7 +23,6 @@ public class LoanCtr{
 
     /**
      * createLoan - Create a loan.
-     * @param personID The id of the person object.
      * @param dvdIDs a ArrayList<Integer> of integers with dvdID to lent.
      */
     public void createLoan(ArrayList<Integer> dvdIDs){

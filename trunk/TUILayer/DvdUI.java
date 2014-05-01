@@ -151,6 +151,8 @@ public class DvdUI extends MenuUI{
             System.out.print("DVD ID: ");
             int dvdID = keyboard.nextInt();
             keyboard.nextLine();
+            DVDCtr dvdCtr = new DVDCtr();
+            dvdCtr.getDVDInfo(dvdID);
             
             System.out.print("Purchase Date: ");
             String purDate = keyboard.nextLine();
@@ -165,7 +167,6 @@ public class DvdUI extends MenuUI{
             keyboard.nextLine();
             
             if(confirm("Do you wish to add Copy(Purchase Date: " + purDate + " / Publication Price: " + purPrice + ") to DVD(" + dvdID + ")")){
-                DVDCtr dvdCtr = new DVDCtr();
                 dvdCtr.addCopy(dvdID, purDate, purPrice);
             }
         }catch(InputMismatchException e){
