@@ -28,6 +28,8 @@ public class MenuUI{
     
     /**
      * confirmStatement - Using the user confirmation.
+     * @param confirmStatement Text to print with confirm.
+     * @return boolean - pressed y = true. n = false.
      */
     protected boolean confirm(String confirmStatement){
         boolean confirm = true;
