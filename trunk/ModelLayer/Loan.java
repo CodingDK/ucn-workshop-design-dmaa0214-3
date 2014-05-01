@@ -83,14 +83,6 @@ public class Loan{
     }
     
     /**
-    * setReturned() - sets the Returned
-    * @param returned - value as boolean
-    */
-    public void setReturned(boolean returned){
-        this.returned = returned;
-    }
-    
-    /**
     * getExtended() - Returns the Extended
     * @return extended
     */
@@ -150,5 +142,15 @@ public class Loan{
         cal.add(Calendar.DATE, days);
         
         return cal.getTime();
+    }
+    
+    /**
+    * endLoan - End a loan and set returned to true.
+    */
+    public void endLoan(){
+        returned = true;
+        for(Copy c : copies){
+        c.setLent(false);
+        }
     }
 }
