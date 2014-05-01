@@ -46,7 +46,9 @@ public class LoanContainer
     }
     
     /**
-     * 
+     * getLoan - Get a loan by a loan id.
+     * @param loanID The id of a loan.
+     * @return Loan - A Loan object or null.
      */
     public Loan getLoan(int loanID){
         Loan retLoan = null;
@@ -64,10 +66,19 @@ public class LoanContainer
         return retLoan;
     }
     
+    /**
+     * getLoans - Get a ArrayList with Loan by a Person object.
+     * @param person The person object to look for.
+     * @return ArrayList<Loan> - A arraylist with Loan objects.
+     */
     public ArrayList<Loan> getLoans(Person person){
         return loans.get(person);
     }
     
+    /**
+     * getAllLoans - Get a HashMap with all loans in the system.
+     * @return HashMap<Person, ArrayList<Loan>> - A HashMap with all loans.
+     */
     public HashMap<Person, ArrayList<Loan>> getAllLoans(){
         return loans;
     }    
