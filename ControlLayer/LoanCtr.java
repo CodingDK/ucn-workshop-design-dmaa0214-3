@@ -24,14 +24,16 @@ public class LoanCtr{
     }
 
     /**
-     * @
+     * @addLoan(person, new Loan(copies));
      * @
      */
     public void createLoan(int personID, ArrayList<Integer> dvdIds){
-        Person p = addressBook.getPerson(personID);
-        ArrayList<DVD> dvds = dvdCont.getAllDVDs();
+        DVDCtr dvdCtr = new DVDCtr();
+        AddressCtr addrCtr = new AddressCtr();
+        Person p = addrCtr.getPerson(personID);
         ArrayList<Copy> copies = new ArrayList<Copy>();
         if(p != null && !dvdIds.isEmpty()){
+            /*
             for(Integer i : dvdIds){
                 for(DVD dvd : dvds){
                     if(dvd.getID() == i){
@@ -45,6 +47,12 @@ public class LoanCtr{
                         }
                     }
                 }
+            }
+            */
+            for(Integer i : dvdIds){
+                Copy c = dvdCtr.getDVD(i).getAvailableCopy();
+                copies.add(c);
+                c.setLent(true);
             }
         } else {
             throw new NullPointerException("Person does not exist, or there are no dvds added to the list");

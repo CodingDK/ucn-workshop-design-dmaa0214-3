@@ -196,4 +196,9 @@ public class DVDCtr{
         //return returnString; 
         return sb.toString();
     }
+    
+    
+    public DVD getDVD(int dvdID){
+        return dvdCon.getDVD(dvdID);
+    }
 }
