@@ -73,6 +73,19 @@ public class DVD{
         return c;
     }
     
+    public Copy getAvailableCopy(){
+        Copy c = null;
+        
+        for(Copy copy : copies){
+            if(!copy.getLent()){
+                c = copy;
+                break;
+            }
+        }
+        
+        return c;
+    }
+    
     /**
      * getCopies - Get the HashSet list of Copy objects.
      * @return HashSet<Copy> - The list of copies objects.

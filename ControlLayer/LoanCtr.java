@@ -58,7 +58,7 @@ public class LoanCtr{
             throw new NullPointerException("Person does not exist, or there are no dvds added to the list");
         }
         
-        loanCont.createLoan(p, copies);
+        loanCont.addLoan(p, new Loan(copies));
     }
     
     public boolean personExist(int personID){
