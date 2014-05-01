@@ -40,7 +40,7 @@ public class MainMenuUI
             }else if(choice == 3){
                 startLoan();
             }else if(choice == 4){
-                System.out.println("The system is shuting down.");
+                System.out.println("The system is shutting down.");
                 exit = true;
             }else if(choice == 5){
                 test();
