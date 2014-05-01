@@ -91,7 +91,7 @@ public class LoanCtr{
             if(loan.getReturned()){
                 throw new NullPointerException("Loan already returned.");
             } else {
-                loan.setReturned(true);
+                loan.endLoan();
             }
         } else{
             throw new NullPointerException("Loan not found");
