@@ -17,7 +17,7 @@ public class DvdUI extends MenuUI{
     }
     
     /**
-     * dvdMenu - Make the dvdMenu.
+     * dvdMenu - Starts the menu selection
      */
     public void dvdMenu(){   
         boolean exit = false;

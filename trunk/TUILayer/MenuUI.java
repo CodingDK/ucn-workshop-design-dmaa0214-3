@@ -4,9 +4,10 @@ import java.util.*;
 
 /**
  * SuperClass for the other menu classes
+ * Containing the common methods used through all the UIs
  * 
  * @author Group 3 
- * @version 0.1
+ * @version 1
  */
 public class MenuUI{
 

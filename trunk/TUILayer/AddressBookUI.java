@@ -15,6 +15,9 @@ public class AddressBookUI extends MenuUI{
         addressMenu();
     }
     
+    /**
+     * addressMenu - Starts the menu selection
+     */
     private void addressMenu(){
        boolean exit = false;
        

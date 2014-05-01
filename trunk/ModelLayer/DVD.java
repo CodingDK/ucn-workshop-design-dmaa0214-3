@@ -73,6 +73,10 @@ public class DVD{
         return c;
     }
     
+    /**
+     * getAvailableCopy - Returns the first available copy found
+     * @return c The Copy object / null if none is found
+     */
     public Copy getAvailableCopy(){
         Copy c = null;
         
