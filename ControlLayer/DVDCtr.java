@@ -196,7 +196,11 @@ public class DVDCtr{
         return dvdCon.getDVD(dvdID);
     }
     
-    
+    /**
+     * getDVDByCopy - Get a DVD object by a copy object.
+     * @param copy The copy object to look for.
+     * @return DVD object or null.
+     */
     public DVD getDVDByCopy(Copy copy){
         DVD retDVD = null;
         for(DVD dvd : dvdCon.getAllDVDs()){
