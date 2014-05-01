@@ -3,10 +3,10 @@ import java.util.*;
 import ModelLayer.*;
 
 /**
- * Controller of Loans
+ * Controller for Loans.
  * 
  * @author Group 3
- * @version 0.1 
+ * @version 0.4 
  */
 public class LoanCtr{
     private LoanContainer loanCont;
@@ -24,27 +24,33 @@ public class LoanCtr{
     }
 
     /**
-     * @addLoan(person, new Loan(copies));
-     * @
+     * createLoan - Create a loan.
+     * @param personID The id of the person object.
+     * @param dvdIDs a ArrayList<Integer> of integers with dvdID to lent.
      */
-    public void createLoan(int personID, ArrayList<Integer> dvdIds){
+    public void createLoan(int personID, ArrayList<Integer> dvdIDs){
         DVDCtr dvdCtr = new DVDCtr();
         AddressCtr addrCtr = new AddressCtr();
         Person p = addrCtr.getPerson(personID);
         ArrayList<Copy> copies = new ArrayList<Copy>();
-        if(p != null && !dvdIds.isEmpty()){
-            for(Integer i : dvdIds){
+        if(!dvdIDs.isEmpty()){
+            for(Integer i : dvdIDs){
                 Copy c = dvdCtr.getDVD(i).getAvailableCopy();
                 copies.add(c);
                 c.setLent(true);
             }
         } else {
-            throw new NullPointerException("Person does not exist, or there are no dvds added to the list");
+            throw new NullPointerException("There are no dvds added to the list");
         }
         
         loanCont.addLoan(p, new Loan(copies));
     }
     
+    /**
+     * personExist - Check about a person exists.
+     * @param personID The id of the person object to check.
+     * @return boolean - true if the person exist and false if the person not exist.
+     */
     public boolean personExist(int personID){
         Person p = addressBook.getPerson(personID);
         boolean retBool = false;
@@ -56,6 +62,11 @@ public class LoanCtr{
         return retBool;
     }
     
+    /**
+     * hasCopies - Check about a dvd has copies.
+     * @param dvdID The id of the dvd object to check.
+     * @return boolean - true if the dvd has available copies and false if not.
+     */
     public boolean hasCopies(int dvdID){
         DVD dvd = dvdCont.getDVD(dvdID);
         if(dvd != null){
@@ -66,8 +77,8 @@ public class LoanCtr{
     }
 
     /**
-     * Ends the loan -- All DVDs are handed in.
-     * @param int loanID : The ID of the loan
+     * endLoan - Ends the loan - All DVDs are handed in.
+     * @param loanID The ID of the loan.
      */
     public void endLoan(int loanID){
         Loan loan = loanCont.getLoan(loanID);
@@ -82,13 +93,12 @@ public class LoanCtr{
         }
         
     }
-        
     
     /**
-     * Extends the specific loan.
+     * Extends a specific loan.
      * Can only be extended once
-     * @param int loanID : The ID of the loan
-     * @return boolean true/false : The loan was/n't extended
+     * @param loanID The ID of the loan
+     * @return boolean - true/false : The loan was/n't extended
      */
     public boolean extendLoan(int loanID){
         boolean returnBoolean = false;
@@ -106,8 +116,8 @@ public class LoanCtr{
 
     /**
      * getLoansByID - Return a String with the Loans from the person ID
-     * @param personID : The ID of the person.
-     * @return String : The persons loans.
+     * @param personID The ID of the person.
+     * @return String - The persons loans.
      */
     public String getLoansByID(int personID){
         Person p = addressBook.getPerson(personID);
@@ -117,10 +127,8 @@ public class LoanCtr{
         if(p != null){
             ArrayList<Loan> loans = loanCont.getLoans(p);
             if(!loans.isEmpty()){
-                //String returnString = "### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL;
                 sb.append("### Name: " + p.getName() + " - ID: " + p.getID() + " ### " + nL);
                 for(Loan l : loans){
-                    //String loanString = "*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL;
                     sb.append("*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL);
                     ArrayList<Copy> copies = l.getCopies();
                     for(Copy c : copies){
@@ -134,16 +142,12 @@ public class LoanCtr{
                                 }
                             }
                             if(thisIsIt){
-                                //loanString += "  - " + dvd.getTitle() + nL;
                                 sb.append("  - " + dvd.getTitle() + nL);
                             }
                         }
                     }
-                    //loanString += "Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL;
                     sb.append("Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL + nL);
-                    //returnString += loanString;
                 }
-                //return returnString;
                 return sb.toString();
             } else{
                throw new NullPointerException("There are no Loans"); 
@@ -155,26 +159,22 @@ public class LoanCtr{
 
     /**
      * listAllLoans - Lists all loans from all persons
-     * @return String : Returns a string with all Loans.
+     * @return String - Returns a string with all Loans.
      */
     public String listAllLoans(){
         HashMap<Person, ArrayList<Loan>> loans = loanCont.getAllLoans();
         String nLine = System.getProperty("line.separator");
         StringBuilder sb = new StringBuilder();
-        //String returnString = nLine + "\f  *** All Loans *** " + nLine;
         sb.append(nLine + "\f  *** All Loans *** " + nLine);
         
         if(!loans.isEmpty()){
             for(Person p : loans.keySet()) {
-                //returnString += nLine + getLoansByID(p.getID()) + nLine;
                 sb.append(nLine + getLoansByID(p.getID()));
             }
         } else{
             throw new NullPointerException("Loans could not be found");
         }
         
-        //return returnString;
         return sb.toString();
     }
-
 }
