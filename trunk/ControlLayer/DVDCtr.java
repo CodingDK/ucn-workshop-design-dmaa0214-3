@@ -23,7 +23,7 @@ public class DVDCtr{
      * @param publicationDate Date of the DVD publication
      */
     public void createDVD(String title, String artist, int publicationYear){       
-          dvdCon.createDVD(title, artist, publicationYear);
+          dvdCon.addDVD(new DVD(title, artist, publicationYear));
     }
     
     /**

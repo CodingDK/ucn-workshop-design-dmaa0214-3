@@ -89,5 +89,4 @@ public class Copy{
     public void setPurchasePrice(double purchasePrice){
     	this.purchasePrice = purchasePrice;
     }
-
 }

@@ -60,7 +60,7 @@ public class AddressCtr
      * @param phone The phone number of the person.
      */
     public void createPerson(String name, String address, int postalCode, String city, String phone){   
-        addressBook.createPerson(name, address, postalCode, city, phone);
+        addressBook.addPerson(new Person(name, address, postalCode, city, phone));
     }
     
     /**
