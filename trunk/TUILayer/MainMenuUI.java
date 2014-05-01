@@ -112,11 +112,13 @@ public class MainMenuUI
         ArrayList<Integer> loan = new ArrayList<Integer>();
         loan.add(1);
         loan.add(2);
-        lCtr.createLoan(1, loan);
+        lCtr.personExist(1);
+        lCtr.createLoan(loan);
         
         ArrayList<Integer> loan2 = new ArrayList<Integer>();
         loan2.add(1);
         loan2.add(2);
-        lCtr.createLoan(2, loan2);
+        lCtr.personExist(2);
+        lCtr.createLoan(loan2);
     }
  }

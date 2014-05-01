@@ -125,7 +125,7 @@ public class LoanUI extends MenuUI{
                         pause();
                     }
                 }else if(choice == 2){
-                    loanCtr.createLoan(personID, dvdIDs);
+                    loanCtr.createLoan(dvdIDs);
                     System.out.println("Loan created.");
                     pause();
                     exit = true;

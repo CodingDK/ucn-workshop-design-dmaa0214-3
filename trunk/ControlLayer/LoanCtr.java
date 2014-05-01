@@ -10,8 +10,7 @@ import ModelLayer.*;
  */
 public class LoanCtr{
     private LoanContainer loanCont;
-    private AddressBook addressBook;
-    private DVDContainer dvdCont;
+    private Person person;
     
     /**
      * Constructor for objects of class LoanCtr
@@ -19,8 +18,7 @@ public class LoanCtr{
     public LoanCtr()
     {
         loanCont = LoanContainer.getInstance();
-        dvdCont = DVDContainer.getInstance();
-        addressBook = AddressBook.getInstance();
+        person = null;
     }
 
     /**
@@ -28,10 +26,9 @@ public class LoanCtr{
      * @param personID The id of the person object.
      * @param dvdIDs a ArrayList<Integer> of integers with dvdID to lent.
      */
-    public void createLoan(int personID, ArrayList<Integer> dvdIDs){
+    public void createLoan(ArrayList<Integer> dvdIDs){
         DVDCtr dvdCtr = new DVDCtr();
         AddressCtr addrCtr = new AddressCtr();
-        Person p = addrCtr.getPerson(personID);
         ArrayList<Copy> copies = new ArrayList<Copy>();
         if(!dvdIDs.isEmpty()){
             for(Integer i : dvdIDs){
@@ -43,7 +40,7 @@ public class LoanCtr{
             throw new NullPointerException("There are no dvds added to the list");
         }
         
-        loanCont.addLoan(p, new Loan(copies));
+        loanCont.addLoan(person, new Loan(copies));
     }
     
     /**
@@ -52,10 +49,11 @@ public class LoanCtr{
      * @return boolean - true if the person exist and false if the person not exist.
      */
     public boolean personExist(int personID){
-        Person p = addressBook.getPerson(personID);
+        AddressCtr addrCtr = new AddressCtr();
+        person = addrCtr.getPerson(personID);
         boolean retBool = false;
         
-        if(p != null){
+        if(person != null){
             retBool = true;
         }
         
@@ -68,7 +66,8 @@ public class LoanCtr{
      * @return boolean - true if the dvd has available copies and false if not.
      */
     public boolean hasCopies(int dvdID){
-        DVD dvd = dvdCont.getDVD(dvdID);
+        DVDCtr dvdCtr = new DVDCtr();
+        DVD dvd = dvdCtr.getDVD(dvdID);
         if(dvd != null){
             return dvd.hasCopies();
         } else{
@@ -120,7 +119,9 @@ public class LoanCtr{
      * @return String - The persons loans.
      */
     public String getLoansByID(int personID){
-        Person p = addressBook.getPerson(personID);
+        AddressCtr addrCtr = new AddressCtr();
+        DVDCtr dvdCtr = new DVDCtr();
+        Person p = addrCtr.getPerson(personID);
         String nL = System.getProperty("line.separator");
         StringBuilder sb = new StringBuilder();
         
@@ -132,18 +133,11 @@ public class LoanCtr{
                     sb.append("*** Loan ID: " + l.getId() + " *** " + nL + "Copies:" + nL);
                     ArrayList<Copy> copies = l.getCopies();
                     for(Copy c : copies){
-                        ArrayList<DVD> dvds = dvdCont.getAllDVDs();
-                        for(DVD dvd : dvds){
-                            boolean thisIsIt = false;
-                            HashSet<Copy> dvdCopies = dvd.getCopies();
-                            for(Copy dvdC : dvdCopies){
-                                if(dvdC.getSerialNumber() == c.getSerialNumber()){
-                                    thisIsIt = true;
-                                }
-                            }
-                            if(thisIsIt){
-                                sb.append("  - " + dvd.getTitle() + nL);
-                            }
+                        DVD dvd = dvdCtr.getDVDByCopy(c);
+                        if(dvd != null){
+                            sb.append("  - " + dvd.getTitle() + nL);
+                        } else {
+                            sb.append("  - DVD Removed " + nL);
                         }
                     }
                     sb.append("Returned: " + l.getReturned() + nL + "Borrow Date: " + l.getBorrowDate() + nL + "Due Date: " + l.getDueDate() + nL + nL);
