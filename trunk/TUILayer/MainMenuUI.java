@@ -56,13 +56,13 @@ public class MainMenuUI
        try{     
            // creates a keyboard object to read input
            Scanner keyboard = new Scanner(System.in);
-           System.out.println("\f *** MainMenu ***");
-           System.out.println(" (1) AddressBook");
-           System.out.println(" (2) DVDs");
-           System.out.println(" (3) Loan");
-           System.out.println(" (4) Close");
-           System.out.println(" (5) Test");
-           System.out.print("\n Make your choice: ");
+           System.out.println("\f*** MainMenu ***");
+           System.out.println("(1) AddressBook");
+           System.out.println("(2) DVDs");
+           System.out.println("(3) Loan");
+           System.out.println("(4) Close");
+           System.out.println("(5) Test");
+           System.out.print("\nMake your choice: ");
         
            choice = keyboard.nextInt();
        }catch(InputMismatchException e){
