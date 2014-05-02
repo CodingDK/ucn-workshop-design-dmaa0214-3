@@ -11,6 +11,9 @@ import ControlLayer.*;
  */
 public class AddressBookUI extends MenuUI{   
     
+    /**
+     * AddressBookUI - Constructor for AddressBookUI.
+     */
     public AddressBookUI(){
         addressMenu();
     }
@@ -99,7 +102,7 @@ public class AddressBookUI extends MenuUI{
     }
     
     /**
-     * Method for creating a person.
+     * createPerson - Method for creating a person.
      */
     private void createPerson(){
         try{

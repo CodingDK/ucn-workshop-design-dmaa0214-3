@@ -36,7 +36,7 @@ public class MainMenuUI
             if(choice == 1){
                 startAddressBook();
             }else if(choice == 2){ 
-                startDvd();
+                startDVD();
             }else if(choice == 3){
                 startLoan();
             }else if(choice == 4){
@@ -82,7 +82,7 @@ public class MainMenuUI
     /**
      * startDvd - Start the DvdUI.
      */
-    private void startDvd(){
+    private void startDVD(){
         dvdUI = new DvdUI();
     }
     
@@ -94,7 +94,7 @@ public class MainMenuUI
     }
     
     /**
-     * test - make some test persons in the system.
+     * test - make some test persons, dvds, copies and loans in the system.
      */
     private void test(){
         AddressCtr addrCtr = new AddressCtr();

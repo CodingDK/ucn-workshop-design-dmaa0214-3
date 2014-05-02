@@ -3,10 +3,10 @@ import java.util.*;
 import ControlLayer.*;
 
 /**
- * Write a description of class LoanUI here.
+ * User interface to the Loan controller.
  * 
  * @author Group 3
- * @version 0.1
+ * @version 0.3
  */
 public class LoanUI extends MenuUI{
 
